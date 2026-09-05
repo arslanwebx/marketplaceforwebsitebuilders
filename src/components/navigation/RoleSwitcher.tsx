@@ -22,10 +22,10 @@ export default function RoleSwitcher() {
 
   const getRoleLabel = () => {
     switch (currentRole) {
-      case 'client': return 'Client Mode (Olivia)';
-      case 'builder': return 'Builder Mode (Maya)';
-      case 'admin': return 'Admin Mode';
-      default: return 'Demo: Guest / Public';
+      case 'client': return 'Client Workspace (Olivia)';
+      case 'builder': return 'Builder Workspace (Maya)';
+      case 'admin': return 'Platform Admin';
+      default: return 'Visitor View';
     }
   };
 
@@ -33,8 +33,8 @@ export default function RoleSwitcher() {
     <div className="relative inline-block text-left text-xs font-medium">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition border border-slate-300"
-        title="Switch demo persona to test client, builder, or admin views"
+        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200/80 text-slate-800 transition border border-slate-200/80 shadow-2xs font-semibold"
+        title="Switch active platform persona"
       >
         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
         <span>{getRoleLabel()}</span>
@@ -42,9 +42,9 @@ export default function RoleSwitcher() {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-1 w-56 rounded-xl bg-white shadow-xl border border-slate-200 py-1.5 z-50 animate-in fade-in zoom-in-95">
-          <div className="px-3 py-1.5 text-[11px] font-semibold text-slate-400 uppercase tracking-wider border-b border-slate-100">
-            Switch Prototype Role
+        <div className="absolute right-0 mt-1.5 w-60 rounded-xl bg-white shadow-xl border border-slate-200 py-1.5 z-50 animate-in fade-in zoom-in-95">
+          <div className="px-3 py-1.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100">
+            Active Workspace Persona
           </div>
           <button
             onClick={() => selectRole('guest')}

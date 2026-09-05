@@ -116,7 +116,7 @@ export const orders: Order[] = [
         dueDate: 'September 15, 2025',
         status: 'submitted',
         deliverables: ['Staging store preview', 'Recharge test account checkout proof'],
-        submittedDeliverableUrl: 'https://peak-botanical-preview.myshopify.demo'
+        submittedDeliverableUrl: 'https://peak-botanical-staging.myshopify.com'
       }
     ],
     activity: [

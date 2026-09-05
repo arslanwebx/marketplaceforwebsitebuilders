@@ -16,7 +16,7 @@ import DashboardLayout from '@/layouts/DashboardLayout.astro';
     </div>
 
     <form
-      onsubmit="event.preventDefault(); alert('Demo Service published successfully to the marketplace!'); window.location.href = '/dashboard/builder/services';"
+      onsubmit="event.preventDefault(); window.dispatchEvent(new CustomEvent('craftgrid_toast', { detail: { id: Date.now().toString(), message: 'Service successfully published to CraftGrid marketplace!', type: 'success' } })); setTimeout(() => { window.location.href = '/dashboard/builder/services'; }, 1200);"
       class="space-y-6"
     >
       <!-- Step 1: Basic Info -->

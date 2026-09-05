@@ -119,7 +119,7 @@ const tabs = [
               </div>
               <div>
                 <label class="block text-xs font-semibold text-dark mb-1.5">Website</label>
-                <input type="url" value="https://luminabotanicals.demo" class="w-full px-3.5 py-2.5 rounded-xl border border-border text-sm focus:outline-none focus:border-primary" />
+                <input type="url" value="https://luminabotanicals.com" class="w-full px-3.5 py-2.5 rounded-xl border border-border text-sm focus:outline-none focus:border-primary" />
               </div>
             </div>
 
@@ -141,7 +141,7 @@ const tabs = [
           <div class="space-y-4">
             <div>
               <label class="block text-xs font-semibold text-dark mb-1.5">Email Address</label>
-              <input type="email" value="olivia.vance@luminabotanicals.demo" class="w-full px-3.5 py-2.5 rounded-xl border border-border text-sm focus:outline-none focus:border-primary" />
+              <input type="email" value="olivia.vance@luminabotanicals.com" class="w-full px-3.5 py-2.5 rounded-xl border border-border text-sm focus:outline-none focus:border-primary" />
             </div>
             <div>
               <label class="block text-xs font-semibold text-dark mb-1.5">Username Handle</label>
@@ -261,7 +261,7 @@ const tabs = [
               </div>
             </div>
             <div class="pt-2">
-              <button type="button" onclick="alert('Password updated in demo session.');" class="px-4 py-2 bg-dark text-white text-xs font-bold rounded-xl hover:bg-black transition">
+              <button type="button" onclick="window.dispatchEvent(new CustomEvent('craftgrid_toast', { detail: { id: Date.now().toString(), message: 'Password credentials updated successfully.', type: 'success' } }));" class="px-5 py-2.5 bg-dark text-white text-xs font-bold rounded-xl hover:bg-black transition shadow-xs">
                 Update Password
               </button>
             </div>

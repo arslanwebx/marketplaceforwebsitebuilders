@@ -6,25 +6,25 @@ import AuthLayout from '@/layouts/AuthLayout.astro';
   title="Log in to CraftGrid"
   subtitle="Access your active website projects, milestone orders, and messages."
 >
-  <!-- Prototype Fast-Login Buttons -->
+  <!-- Quick Role Sign-in -->
   <div class="space-y-3 pb-4 border-b border-border">
-    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block text-center">
-      Demo Quick Log-in (Prototype Mode)
+    <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block text-center">
+      Instant Sign-in for Platform Evaluation
     </span>
     <div class="grid grid-cols-2 gap-2 text-xs">
       <button
         type="button"
         onclick="localStorage.setItem('craftgrid_demo_role', 'client'); window.location.href = '/dashboard/client';"
-        class="py-2.5 px-3 rounded-xl border border-primary/40 bg-soft-primary text-primary font-bold hover:bg-soft-primary/80 transition text-center"
+        class="py-2.5 px-3 rounded-xl border border-primary/30 bg-soft-primary text-primary font-bold hover:bg-soft-primary/80 transition text-center flex items-center justify-center gap-1.5 shadow-xs"
       >
-        Client (Olivia)
+        <span>Client Portal</span>
       </button>
       <button
         type="button"
         onclick="localStorage.setItem('craftgrid_demo_role', 'builder'); window.location.href = '/dashboard/builder';"
-        class="py-2.5 px-3 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-700 font-bold hover:bg-emerald-100 transition text-center"
+        class="py-2.5 px-3 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-700 font-bold hover:bg-emerald-100 transition text-center flex items-center justify-center gap-1.5 shadow-xs"
       >
-        Builder (Maya)
+        <span>Builder Portal</span>
       </button>
     </div>
   </div>

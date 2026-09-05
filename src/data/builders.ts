@@ -38,7 +38,7 @@ export const builders: Builder[] = [
           'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80',
           'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&fit=crop&q=80'
         ],
-        liveUrl: 'https://nexus-ai.demo',
+        liveUrl: 'https://nexus-ai.io',
         metrics: '+142% conversion lift in Q1',
         completedYear: 2024
       },
@@ -52,7 +52,7 @@ export const builders: Builder[] = [
         images: [
           'https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=1200&auto=format&fit=crop&q=80'
         ],
-        liveUrl: 'https://vervebotanicals.demo',
+        liveUrl: 'https://vervebotanicals.com',
         metrics: 'Featured on Awwwards Nominee',
         completedYear: 2024
       },

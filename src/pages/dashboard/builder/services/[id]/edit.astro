@@ -31,7 +31,7 @@ const { service } = Astro.props;
     </div>
 
     <form
-      onsubmit="event.preventDefault(); alert('Changes saved successfully!'); window.location.href = '/dashboard/builder/services';"
+      onsubmit="event.preventDefault(); window.dispatchEvent(new CustomEvent('craftgrid_toast', { detail: { id: Date.now().toString(), message: 'Listing changes saved successfully!', type: 'success' } })); setTimeout(() => { window.location.href = '/dashboard/builder/services'; }, 1200);"
       class="space-y-6"
     >
       <div class="bg-white rounded-2xl border border-border p-6 shadow-card space-y-4 text-xs">

@@ -176,7 +176,7 @@ export default function UserNavDropdown({ currentPath = '/' }: UserNavDropdownPr
               className="w-full flex items-center gap-2.5 px-4 py-2 text-sm text-rose-600 hover:bg-rose-50 transition text-left"
             >
               <LogOut className="w-4 h-4 text-rose-500" />
-              <span>Log out (Switch to Guest)</span>
+              <span>Log out</span>
             </button>
           </div>
         </div>

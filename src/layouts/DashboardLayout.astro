@@ -71,9 +71,9 @@ const currentUser = role === 'builder' ? siteConfig.demoAccounts.builder : siteC
         <a
           href={role === 'builder' ? '/dashboard/client' : '/dashboard/builder'}
           class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg border border-border text-slate-700 hover:bg-slate-50 text-sm font-medium transition"
-          title="Toggle between client and builder dashboard demo"
+          title="Switch workspace view"
         >
-          <span>Switch to {role === 'builder' ? 'Client View' : 'Builder View'}</span>
+          <span>Switch to {role === 'builder' ? 'Client Workspace' : 'Builder Workspace'}</span>
         </a>
       </div>
     </div>

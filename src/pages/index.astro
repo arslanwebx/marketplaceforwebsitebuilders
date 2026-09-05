@@ -142,7 +142,7 @@ const faqs = [
           <div class="relative mx-auto max-w-md lg:max-w-none space-y-4">
             
             <!-- Component 1: Featured Service Card Preview -->
-            <div class="bg-white rounded-2xl border border-border p-4 shadow-card hover:shadow-card-hover transition">
+            <div class="bg-white rounded-2xl border border-border p-4 sm:p-5 shadow-card hover:shadow-card-hover transition-all duration-200">
               <div class="flex items-center gap-3 mb-3">
                 <img
                   src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80"
@@ -152,9 +152,10 @@ const faqs = [
                 <div class="flex-1 min-w-0">
                   <div class="flex items-center gap-1.5">
                     <span class="text-xs font-bold text-dark">Maya Bennett</span>
-                    <span class="text-primary text-xs">✓</span>
+                    <span class="text-primary text-xs font-black">✓</span>
+                    <span class="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded">Active Now</span>
                   </div>
-                  <p class="text-[11px] text-secondary truncate">Senior Webflow Designer & Developer</p>
+                  <p class="text-[11px] text-secondary truncate">Senior Webflow Designer & Developer · Austin, TX</p>
                 </div>
                 <span class="text-xs font-bold px-2 py-0.5 rounded bg-soft-primary text-primary">Webflow Pro</span>
               </div>
@@ -190,7 +191,7 @@ const faqs = [
             <!-- Component 3: Small Project Request Card -->
             <div class="bg-white rounded-xl border border-border p-3.5 shadow-card flex items-center justify-between gap-3 text-xs">
               <div>
-                <span class="text-[10px] text-secondary uppercase font-bold tracking-wider">New Project Request</span>
+                <span class="text-[10px] text-secondary uppercase font-bold tracking-wider">Active Project Brief</span>
                 <p class="font-bold text-dark">Shopify redesign for sustainable skincare brand</p>
               </div>
               <span class="font-bold text-slate-800 bg-slate-100 px-2.5 py-1 rounded-lg shrink-0">
@@ -198,10 +199,48 @@ const faqs = [
               </span>
             </div>
 
+            <!-- Component 4: Floating Review Panel -->
+            <div class="bg-white rounded-xl border border-border p-3.5 shadow-card flex items-start gap-3 text-xs">
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                alt="Olivia Vance"
+                class="w-8 h-8 rounded-full object-cover border border-border shrink-0"
+              />
+              <div class="space-y-1">
+                <div class="flex items-center gap-1 text-amber-500 text-[11px]">
+                  <span>★★★★★</span>
+                  <span class="text-slate-400 font-semibold text-[10px] ml-1">Verified Client</span>
+                </div>
+                <p class="text-slate-700 font-medium italic">"Maya delivered our Webflow design in 18 days. Milestone escrow gave us complete peace of mind."</p>
+                <span class="text-[11px] text-slate-400 block font-normal">Olivia Vance · Founder, Lumina Botanicals</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
       </div>
+
+      <!-- LIVE MARKETPLACE METRICS BAR -->
+      <div class="mt-16 pt-8 border-t border-border grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+        <div>
+          <p class="text-2xl sm:text-3xl font-black text-dark tracking-tight">$3.8M+</p>
+          <p class="text-xs text-secondary mt-0.5 font-medium">Milestone Escrow Processed</p>
+        </div>
+        <div>
+          <p class="text-2xl sm:text-3xl font-black text-dark tracking-tight">4.92 / 5.0</p>
+          <p class="text-xs text-secondary mt-0.5 font-medium">Verified Client Satisfaction</p>
+        </div>
+        <div>
+          <p class="text-2xl sm:text-3xl font-black text-dark tracking-tight">99.4%</p>
+          <p class="text-xs text-secondary mt-0.5 font-medium">On-Time Milestone Delivery</p>
+        </div>
+        <div>
+          <p class="text-2xl sm:text-3xl font-black text-dark tracking-tight">100%</p>
+          <p class="text-xs text-secondary mt-0.5 font-medium">Vetted Builders & Scopes</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
