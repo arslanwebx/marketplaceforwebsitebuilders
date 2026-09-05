@@ -1,0 +1,244 @@
+---
+/**
+ * LuxuryHeroBackground.astro
+ * 
+ * A world-class, 100% coded luxury background engineered specifically for CraftGrid.
+ * Combines 7 distinct visual layers:
+ * 1. Warm-to-cool white editorial gradient base
+ * 2. Large ambient blurred radial light fields (violet, lavender, indigo)
+ * 3. Architectural hairline grid with radial edge-masking and intersection ticks
+ * 4. Faint abstract website blueprint wireframes & layout guides along outer perimeters
+ * 5. Delicate orbital hairline curves entering from corners
+ * 6. Diffused purple ambient under-glow anchoring the search interface
+ * 7. Micro-texture grain preventing digital flatness
+ * 
+ * Strictly isolated: position absolute, inset 0, pointer-events none, z-0.
+ */
+---
+
+<div class="luxury-hero-bg absolute inset-0 pointer-events-none overflow-hidden select-none z-0" aria-hidden="true">
+  
+  <!-- LAYER 1: Sophisticated Warm-to-Cool White Base -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#FCFCFD] via-[#FFFFFF] to-[#F8F9FD]"></div>
+
+  <!-- LAYER 2: Large Ambient Radial Light Fields -->
+  <!-- Center Ambient Violet/Indigo Aura (Sits softly behind headline) -->
+  <div
+    class="ambient-light ambient-headline absolute top-[-60px] left-1/2 -translate-x-1/2 w-[650px] sm:w-[850px] h-[360px] sm:h-[440px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(99,91,255,0.065)_0%,rgba(143,136,255,0.04)_45%,rgba(99,91,255,0.01)_70%,transparent_100%)] blur-[80px] sm:blur-[110px]"
+  ></div>
+
+  <!-- Upper-Right Corner Lavender/Sky Field -->
+  <div
+    class="ambient-light ambient-ur absolute top-[-100px] right-[-80px] sm:right-[-40px] w-[450px] sm:w-[620px] h-[450px] sm:h-[550px] rounded-full bg-[radial-gradient(circle_at_center,rgba(99,91,255,0.04)_0%,rgba(147,197,253,0.035)_40%,transparent_75%)] blur-[90px] sm:blur-[120px]"
+  ></div>
+
+  <!-- Lower-Left Subtle Violet/Blue Reflection -->
+  <div
+    class="ambient-light ambient-ll absolute bottom-[-80px] left-[-100px] sm:left-[-50px] w-[400px] sm:w-[580px] h-[400px] sm:h-[500px] rounded-full bg-[radial-gradient(circle_at_center,rgba(99,91,255,0.035)_0%,rgba(196,181,253,0.025)_50%,transparent_80%)] blur-[80px] sm:blur-[110px]"
+  ></div>
+
+  <!-- LAYER 6: Subtle Purple Accent Light Anchoring the Search Interface -->
+  <div
+    class="absolute top-[270px] sm:top-[280px] left-1/2 -translate-x-1/2 w-[550px] sm:w-[820px] h-[100px] sm:h-[130px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(99,91,255,0.05)_0%,rgba(99,91,255,0.015)_60%,transparent_100%)] blur-[60px] sm:blur-[75px]"
+  ></div>
+
+  <!-- LAYER 3, 4 & 5: Architectural Grid, Blueprint Structures & Curved Orbitals (Vector Precision) -->
+  <svg
+    class="absolute inset-0 w-full h-full"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+  >
+    <defs>
+      <!-- Radial Mask Fading Lines Away from Center and Outer Edges -->
+      <radialGradient id="arch-grid-mask" cx="50%" cy="42%" r="58%">
+        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25" />
+        <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.8" />
+        <stop offset="85%" stop-color="#FFFFFF" stop-opacity="0.4" />
+        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+      </radialGradient>
+
+      <!-- Center Vignette Mask to Guarantee Center Behind Headline Remains Pure -->
+      <mask id="hero-center-mask">
+        <rect width="100%" height="100%" fill="white" />
+        <!-- Soft Ellipse Mask in center -->
+        <ellipse cx="50%" cy="40%" rx="380" ry="190" fill="black" opacity="0.85" />
+      </mask>
+
+      <!-- Orbital Arc Gradients -->
+      <linearGradient id="orbit-grad-right" x1="100%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#635BFF" stop-opacity="0.12" />
+        <stop offset="60%" stop-color="#635BFF" stop-opacity="0.04" />
+        <stop offset="100%" stop-color="#635BFF" stop-opacity="0" />
+      </linearGradient>
+
+      <linearGradient id="orbit-grad-left" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#635BFF" stop-opacity="0.09" />
+        <stop offset="50%" stop-color="#8F88FF" stop-opacity="0.03" />
+        <stop offset="100%" stop-color="#635BFF" stop-opacity="0" />
+      </linearGradient>
+    </defs>
+
+    <!-- LAYER 3: Architectural Hairline Grid with Vignette Mask -->
+    <g mask="url(#hero-center-mask)" opacity="0.6">
+      
+      <!-- Primary Architectural Column Divisions -->
+      <!-- Left Column Guides -->
+      <line x1="6%" y1="0" x2="6%" y2="100%" stroke="#E4E7EC" stroke-width="0.75" stroke-dasharray="4 8" />
+      <line x1="16%" y1="0" x2="16%" y2="100%" stroke="#E4E7EC" stroke-width="0.75" />
+      <line x1="28%" y1="0" x2="28%" y2="100%" stroke="#E4E7EC" stroke-width="0.5" stroke-dasharray="2 6" />
+
+      <!-- Right Column Guides -->
+      <line x1="72%" y1="0" x2="72%" y2="100%" stroke="#E4E7EC" stroke-width="0.5" stroke-dasharray="2 6" />
+      <line x1="84%" y1="0" x2="84%" y2="100%" stroke="#E4E7EC" stroke-width="0.75" />
+      <line x1="94%" y1="0" x2="94%" y2="100%" stroke="#E4E7EC" stroke-width="0.75" stroke-dasharray="4 8" />
+
+      <!-- Horizontal Architectural Baselines -->
+      <line x1="0" y1="72" x2="100%" y2="72" stroke="#E4E7EC" stroke-width="0.75" />
+      <line x1="0" y1="210" x2="100%" y2="210" stroke="#E4E7EC" stroke-width="0.5" stroke-dasharray="3 7" />
+      <line x1="0" y1="420" x2="100%" y2="420" stroke="#E4E7EC" stroke-width="0.5" stroke-dasharray="3 7" />
+      <line x1="0" y1="560" x2="100%" y2="560" stroke="#E4E7EC" stroke-width="0.75" />
+
+      <!-- Swiss Precision Intersection Crosshair Ticks (+) -->
+      <!-- Top-Left Intersection -->
+      <path d="M calc(16% - 5px) 72 H calc(16% + 5px) M 16% 67 V 77" stroke="#635BFF" stroke-width="1" opacity="0.3" />
+      <!-- Top-Right Intersection -->
+      <path d="M calc(84% - 5px) 72 H calc(84% + 5px) M 84% 67 V 77" stroke="#635BFF" stroke-width="1" opacity="0.3" />
+      <!-- Lower-Left Intersection -->
+      <path d="M calc(16% - 5px) 560 H calc(16% + 5px) M 16% 555 V 565" stroke="#635BFF" stroke-width="1" opacity="0.3" />
+      <!-- Lower-Right Intersection -->
+      <path d="M calc(84% - 5px) 560 H calc(84% + 5px) M 84% 555 V 565" stroke="#635BFF" stroke-width="1" opacity="0.3" />
+    </g>
+
+    <!-- LAYER 4: Abstract Architectural Website Blueprints (Perimeter Only) -->
+    <!-- Upper-Left Perimeter Wireframe & Alignment System -->
+    <g class="hidden md:block" opacity="0.5" transform="translate(48, 36)">
+      <!-- Faint Outer Blueprint Frame -->
+      <rect x="0" y="0" width="170" height="110" rx="6" fill="none" stroke="#635BFF" stroke-width="0.75" opacity="0.18" />
+      <!-- Minimalist Header Bar Line -->
+      <line x1="0" y1="18" x2="170" y2="18" stroke="#635BFF" stroke-width="0.5" opacity="0.14" />
+      <!-- Three Micro-Dots in Header -->
+      <circle cx="10" cy="9" r="1.5" fill="#635BFF" opacity="0.25" />
+      <circle cx="16" cy="9" r="1.5" fill="#635BFF" opacity="0.25" />
+      <circle cx="22" cy="9" r="1.5" fill="#635BFF" opacity="0.25" />
+      <!-- Wireframe Content Blocks -->
+      <rect x="12" y="28" width="60" height="8" rx="2" fill="#101828" opacity="0.04" />
+      <rect x="12" y="42" width="95" height="5" rx="1.5" fill="#101828" opacity="0.03" />
+      <rect x="12" y="52" width="75" height="5" rx="1.5" fill="#101828" opacity="0.025" />
+      <!-- 2-Column Structural Sub-Grid -->
+      <rect x="12" y="66" width="66" height="32" rx="3" fill="none" stroke="#635BFF" stroke-width="0.5" opacity="0.1" stroke-dasharray="2 3" />
+      <rect x="88" y="66" width="70" height="32" rx="3" fill="none" stroke="#635BFF" stroke-width="0.5" opacity="0.1" stroke-dasharray="2 3" />
+      <!-- Subtle Dimension Annotation Guide -->
+      <line x1="0" y1="120" x2="170" y2="120" stroke="#101828" stroke-width="0.5" opacity="0.1" />
+      <line x1="0" y1="117" x2="0" y2="123" stroke="#101828" stroke-width="0.5" opacity="0.1" />
+      <line x1="170" y1="117" x2="170" y2="123" stroke="#101828" stroke-width="0.5" opacity="0.1" />
+      <text x="85" y="128" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#101828" opacity="0.2" letter-spacing="0.08em">VIEWPORT // 1440</text>
+    </g>
+
+    <!-- Upper-Right Perimeter Blueprint Structure -->
+    <g class="hidden lg:block" opacity="0.45" transform="translate(0, 42)">
+      <!-- Anchored to right via CSS calc -->
+      <rect x="calc(100% - 210px)" y="0" width="165" height="135" rx="6" fill="none" stroke="#635BFF" stroke-width="0.75" opacity="0.16" />
+      <!-- Top Tab Bar -->
+      <line x1="calc(100% - 210px)" y1="20" x2="calc(100% - 45px)" y2="20" stroke="#635BFF" stroke-width="0.5" opacity="0.12" />
+      <rect x="calc(100% - 198px)" y="6" width="38" height="8" rx="2" fill="#635BFF" opacity="0.1" />
+      <rect x="calc(100% - 152px)" y="6" width="30" height="8" rx="2" fill="#101828" opacity="0.03" />
+      <!-- Modular Metric Wireframe Elements -->
+      <rect x="calc(100% - 198px)" y="32" width="65" height="42" rx="4" fill="none" stroke="#101828" stroke-width="0.5" opacity="0.08" />
+      <rect x="calc(100% - 124px)" y="32" width="68" height="42" rx="4" fill="none" stroke="#101828" stroke-width="0.5" opacity="0.08" />
+      <line x1="calc(100% - 198px)" y1="86" x2="calc(100% - 56px)" y2="86" stroke="#635BFF" stroke-width="0.5" opacity="0.08" stroke-dasharray="2 3" />
+      <line x1="calc(100% - 198px)" y1="96" x2="calc(100% - 76px)" y2="96" stroke="#635BFF" stroke-width="0.5" opacity="0.06" stroke-dasharray="2 3" />
+      <line x1="calc(100% - 198px)" y1="106" x2="calc(100% - 110px)" y2="106" stroke="#635BFF" stroke-width="0.5" opacity="0.05" stroke-dasharray="2 3" />
+      <text x="calc(100% - 128px)" y="124" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7.5" fill="#635BFF" opacity="0.25" letter-spacing="0.1em">ESCROW PROTOCOL</text>
+    </g>
+
+    <!-- Far Left & Right Edge Vertical Registration Rulers -->
+    <g class="hidden xl:block" opacity="0.3">
+      <!-- Left Edge Ticks -->
+      <path d="M 18 120 h 6 M 18 140 h 4 M 18 160 h 4 M 18 180 h 4 M 18 200 h 6 M 18 220 h 4 M 18 240 h 4 M 18 260 h 4 M 18 280 h 6" stroke="#101828" stroke-width="0.75" />
+      <text x="14" y="202" font-family="ui-monospace, monospace" font-size="7" fill="#101828" opacity="0.4" text-anchor="end" transform="rotate(-90 14 202)">GRID // 01</text>
+
+      <!-- Right Edge Ticks -->
+      <path d="M calc(100% - 18px) 120 h -6 M calc(100% - 18px) 140 h -4 M calc(100% - 18px) 160 h -4 M calc(100% - 18px) 180 h -4 M calc(100% - 18px) 200 h -6 M calc(100% - 18px) 220 h -4 M calc(100% - 18px) 240 h -4 M calc(100% - 18px) 260 h -4 M calc(100% - 18px) 280 h -6" stroke="#101828" stroke-width="0.75" />
+      <text x="calc(100% - 14px)" y="202" font-family="ui-monospace, monospace" font-size="7" fill="#101828" opacity="0.4" text-anchor="start" transform="rotate(90 calc(100% - 14px) 202)">NODE // 02</text>
+    </g>
+
+    <!-- LAYER 5: Thin Curved / Orbital Lines Entering from Outer Corners -->
+    <!-- Arc 1: Upper-right entering and gracefully sweeping down toward right flank -->
+    <path
+      d="M calc(100% + 40px) -40 C calc(100% - 240px) 60, calc(100% - 440px) 180, calc(100% - 560px) 380"
+      fill="none"
+      stroke="url(#orbit-grad-right)"
+      stroke-width="1.25"
+      stroke-linecap="round"
+      class="hidden sm:block"
+    />
+
+    <!-- Arc 2: Lower-left entering from corner sweeping up toward left flank -->
+    <path
+      d="M -40 560 C 140 460, 280 340, 360 160"
+      fill="none"
+      stroke="url(#orbit-grad-left)"
+      stroke-width="1.25"
+      stroke-linecap="round"
+      class="hidden sm:block"
+    />
+  </svg>
+
+  <!-- LAYER 7: Ultra-Fine Editorial Monochromatic Micro-Texture Grain -->
+  <svg class="absolute inset-0 w-full h-full opacity-[0.018] mix-blend-multiply pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+    <filter id="hero-editorial-grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.06   0 0 0 0 0.09   0 0 0 0 0.16   0 0 0 1 0" />
+    </filter>
+    <rect width="100%" height="100%" filter="url(#hero-editorial-grain)" />
+  </svg>
+
+</div>
+
+<style>
+  /* LAYER 8: Ultra-Restrained Ambient Drift (respects prefers-reduced-motion) */
+  @media (prefers-reduced-motion: no-preference) {
+    .ambient-headline {
+      animation: aura-breathe 22s ease-in-out infinite alternate;
+    }
+    .ambient-ur {
+      animation: ambient-drift-right 28s ease-in-out infinite alternate;
+    }
+    .ambient-ll {
+      animation: ambient-drift-left 32s ease-in-out infinite alternate;
+    }
+  }
+
+  @keyframes aura-breathe {
+    0% {
+      transform: translate(-50%, 0) scale(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translate(-50%, -8px) scale(1.03);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, 4px) scale(0.98);
+      opacity: 0.85;
+    }
+  }
+
+  @keyframes ambient-drift-right {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-14px, 12px);
+    }
+  }
+
+  @keyframes ambient-drift-left {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(12px, -10px);
+    }
+  }
+</style>

@@ -4,6 +4,7 @@ import CategoryCard from '@/components/marketplace/CategoryCard.astro';
 import ServiceCard from '@/components/marketplace/ServiceCard.astro';
 import BuilderCard from '@/components/marketplace/BuilderCard.astro';
 import ProjectCard from '@/components/marketplace/ProjectCard.astro';
+import LuxuryHeroBackground from '@/components/marketplace/LuxuryHeroBackground.astro';
 import { categories } from '@/data/categories';
 import { services } from '@/data/services';
 import { builders } from '@/data/builders';
@@ -48,7 +49,11 @@ const faqs = [
 >
   
   <!-- HERO SECTION (CENTERED LUXURY MARKETPLACE) -->
-  <section class="relative bg-white border-b border-border/80 pt-16 pb-16 lg:pt-24 lg:pb-24">
+  <section class="relative border-b border-border/80 pt-16 pb-16 lg:pt-24 lg:pb-24 overflow-hidden">
+    
+    <!-- Isolated World-Class Luxury Coded Background Layer -->
+    <LuxuryHeroBackground />
+
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       
       <!-- Pure Editorial Kicker -->
