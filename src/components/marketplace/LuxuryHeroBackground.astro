@@ -2,30 +2,22 @@
 /**
  * LuxuryHeroBackground.astro
  * 
- * "LUXURY ORBITAL WEB ARCHITECTURE" - Refined Luxury Edition
- * 
- * A lighter, more translucent, and spatially layered coded background for CraftGrid.
+ * "LUXURY ORBITAL WEB ARCHITECTURE" - Enhanced Filled Minimalist Edition
  * 
  * Refinements:
- * 1. Opacity Calibration:
- *    - Major rings/arcs: 0.08 to 0.16
- *    - Minor rings/arcs: 0.03 to 0.07
- *    - Blueprint rectangles: 0.03 to 0.05
- *    - Precision glass nodes: 0.14 to 0.22
- *    - Micro-technical marks: 0.04 to 0.08
- * 2. Multi-Layer Background Gradient:
- *    - White base (#FFFFFF / #FCFCFF) with cool-lavender atmospheric glows
- *    - Upper-right orbit field, left-middle wash, bottom stats glow, bright center
- * 3. Glassy / Translucent SVG Artwork:
- *    - Delicate stroke gradients, soft focal blurs, masked fades, drop-shadowed nodes
- * 4. Three Spatial Depth Layers:
- *    - Layer A (Back): Ambient blurred color fields, faint blueprint wireframes
- *    - Layer B (Middle): Orbital systems, counter-rotating dashed paths, connector curve
- *    - Layer C (Front): Floating glass nodes, 4-point star, sparse coordinate crosshairs
- * 5. Slow, Restrained Luxury Motion:
- *    - 36s celestial rotation, 48s counter-orbit, 18s ambient glow breathing
- *    - Fully respects prefers-reduced-motion
- * 6. Center Safe Area (x: 260–1050, y: 120–570) preserved pristine and bright
+ * 1. Enlarged Prominent Concentric Target Nodes:
+ *    - Increased size of target circles (r=11-13px outer white circle with #635BFF border + r=3.2px inner dot)
+ *    - Secondary concentric radar dashed ring (r=22px) and soft drop shadow
+ * 2. More Filled, Balanced Background:
+ *    - Architectural perimeter dot matrix grid (masked away from center text zone)
+ *    - Extended sweeping concentric orbital rings (r=130, 200, 280, 380, 480)
+ *    - Radial angle calibration ticks along celestial orbits
+ *    - Balanced upper-left orbital curve system framing the left flank
+ *    - Multiple 4-point diamond luxury stars with gentle breathing
+ *    - Delicate isometric architectural wireframes along outer perimeters
+ * 3. 100% Preserved Center Safe Zone:
+ *    - Eyebrow text, headline, search bar, and CTAs remain in pristine, crystal-clear white/bright space
+ * 4. Ultra-smooth restrained ambient motion with prefers-reduced-motion compliance
  */
 ---
 
@@ -37,16 +29,19 @@
 
   <!-- MULTI-LAYER LUXURY AMBIENT GLOWS (CSS Color Fields) -->
   <!-- Glow 1: Upper-Right Orbital System Atmosphere -->
-  <div class="ambient-glow ambient-glow-ur absolute top-[-90px] right-[-60px] w-[680px] h-[680px] rounded-full bg-[radial-gradient(circle_at_center,rgba(99,91,255,0.045)_0%,rgba(183,178,255,0.025)_40%,transparent_70%)] blur-[95px]"></div>
+  <div class="ambient-glow ambient-glow-ur absolute top-[-100px] right-[-80px] w-[750px] h-[750px] rounded-full bg-[radial-gradient(circle_at_center,rgba(99,91,255,0.055)_0%,rgba(183,178,255,0.03)_40%,transparent_70%)] blur-[100px]"></div>
   
-  <!-- Glow 2: Left-Middle Subtle Lavender Wash -->
-  <div class="ambient-glow ambient-glow-left absolute top-[210px] left-[-90px] w-[540px] h-[540px] rounded-full bg-[radial-gradient(circle_at_center,rgba(122,114,255,0.035)_0%,rgba(234,232,255,0.02)_45%,transparent_70%)] blur-[85px]"></div>
+  <!-- Glow 2: Upper-Left Balancing Light Field -->
+  <div class="ambient-glow ambient-glow-ul absolute top-[-60px] left-[-60px] w-[580px] h-[580px] rounded-full bg-[radial-gradient(circle_at_center,rgba(122,114,255,0.04)_0%,rgba(234,232,255,0.02)_45%,transparent_70%)] blur-[90px]"></div>
+
+  <!-- Glow 3: Left-Middle Subtle Lavender Wash -->
+  <div class="ambient-glow ambient-glow-left absolute top-[260px] left-[-100px] w-[560px] h-[560px] rounded-full bg-[radial-gradient(circle_at_center,rgba(99,91,255,0.04)_0%,rgba(183,178,255,0.02)_45%,transparent_70%)] blur-[90px]"></div>
   
-  <!-- Glow 3: Lower-Center / Stats Area Soft Illumination -->
-  <div class="ambient-glow ambient-glow-bottom absolute bottom-[-110px] left-1/2 -translate-x-1/2 w-[880px] h-[320px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(99,91,255,0.025)_0%,rgba(183,178,255,0.01)_50%,transparent_75%)] blur-[90px]"></div>
+  <!-- Glow 4: Lower-Center / Stats Area Soft Illumination -->
+  <div class="ambient-glow ambient-glow-bottom absolute bottom-[-110px] left-1/2 -translate-x-1/2 w-[920px] h-[340px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(99,91,255,0.03)_0%,rgba(183,178,255,0.015)_50%,transparent_75%)] blur-[95px]"></div>
 
   <!-- Center Radial Brightener: Guarantees Headline & Search Contrast -->
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_36%,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.3)_55%,transparent_100%)]"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_36%,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.4)_52%,transparent_100%)]"></div>
 
   <!-- MAIN SVG COMPOSITION -->
   <svg
@@ -56,24 +51,35 @@
     xmlns="http://www.w3.org/2000/svg"
   >
     <defs>
+      <!-- Architectural Dot Matrix Pattern for Filled Minimalist Background -->
+      <pattern id="hero-dot-grid" width="34" height="34" patternUnits="userSpaceOnUse">
+        <circle cx="17" cy="17" r="0.9" fill="#635BFF" opacity="0.12" />
+      </pattern>
+
+      <!-- Center Mask: Fades Dot Grid completely away from the Headline and Search Area -->
+      <mask id="grid-center-mask">
+        <rect width="1440" height="760" fill="white" />
+        <ellipse cx="720" cy="350" rx="440" ry="215" fill="black" opacity="0.92" />
+      </mask>
+
       <!-- Soft Ambient Blur for Deep Color Fields -->
       <filter id="ambient-disc-blur" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="60" />
+        <feGaussianBlur stdDeviation="65" />
       </filter>
 
-      <!-- Glassy Atmospheric Focus for Selected Outer Rings -->
+      <!-- Glassy Atmospheric Focus for Outer Rings -->
       <filter id="ring-glass-blur" x="-20%" y="-20%" width="140%" height="140%">
         <feGaussianBlur stdDeviation="0.8" />
       </filter>
 
-      <!-- Soft Drop Shadow for Glass Nodes -->
-      <filter id="glass-node-shadow" x="-50%" y="-50%" width="200%" height="200%">
-        <feDropShadow dx="0" dy="1.5" stdDeviation="2.5" flood-color="#635BFF" flood-opacity="0.16" />
+      <!-- Prominent Drop Shadow for Large Concentric Target Nodes -->
+      <filter id="target-node-shadow" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#635BFF" flood-opacity="0.22" />
       </filter>
 
       <!-- Delicate Node Halo Blur -->
       <filter id="node-halo" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="4" result="glow" />
+        <feGaussianBlur stdDeviation="5" result="glow" />
         <feMerge>
           <feMergeNode in="glow" />
           <feMergeNode in="SourceGraphic" />
@@ -82,93 +88,158 @@
 
       <!-- Upper-Right Translucent Purple Disc Gradient -->
       <radialGradient id="disc-grad-ur" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#635BFF" stop-opacity="0.065" />
-        <stop offset="50%" stop-color="#7A72FF" stop-opacity="0.025" />
+        <stop offset="0%" stop-color="#635BFF" stop-opacity="0.08" />
+        <stop offset="50%" stop-color="#7A72FF" stop-opacity="0.03" />
         <stop offset="100%" stop-color="#7A72FF" stop-opacity="0" />
       </radialGradient>
 
       <!-- Left-Lower Translucent Purple Disc Gradient -->
       <radialGradient id="disc-grad-ll" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#635BFF" stop-opacity="0.05" />
-        <stop offset="55%" stop-color="#B7B2FF" stop-opacity="0.015" />
+        <stop offset="0%" stop-color="#635BFF" stop-opacity="0.06" />
+        <stop offset="55%" stop-color="#B7B2FF" stop-opacity="0.02" />
         <stop offset="100%" stop-color="#B7B2FF" stop-opacity="0" />
       </radialGradient>
 
       <!-- Orbital Stroke Gradient 1 (Translucent Purple -> Soft Lavender -> Zero) -->
       <linearGradient id="orbit-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#635BFF" stop-opacity="0.18" />
-        <stop offset="45%" stop-color="#7A72FF" stop-opacity="0.12" />
-        <stop offset="85%" stop-color="#B7B2FF" stop-opacity="0.05" />
+        <stop offset="0%" stop-color="#635BFF" stop-opacity="0.22" />
+        <stop offset="45%" stop-color="#7A72FF" stop-opacity="0.14" />
+        <stop offset="85%" stop-color="#B7B2FF" stop-opacity="0.06" />
         <stop offset="100%" stop-color="#EAE8FF" stop-opacity="0" />
       </linearGradient>
 
       <!-- Orbital Stroke Gradient 2 (Lavender -> Soft Purple -> Subtle Fade) -->
       <linearGradient id="orbit-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#7A72FF" stop-opacity="0.15" />
-        <stop offset="50%" stop-color="#635BFF" stop-opacity="0.09" />
-        <stop offset="100%" stop-color="#635BFF" stop-opacity="0.02" />
+        <stop offset="0%" stop-color="#7A72FF" stop-opacity="0.18" />
+        <stop offset="50%" stop-color="#635BFF" stop-opacity="0.11" />
+        <stop offset="100%" stop-color="#635BFF" stop-opacity="0.03" />
       </linearGradient>
 
       <!-- Left-Bottom Arc Gradient -->
       <linearGradient id="left-arc-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#635BFF" stop-opacity="0.16" />
-        <stop offset="50%" stop-color="#7A72FF" stop-opacity="0.09" />
+        <stop offset="0%" stop-color="#635BFF" stop-opacity="0.20" />
+        <stop offset="50%" stop-color="#7A72FF" stop-opacity="0.12" />
+        <stop offset="100%" stop-color="#B7B2FF" stop-opacity="0.03" />
+      </linearGradient>
+
+      <!-- Upper-Left Secondary Arc Gradient -->
+      <linearGradient id="ul-arc-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#7A72FF" stop-opacity="0.18" />
+        <stop offset="60%" stop-color="#635BFF" stop-opacity="0.09" />
         <stop offset="100%" stop-color="#B7B2FF" stop-opacity="0.02" />
       </linearGradient>
 
       <!-- Giant Curved Connector Path Gradient (Transparent in Center Safe Zone) -->
       <linearGradient id="connector-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#635BFF" stop-opacity="0.16" />
-        <stop offset="22%" stop-color="#7A72FF" stop-opacity="0.11" />
-        <stop offset="48%" stop-color="#B7B2FF" stop-opacity="0.03" />
-        <stop offset="68%" stop-color="#7A72FF" stop-opacity="0.09" />
-        <stop offset="100%" stop-color="#635BFF" stop-opacity="0.18" />
+        <stop offset="0%" stop-color="#635BFF" stop-opacity="0.20" />
+        <stop offset="22%" stop-color="#7A72FF" stop-opacity="0.14" />
+        <stop offset="48%" stop-color="#B7B2FF" stop-opacity="0.04" />
+        <stop offset="68%" stop-color="#7A72FF" stop-opacity="0.12" />
+        <stop offset="100%" stop-color="#635BFF" stop-opacity="0.22" />
       </linearGradient>
 
       <!-- Subtle Linear Shimmer on Connector Path -->
       <linearGradient id="connector-shimmer-grad" x1="0%" y1="0%" x2="100%" y2="0%">
         <stop offset="0%" stop-color="#635BFF" stop-opacity="0" />
-        <stop offset="45%" stop-color="#FFFFFF" stop-opacity="0.3" />
-        <stop offset="50%" stop-color="#635BFF" stop-opacity="0.4" />
-        <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0.3" />
+        <stop offset="45%" stop-color="#FFFFFF" stop-opacity="0.35" />
+        <stop offset="50%" stop-color="#635BFF" stop-opacity="0.5" />
+        <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0.35" />
         <stop offset="100%" stop-color="#635BFF" stop-opacity="0" />
       </linearGradient>
     </defs>
 
     <!-- ============================================================== -->
-    <!-- LAYER A: BACK (Ambient Translucent Discs & Faint Blueprints)   -->
+    <!-- LAYER 0: ARCHITECTURAL DOT MATRIX GRID (Masked Around Center)   -->
+    <!-- ============================================================== -->
+    <rect
+      width="1440"
+      height="760"
+      fill="url(#hero-dot-grid)"
+      mask="url(#grid-center-mask)"
+      class="hidden sm:block"
+    />
+
+    <!-- ============================================================== -->
+    <!-- LAYER A: BACK (Ambient Translucent Discs & Architectural Art)  -->
     <!-- ============================================================== -->
 
-    <!-- Disc 1: Upper-Right behind main orbit (cx: 1240, cy: 250, r: 240) -->
+    <!-- Ambient Disc 1: Upper-Right behind main orbit (cx: 1250, cy: 250, r: 260) -->
     <circle
-      cx="1240"
+      cx="1250"
       cy="250"
-      r="240"
+      r="260"
       fill="url(#disc-grad-ur)"
       filter="url(#ambient-disc-blur)"
     />
 
-    <!-- Disc 2: Left-Lower balancing glow (cx: -20, cy: 620, r: 250) -->
+    <!-- Ambient Disc 2: Left-Lower balancing glow (cx: -20, cy: 620, r: 270) -->
     <circle
       cx="-20"
       cy="620"
-      r="250"
+      r="270"
       fill="url(#disc-grad-ll)"
       filter="url(#ambient-disc-blur)"
     />
 
-    <!-- Disc 3: Lower-Right near stats row (cx: 1100, cy: 700, r: 210) -->
+    <!-- Ambient Disc 3: Upper-Left balancing aura (cx: 140, cy: 120, r: 210) -->
     <circle
-      cx="1100"
-      cy="700"
+      cx="140"
+      cy="120"
       r="210"
+      fill="url(#disc-grad-ll)"
+      filter="url(#ambient-disc-blur)"
+      opacity="0.7"
+    />
+
+    <!-- Ambient Disc 4: Lower-Right near stats row (cx: 1120, cy: 700, r: 220) -->
+    <circle
+      cx="1120"
+      cy="700"
+      r="220"
       fill="url(#disc-grad-ur)"
       filter="url(#ambient-disc-blur)"
       opacity="0.6"
     />
 
-    <!-- Architectural Blueprint Outlines (Very Faint & Glassy: Opacity 0.03 - 0.05) -->
-    <g class="blueprint-elements hidden md:block" opacity="0.65">
+    <!-- Upper-Left Secondary Orbital Curve System (Frames Left Side Elegantly) -->
+    <g class="orbital-left-upper hidden md:block">
+      <!-- Outer Arc r=240 -->
+      <circle
+        cx="-40"
+        cy="100"
+        r="240"
+        fill="none"
+        stroke="url(#ul-arc-grad)"
+        stroke-width="1.0"
+        stroke-dasharray="160 50 110 60"
+        opacity="0.14"
+      />
+      <!-- Dashed Track r=320 -->
+      <circle
+        cx="-40"
+        cy="100"
+        r="320"
+        fill="none"
+        stroke="#7A72FF"
+        stroke-width="0.75"
+        stroke-dasharray="4 10"
+        opacity="0.10"
+      />
+      <!-- Alignment Ray -->
+      <line
+        x1="-40"
+        y1="100"
+        x2="280"
+        y2="280"
+        stroke="#635BFF"
+        stroke-width="0.6"
+        stroke-dasharray="3 7"
+        opacity="0.08"
+      />
+    </g>
+
+    <!-- Architectural Blueprint Outlines (Clean, Structured, Glassy) -->
+    <g class="blueprint-elements hidden md:block" opacity="0.8">
       
       <!-- Upper-Right Abstract Website Blueprint (220 x 120 rounded rect) -->
       <g transform="translate(1165, 48)">
@@ -180,15 +251,15 @@
           rx="7"
           fill="none"
           stroke="#635BFF"
-          stroke-width="0.75"
-          opacity="0.045"
+          stroke-width="0.8"
+          opacity="0.06"
         />
         <!-- Header Bar -->
-        <line x1="0" y1="20" x2="215" y2="20" stroke="#635BFF" stroke-width="0.5" opacity="0.04" />
+        <line x1="0" y1="20" x2="215" y2="20" stroke="#635BFF" stroke-width="0.55" opacity="0.05" />
         <!-- Header Micro-Dots -->
-        <circle cx="10" cy="10" r="1.2" fill="#635BFF" opacity="0.10" />
-        <circle cx="15" cy="10" r="1.2" fill="#635BFF" opacity="0.10" />
-        <circle cx="20" cy="10" r="1.2" fill="#635BFF" opacity="0.10" />
+        <circle cx="10" cy="10" r="1.3" fill="#635BFF" opacity="0.14" />
+        <circle cx="15" cy="10" r="1.3" fill="#635BFF" opacity="0.14" />
+        <circle cx="20" cy="10" r="1.3" fill="#635BFF" opacity="0.14" />
         <!-- 2 Content Columns -->
         <rect
           x="10"
@@ -198,9 +269,9 @@
           rx="3"
           fill="none"
           stroke="#635BFF"
-          stroke-width="0.5"
+          stroke-width="0.55"
           stroke-dasharray="2 3"
-          opacity="0.035"
+          opacity="0.045"
         />
         <rect
           x="88"
@@ -210,15 +281,25 @@
           rx="3"
           fill="none"
           stroke="#635BFF"
-          stroke-width="0.5"
+          stroke-width="0.55"
           stroke-dasharray="2 3"
-          opacity="0.035"
+          opacity="0.045"
         />
         <!-- Tiny Card Blocks Inside -->
-        <rect x="96" y="38" width="46" height="26" rx="2" fill="none" stroke="#111827" stroke-width="0.5" opacity="0.03" />
-        <rect x="148" y="38" width="46" height="26" rx="2" fill="none" stroke="#111827" stroke-width="0.5" opacity="0.03" />
-        <line x1="96" y1="74" x2="190" y2="74" stroke="#635BFF" stroke-width="0.5" opacity="0.035" />
-        <line x1="96" y1="82" x2="162" y2="82" stroke="#635BFF" stroke-width="0.5" opacity="0.03" />
+        <rect x="96" y="38" width="46" height="26" rx="2" fill="none" stroke="#111827" stroke-width="0.5" opacity="0.04" />
+        <rect x="148" y="38" width="46" height="26" rx="2" fill="none" stroke="#111827" stroke-width="0.5" opacity="0.04" />
+        <line x1="96" y1="74" x2="190" y2="74" stroke="#635BFF" stroke-width="0.5" opacity="0.045" />
+        <line x1="96" y1="82" x2="162" y2="82" stroke="#635BFF" stroke-width="0.5" opacity="0.04" />
+      </g>
+
+      <!-- Isometric Minimalist Wireframe Cube Accent (Upper Right Flank) -->
+      <g transform="translate(1380, 50)" opacity="0.12">
+        <!-- Top Face -->
+        <polygon points="0,-18 20,-8 0,2 -20,-8" fill="none" stroke="#635BFF" stroke-width="0.75" />
+        <!-- Left Face -->
+        <polygon points="-20,-8 0,2 0,26 -20,16" fill="none" stroke="#635BFF" stroke-width="0.75" />
+        <!-- Right Face -->
+        <polygon points="0,2 20,-8 20,16 0,26" fill="none" stroke="#635BFF" stroke-width="0.75" />
       </g>
 
       <!-- Left-Middle Edge Partial Browser Frame Cropped Outside Viewport -->
@@ -231,15 +312,15 @@
           rx="7"
           fill="none"
           stroke="#635BFF"
-          stroke-width="0.75"
-          opacity="0.04"
+          stroke-width="0.8"
+          opacity="0.055"
         />
-        <line x1="0" y1="22" x2="185" y2="22" stroke="#635BFF" stroke-width="0.5" opacity="0.035" />
-        <circle cx="56" cy="11" r="1.2" fill="#635BFF" opacity="0.09" />
-        <circle cx="62" cy="11" r="1.2" fill="#635BFF" opacity="0.09" />
-        <circle cx="68" cy="11" r="1.2" fill="#635BFF" opacity="0.09" />
-        <rect x="56" y="34" width="115" height="38" rx="3" fill="none" stroke="#111827" stroke-width="0.5" opacity="0.03" />
-        <rect x="56" y="80" width="115" height="38" rx="3" fill="none" stroke="#111827" stroke-width="0.5" opacity="0.025" />
+        <line x1="0" y1="22" x2="185" y2="22" stroke="#635BFF" stroke-width="0.55" opacity="0.05" />
+        <circle cx="56" cy="11" r="1.3" fill="#635BFF" opacity="0.12" />
+        <circle cx="62" cy="11" r="1.3" fill="#635BFF" opacity="0.12" />
+        <circle cx="68" cy="11" r="1.3" fill="#635BFF" opacity="0.12" />
+        <rect x="56" y="34" width="115" height="38" rx="3" fill="none" stroke="#111827" stroke-width="0.5" opacity="0.04" />
+        <rect x="56" y="80" width="115" height="38" rx="3" fill="none" stroke="#111827" stroke-width="0.5" opacity="0.035" />
       </g>
 
       <!-- Bottom-Right: 2 Overlapping Thin Rectangles -->
@@ -252,9 +333,9 @@
           rx="5"
           fill="none"
           stroke="#635BFF"
-          stroke-width="0.75"
+          stroke-width="0.8"
           stroke-dasharray="3 3"
-          opacity="0.04"
+          opacity="0.055"
         />
         <rect
           x="35"
@@ -264,8 +345,8 @@
           rx="5"
           fill="none"
           stroke="#111827"
-          stroke-width="0.65"
-          opacity="0.03"
+          stroke-width="0.7"
+          opacity="0.04"
         />
         <text
           x="8"
@@ -273,7 +354,7 @@
           font-family="ui-monospace, monospace"
           font-size="7"
           fill="#635BFF"
-          opacity="0.15"
+          opacity="0.20"
           letter-spacing="0.12em"
         >
           SYS // SCHEMA_04
@@ -282,7 +363,7 @@
     </g>
 
     <!-- ============================================================== -->
-    <!-- LAYER B: MIDDLE (Refined Orbital Systems & Connector Curve)    -->
+    <!-- LAYER B: MIDDLE (Expanded Orbital Systems & Connector Curve)   -->
     <!-- ============================================================== -->
 
     <!-- Left-Bottom Balancer Arc System (cx: -40, cy: 660) -->
@@ -294,9 +375,9 @@
         r="270"
         fill="none"
         stroke="url(#left-arc-grad)"
-        stroke-width="1.1"
-        stroke-dasharray="260 70 140 60"
-        opacity="0.15"
+        stroke-width="1.15"
+        stroke-dasharray="270 70 150 60"
+        opacity="0.18"
       />
       <!-- Ring 2: Delicate Dashed Geometry (Radius 340) -->
       <circle
@@ -305,12 +386,23 @@
         r="340"
         fill="none"
         stroke="#7A72FF"
-        stroke-width="0.85"
+        stroke-width="0.9"
         stroke-dasharray="5 9"
-        opacity="0.11"
+        opacity="0.14"
         filter="url(#ring-glass-blur)"
       />
-      <!-- Ring 3: Very Faint Inner Arc (Radius 200) -->
+      <!-- Ring 3: Extended Outer Sweeping Arc (Radius 440) -->
+      <circle
+        cx="-40"
+        cy="660"
+        r="440"
+        fill="none"
+        stroke="url(#left-arc-grad)"
+        stroke-width="0.75"
+        stroke-dasharray="180 80 120 70"
+        opacity="0.10"
+      />
+      <!-- Ring 4: Very Faint Inner Arc (Radius 200) -->
       <circle
         cx="-40"
         cy="660"
@@ -319,23 +411,19 @@
         stroke="url(#left-arc-grad)"
         stroke-width="0.75"
         stroke-dasharray="160 50 90 40"
-        opacity="0.08"
+        opacity="0.10"
       />
       <!-- Radial Alignment Ray entering from corner -->
       <line
         x1="-40"
         y1="660"
-        x2="230"
-        y2="470"
+        x2="250"
+        y2="460"
         stroke="#635BFF"
-        stroke-width="0.6"
+        stroke-width="0.65"
         stroke-dasharray="3 8"
-        opacity="0.07"
+        opacity="0.09"
       />
-      <!-- Elegant Intersection Node where arc and ray meet (x: 160, y: 517) -->
-      <circle cx="160" cy="517" r="7" fill="#635BFF" opacity="0.06" filter="url(#node-halo)" />
-      <circle cx="160" cy="517" r="3.5" fill="white" stroke="#635BFF" stroke-width="1.2" filter="url(#glass-node-shadow)" opacity="0.85" />
-      <circle cx="160" cy="517" r="1.2" fill="#635BFF" opacity="0.8" />
     </g>
 
     <!-- Giant Curved Connection Path with Traveling Shimmer -->
@@ -345,7 +433,7 @@
         d="M 0 500 C 180 460, 260 430, 380 435 C 550 442, 660 565, 800 580 C 970 598, 1140 470, 1250 350"
         fill="none"
         stroke="url(#connector-grad)"
-        stroke-width="1.0"
+        stroke-width="1.1"
         stroke-linecap="round"
       />
       <!-- Subtle Traveling Shimmer Highlight -->
@@ -354,21 +442,20 @@
         d="M 0 500 C 180 460, 260 430, 380 435 C 550 442, 660 565, 800 580 C 970 598, 1140 470, 1250 350"
         fill="none"
         stroke="url(#connector-shimmer-grad)"
-        stroke-width="1.5"
+        stroke-width="1.6"
         stroke-linecap="round"
         stroke-dasharray="140 1200"
       />
-      <!-- 3 Small Architectural Nodes along the connection path -->
-      <!-- Node 1: (380, 435) - Glass Node -->
-      <circle cx="380" cy="435" r="3.5" fill="white" stroke="#635BFF" stroke-width="1.2" filter="url(#glass-node-shadow)" opacity="0.85" />
-      <circle cx="380" cy="435" r="1.2" fill="#635BFF" opacity="0.75" />
       
-      <!-- Node 2: (800, 580) - Soft Breathing Node -->
-      <circle cx="800" cy="580" r="2.5" fill="#7A72FF" opacity="0.5" class="orbital-breathe-node" />
-      
-      <!-- Node 3: (1140, 462) - Glass Node -->
-      <circle cx="1140" cy="462" r="3.5" fill="white" stroke="#635BFF" stroke-width="1.2" filter="url(#glass-node-shadow)" opacity="0.85" />
-      <circle cx="1140" cy="462" r="1.2" fill="#635BFF" opacity="0.75" />
+      <!-- Secondary Faint Echo Connector Arc (Adds richness without clutter) -->
+      <path
+        d="M 40 525 C 200 488, 280 458, 380 460 C 530 465, 640 580, 780 595"
+        fill="none"
+        stroke="url(#connector-grad)"
+        stroke-width="0.65"
+        stroke-dasharray="4 8"
+        opacity="0.10"
+      />
     </g>
 
     <!-- Large Right-Side Orbital Circle System (cx: 1250, cy: 250) -->
@@ -377,225 +464,339 @@
       <!-- Main Celestial Rotating Group (Slow 36s Rotation) -->
       <g class="orbital-rotate-cw">
         
-        <!-- Ring 1: r = 130 (Delicate Inner Orbit) -->
+        <!-- Ring 1: r = 130 (Inner Core Track) -->
         <circle
           cx="1250"
           cy="250"
           r="130"
           fill="none"
           stroke="url(#orbit-grad-1)"
-          stroke-width="1.0"
+          stroke-width="1.1"
           stroke-dasharray="210 50 130 40"
+          opacity="0.20"
+        />
+
+        <!-- Ring 2: r = 200 (Middle Translucent Orbit) -->
+        <circle
+          cx="1250"
+          cy="250"
+          r="200"
+          fill="none"
+          stroke="url(#orbit-grad-2)"
+          stroke-width="1.0"
+          stroke-dasharray="290 70 130 45"
           opacity="0.16"
         />
 
-        <!-- Ring 2: r = 190 (Middle Translucent Orbit) -->
+        <!-- Ring 3: r = 280 (Primary Architectural Track) -->
         <circle
           cx="1250"
           cy="250"
-          r="190"
-          fill="none"
-          stroke="url(#orbit-grad-2)"
-          stroke-width="0.9"
-          stroke-dasharray="280 70 120 45"
-          opacity="0.13"
-        />
-
-        <!-- Ring 3: r = 265 (Primary Architectural Track) -->
-        <circle
-          cx="1250"
-          cy="250"
-          r="265"
+          r="280"
           fill="none"
           stroke="url(#orbit-grad-1)"
-          stroke-width="1.1"
-          stroke-dasharray="390 100 200 70"
-          opacity="0.15"
+          stroke-width="1.2"
+          stroke-dasharray="410 100 220 70"
+          opacity="0.18"
         />
+
+        <!-- Precision Celestial Angle Calibration Ticks along Ring 3 (r=280) -->
+        <!-- Radially placed ticks giving the luxury astronomical dial aesthetic -->
+        <g opacity="0.16" stroke="#635BFF" stroke-width="0.75">
+          <!-- 0 deg -->
+          <line x1="1530" y1="250" x2="1538" y2="250" />
+          <!-- 15 deg -->
+          <line x1="1520" y1="322" x2="1528" y2="324" />
+          <!-- 30 deg -->
+          <line x1="1492" y1="390" x2="1499" y2="394" />
+          <!-- 45 deg -->
+          <line x1="1448" y1="448" x2="1454" y2="454" />
+          <!-- -15 deg -->
+          <line x1="1520" y1="178" x2="1528" y2="176" />
+          <!-- -30 deg -->
+          <line x1="1492" y1="110" x2="1499" y2="106" />
+          <!-- -45 deg -->
+          <line x1="1448" y1="52" x2="1454" y2="46" />
+        </g>
 
         <!-- Slightly Stronger Accent Arc Segment on Ring 3 (Visual Focus) -->
         <path
-          d="M 1030 110 A 265 265 0 0 1 1250 -15"
+          d="M 1015 105 A 280 280 0 0 1 1250 -30"
           fill="none"
           stroke="#635BFF"
-          stroke-width="1.25"
-          opacity="0.17"
+          stroke-width="1.35"
+          opacity="0.22"
         />
 
-        <!-- Ring 4: r = 340 (Outer Atmospheric Ring with Soft Glassy Focus) -->
+        <!-- Ring 4: r = 370 (Outer Orbital Ring with Glassy Focus) -->
         <circle
           cx="1250"
           cy="250"
-          r="340"
+          r="370"
           fill="none"
           stroke="url(#orbit-grad-2)"
-          stroke-width="0.75"
-          stroke-dasharray="500 140 280 90"
-          opacity="0.09"
+          stroke-width="0.85"
+          stroke-dasharray="540 140 300 90"
+          opacity="0.13"
           filter="url(#ring-glass-blur)"
+        />
+
+        <!-- Ring 5: r = 480 (Sweeping Ambient Perimeter Orbit) -->
+        <circle
+          cx="1250"
+          cy="250"
+          r="480"
+          fill="none"
+          stroke="url(#orbit-grad-1)"
+          stroke-width="0.7"
+          stroke-dasharray="400 160 250 120"
+          opacity="0.08"
         />
 
         <!-- Precision Hairline Radial Geometry Rays -->
         <line
           x1="1250"
           y1="250"
-          x2="960"
-          y2="105"
+          x2="940"
+          y2="95"
           stroke="#635BFF"
-          stroke-width="0.6"
+          stroke-width="0.65"
           stroke-dasharray="3 8"
-          opacity="0.07"
+          opacity="0.09"
         />
         <line
           x1="1250"
           y1="250"
-          x2="1010"
-          y2="415"
+          x2="990"
+          y2="425"
           stroke="#7A72FF"
-          stroke-width="0.6"
+          stroke-width="0.65"
           stroke-dasharray="3 7"
-          opacity="0.06"
+          opacity="0.08"
         />
-
-        <!-- Floating Glass Nodes along the Orbital Paths (Layer B/C) -->
-        <!-- Node A: on r=130 path (cx: 1158, cy: 158) - White Glass Node -->
-        <g class="orbital-drifting-node-1">
-          <circle cx="1158" cy="158" r="4" fill="white" stroke="#635BFF" stroke-width="1.2" filter="url(#glass-node-shadow)" opacity="0.9" />
-          <circle cx="1158" cy="158" r="1.2" fill="#635BFF" opacity="0.75" />
-        </g>
-
-        <!-- Node B: on r=130 path (cx: 1355, cy: 326) - Subtle Purple Accent -->
-        <circle cx="1355" cy="326" r="2.5" fill="#635BFF" opacity="0.55" class="orbital-breathe-node" />
-
-        <!-- Node C: on r=190 path (cx: 1075, cy: 176) - White Glass Node -->
-        <g class="orbital-drifting-node-2">
-          <circle cx="1075" cy="176" r="3.5" fill="white" stroke="#7A72FF" stroke-width="1.2" filter="url(#glass-node-shadow)" opacity="0.85" />
-          <circle cx="1075" cy="176" r="1.2" fill="#7A72FF" opacity="0.7" />
-        </g>
-
-        <!-- Node D: on r=190 path (cx: 1250, cy: 440) - Subtle Dot -->
-        <circle cx="1250" cy="440" r="2.5" fill="#635BFF" opacity="0.45" />
-
-        <!-- Node E: on r=265 path (cx: 998, cy: 334) - White Glass Node with Halo -->
-        <g class="orbital-drifting-node-3">
-          <circle cx="998" cy="334" r="6" fill="#635BFF" opacity="0.04" filter="url(#node-halo)" />
-          <circle cx="998" cy="334" r="4" fill="white" stroke="#635BFF" stroke-width="1.2" filter="url(#glass-node-shadow)" opacity="0.9" />
-          <circle cx="998" cy="334" r="1.2" fill="#635BFF" opacity="0.75" />
-        </g>
-
-        <!-- Node F: on r=265 path (cx: 1435, cy: 88) - Subtle Dot -->
-        <circle cx="1435" cy="88" r="2.5" fill="#7A72FF" opacity="0.45" />
-
-        <!-- Node G: on r=340 path (cx: 935, cy: 140) - Glass Node -->
-        <circle cx="935" cy="140" r="3" fill="white" stroke="#635BFF" stroke-width="1.1" filter="url(#glass-node-shadow)" opacity="0.8" />
-
-        <!-- Node H: on r=340 path (cx: 1110, cy: 566) - Subtle Purple Node -->
-        <circle cx="1110" cy="566" r="2.5" fill="#635BFF" opacity="0.5" class="orbital-breathe-node" />
+        <line
+          x1="1250"
+          y1="250"
+          x2="1520"
+          y2="90"
+          stroke="#635BFF"
+          stroke-width="0.65"
+          stroke-dasharray="4 8"
+          opacity="0.08"
+        />
       </g>
 
-      <!-- Counter-Rotating Nested Dashed Orbit (r=190, Slow 48s Reverse Rotation) -->
+      <!-- Counter-Rotating Nested Dashed Orbit (r=200, Slow 48s Reverse Rotation) -->
       <circle
         class="orbital-rotate-ccw"
         cx="1250"
         cy="250"
-        r="190"
+        r="200"
         fill="none"
         stroke="#7A72FF"
-        stroke-width="0.75"
-        stroke-dasharray="3 14"
-        opacity="0.10"
+        stroke-width="0.8"
+        stroke-dasharray="4 14"
+        opacity="0.13"
       />
     </g>
 
     <!-- ============================================================== -->
-    <!-- LAYER C: FRONT (Sparse, Intentional Luxury & Coordinate Details)-->
+    <!-- LAYER C: PROMINENT CONCENTRIC TARGET NODES (ENLARGED)          -->
+    <!-- As specifically requested: concentric circle target nodes with  -->
+    <!-- outer ring (r=11-13), center dot (r=3.2), and radar pulse rings -->
     <!-- ============================================================== -->
 
-    <!-- Tiny 4-Point Star at x=1100, y=140 -->
+    <!-- Target Node 1: Right Upper Orbit (cx: 1158, cy: 158) -->
+    <g class="target-node-item orbital-drifting-node-1" transform="translate(0, 0)">
+      <!-- Faint Radar Aura -->
+      <circle cx="1158" cy="158" r="23" fill="none" stroke="#7A72FF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.24" class="radar-pulse" />
+      <!-- Outer Solid Glass Ring -->
+      <circle cx="1158" cy="158" r="12" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.6" filter="url(#target-node-shadow)" />
+      <!-- Inner Concentric Dot -->
+      <circle cx="1158" cy="158" r="3.2" fill="#635BFF" />
+      <!-- Tiny Measurement Cross-Ticks -->
+      <line x1="1143" y1="158" x2="1140" y2="158" stroke="#635BFF" stroke-width="1" opacity="0.4" />
+      <line x1="1173" y1="158" x2="1176" y2="158" stroke="#635BFF" stroke-width="1" opacity="0.4" />
+    </g>
+
+    <!-- Target Node 2: Right Middle Orbit (cx: 1075, cy: 176) -->
+    <g class="target-node-item orbital-drifting-node-2" transform="translate(0, 0)">
+      <circle cx="1075" cy="176" r="21" fill="none" stroke="#7A72FF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.22" class="radar-pulse" />
+      <circle cx="1075" cy="176" r="11" fill="#FFFFFF" stroke="#7A72FF" stroke-width="1.5" filter="url(#target-node-shadow)" />
+      <circle cx="1075" cy="176" r="3.0" fill="#7A72FF" />
+    </g>
+
+    <!-- Target Node 3: Right Flank Orbit (cx: 998, cy: 334) -->
+    <g class="target-node-item orbital-drifting-node-3" transform="translate(0, 0)">
+      <!-- Soft Ambient Halo behind Node -->
+      <circle cx="998" cy="334" r="18" fill="#635BFF" opacity="0.06" filter="url(#node-halo)" />
+      <circle cx="998" cy="334" r="24" fill="none" stroke="#635BFF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.26" class="radar-pulse" />
+      <circle cx="998" cy="334" r="13" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.7" filter="url(#target-node-shadow)" />
+      <circle cx="998" cy="334" r="3.4" fill="#635BFF" />
+      <line x1="998" y1="318" x2="998" y2="315" stroke="#635BFF" stroke-width="1" opacity="0.4" />
+      <line x1="998" y1="350" x2="998" y2="353" stroke="#635BFF" stroke-width="1" opacity="0.4" />
+    </g>
+
+    <!-- Target Node 4: Upper-Right Outer Apex (cx: 1220, cy: 90) -->
+    <g class="target-node-item hidden sm:block">
+      <circle cx="1220" cy="90" r="20" fill="none" stroke="#7A72FF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.20" class="radar-pulse" />
+      <circle cx="1220" cy="90" r="10.5" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.5" filter="url(#target-node-shadow)" />
+      <circle cx="1220" cy="90" r="2.8" fill="#635BFF" />
+    </g>
+
+    <!-- Target Node 5: Connector Path Left Station (cx: 380, cy: 435) -->
+    <g class="target-node-item hidden sm:block">
+      <circle cx="380" cy="435" r="22" fill="none" stroke="#635BFF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.22" class="radar-pulse" />
+      <circle cx="380" cy="435" r="11.5" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.6" filter="url(#target-node-shadow)" />
+      <circle cx="380" cy="435" r="3.0" fill="#635BFF" />
+    </g>
+
+    <!-- Target Node 6: Connector Path Right Station (cx: 1140, cy: 462) -->
+    <g class="target-node-item hidden sm:block">
+      <circle cx="1140" cy="462" r="22" fill="none" stroke="#7A72FF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.22" class="radar-pulse" />
+      <circle cx="1140" cy="462" r="11.5" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.6" filter="url(#target-node-shadow)" />
+      <circle cx="1140" cy="462" r="3.0" fill="#635BFF" />
+    </g>
+
+    <!-- Target Node 7: Left-Bottom Arc Intersect (cx: 160, cy: 517) -->
+    <g class="target-node-item">
+      <circle cx="160" cy="517" r="16" fill="#635BFF" opacity="0.05" filter="url(#node-halo)" />
+      <circle cx="160" cy="517" r="23" fill="none" stroke="#635BFF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.22" class="radar-pulse" />
+      <circle cx="160" cy="517" r="12" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.6" filter="url(#target-node-shadow)" />
+      <circle cx="160" cy="517" r="3.2" fill="#635BFF" />
+    </g>
+
+    <!-- Target Node 8: Left-Upper Framing Station (cx: 200, cy: 230) -->
+    <g class="target-node-item hidden md:block">
+      <circle cx="200" cy="230" r="21" fill="none" stroke="#7A72FF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.20" class="radar-pulse" />
+      <circle cx="200" cy="230" r="11" fill="#FFFFFF" stroke="#7A72FF" stroke-width="1.5" filter="url(#target-node-shadow)" />
+      <circle cx="200" cy="230" r="2.8" fill="#7A72FF" />
+    </g>
+
+    <!-- Secondary Accent Satellite Nodes (Smaller Accents) -->
+    <circle cx="1355" cy="326" r="4.5" fill="#635BFF" opacity="0.65" class="orbital-breathe-node" />
+    <circle cx="1435" cy="88" r="4" fill="#7A72FF" opacity="0.55" />
+    <circle cx="935" cy="140" r="5" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.2" filter="url(#target-node-shadow)" />
+    <circle cx="935" cy="140" r="1.8" fill="#635BFF" />
+    <circle cx="1110" cy="566" r="4.5" fill="#635BFF" opacity="0.6" class="orbital-breathe-node" />
+    <circle cx="800" cy="580" r="4" fill="#7A72FF" opacity="0.5" class="orbital-breathe-node" />
+
+    <!-- ============================================================== -->
+    <!-- LAYER D: LUXURY DETAIL ACCENTS (Stars, Coordinates, Rulers)    -->
+    <!-- ============================================================== -->
+
+    <!-- Luxury 4-Point Diamond Stars (Prominently Placed & Breathing) -->
+    <!-- Star 1: Upper-Right (x=1100, y=140) -->
     <path
-      d="M 1100 133 Q 1100 140 1093 140 Q 1100 140 1100 147 Q 1100 140 1107 140 Q 1100 140 1100 133 Z"
+      class="luxury-star-pulse"
+      d="M 1100 130 Q 1100 140 1090 140 Q 1100 140 1100 150 Q 1100 140 1110 140 Q 1100 140 1100 130 Z"
       fill="#7A72FF"
-      opacity="0.28"
-      class="hidden sm:block"
+      opacity="0.38"
     />
 
-    <!-- Small Ring at x=180, y=300 -->
+    <!-- Star 2: Lower-Right Flank (x=1290, y=390) -->
+    <path
+      class="luxury-star-pulse hidden sm:block"
+      d="M 1290 382 Q 1290 390 1282 390 Q 1290 390 1290 398 Q 1290 390 1298 390 Q 1290 390 1290 382 Z"
+      fill="#635BFF"
+      opacity="0.32"
+    />
+
+    <!-- Star 3: Upper-Left Flank (x=240, y=150) -->
+    <path
+      class="luxury-star-pulse hidden sm:block"
+      d="M 240 142 Q 240 150 232 150 Q 240 150 240 158 Q 240 150 248 150 Q 240 150 240 142 Z"
+      fill="#7A72FF"
+      opacity="0.32"
+    />
+
+    <!-- Star 4: Far-Right Horizon (x=1390, y=520) -->
+    <path
+      class="luxury-star-pulse hidden md:block"
+      d="M 1390 513 Q 1390 520 1383 520 Q 1390 520 1390 527 Q 1390 520 1397 520 Q 1390 520 1390 513 Z"
+      fill="#635BFF"
+      opacity="0.30"
+    />
+
+    <!-- Concentric Precision Ring at x=180, y=300 -->
     <g class="hidden sm:block">
-      <circle cx="180" cy="300" r="11" fill="none" stroke="#635BFF" stroke-width="0.8" opacity="0.14" />
-      <circle cx="180" cy="300" r="2" fill="#635BFF" opacity="0.18" />
+      <circle cx="180" cy="300" r="16" fill="none" stroke="#635BFF" stroke-width="0.9" opacity="0.18" />
+      <circle cx="180" cy="300" r="8" fill="none" stroke="#7A72FF" stroke-width="0.6" stroke-dasharray="2 3" opacity="0.16" />
+      <circle cx="180" cy="300" r="2.5" fill="#635BFF" opacity="0.25" />
     </g>
 
     <!-- Designer Grid Details: Sparse, Refined, Outside Safe Center -->
     <g class="coordinate-details hidden md:block">
       
-      <!-- Upper Corner Brackets (0.07 Opacity) -->
-      <path d="M 100 86 V 74 H 112" fill="none" stroke="#635BFF" stroke-width="0.85" opacity="0.14" />
-      <path d="M 1328 74 H 1340 V 86" fill="none" stroke="#635BFF" stroke-width="0.85" opacity="0.14" />
+      <!-- Upper Corner Brackets -->
+      <path d="M 90 86 V 72 H 104" fill="none" stroke="#635BFF" stroke-width="1.0" opacity="0.18" />
+      <path d="M 1336 72 H 1350 V 86" fill="none" stroke="#635BFF" stroke-width="1.0" opacity="0.18" />
 
-      <!-- Minimalist Crosshairs (+) (0.07 Opacity) -->
+      <!-- Minimalist Precision Crosshairs (+) -->
       <!-- Top-Left Crosshair (+) -->
-      <path d="M 144 110 H 154 M 149 105 V 115" stroke="#635BFF" stroke-width="0.85" opacity="0.15" />
+      <path d="M 142 110 H 154 M 148 104 V 116" stroke="#635BFF" stroke-width="1.0" opacity="0.20" />
       
       <!-- Top-Right Crosshair (+) -->
-      <path d="M 1374 115 H 1384 M 1379 110 V 120" stroke="#635BFF" stroke-width="0.85" opacity="0.14" />
+      <path d="M 1374 115 H 1386 M 1380 109 V 121" stroke="#635BFF" stroke-width="1.0" opacity="0.20" />
       
       <!-- Bottom-Left Crosshair (+) -->
-      <path d="M 85 620 H 95 M 90 615 V 625" stroke="#635BFF" stroke-width="0.85" opacity="0.16" />
+      <path d="M 82 620 H 94 M 88 614 V 626" stroke="#635BFF" stroke-width="1.0" opacity="0.22" />
       
       <!-- Bottom-Right Crosshair (+) -->
-      <path d="M 1345 675 H 1355 M 1350 670 V 680" stroke="#635BFF" stroke-width="0.85" opacity="0.13" />
+      <path d="M 1344 675 H 1356 M 1350 669 V 681" stroke="#635BFF" stroke-width="1.0" opacity="0.18" />
 
       <!-- Sparse Coordinate Dots (·) -->
-      <circle cx="210" cy="180" r="1.2" fill="#635BFF" opacity="0.18" />
-      <circle cx="120" cy="450" r="1.2" fill="#635BFF" opacity="0.18" />
-      <circle cx="1320" cy="460" r="1.2" fill="#635BFF" opacity="0.18" />
+      <circle cx="210" cy="180" r="1.5" fill="#635BFF" opacity="0.25" />
+      <circle cx="120" cy="450" r="1.5" fill="#635BFF" opacity="0.25" />
+      <circle cx="1320" cy="460" r="1.5" fill="#635BFF" opacity="0.25" />
+      <circle cx="1240" cy="670" r="1.5" fill="#635BFF" opacity="0.22" />
 
       <!-- Below Search Area Subtle Center Tick Mark & Alignment Dots -->
-      <path d="M 715 626 H 725" stroke="#635BFF" stroke-width="0.8" opacity="0.10" />
-      <circle cx="680" cy="626" r="1.2" fill="#635BFF" opacity="0.12" />
-      <circle cx="760" cy="626" r="1.2" fill="#635BFF" opacity="0.12" />
+      <path d="M 714 626 H 726" stroke="#635BFF" stroke-width="0.9" opacity="0.14" />
+      <circle cx="676" cy="626" r="1.4" fill="#635BFF" opacity="0.16" />
+      <circle cx="764" cy="626" r="1.4" fill="#635BFF" opacity="0.16" />
 
       <!-- Far-Right Precision Vertical Measurement Ruler & Coordinate Label -->
-      <g transform="translate(1415, 215)" opacity="0.7">
+      <g transform="translate(1415, 215)" opacity="0.8">
         <path
-          d="M 0 0 H 5 M 0 16 H 2.5 M 0 32 H 2.5 M 0 48 H 2.5 M 0 64 H 5 M 0 80 H 2.5 M 0 96 H 2.5 M 0 112 H 2.5 M 0 128 H 5"
+          d="M 0 0 H 6 M 0 16 H 3 M 0 32 H 3 M 0 48 H 3 M 0 64 H 6 M 0 80 H 3 M 0 96 H 3 M 0 112 H 3 M 0 128 H 6"
           stroke="#111827"
-          stroke-width="0.65"
-          opacity="0.11"
+          stroke-width="0.75"
+          opacity="0.16"
         />
         <text
-          x="11"
+          x="12"
           y="68"
           font-family="ui-monospace, monospace"
-          font-size="7"
+          font-size="7.5"
           fill="#635BFF"
-          opacity="0.22"
-          font-weight="500"
+          opacity="0.32"
+          font-weight="600"
           letter-spacing="0.14em"
-          transform="rotate(90 11 68)"
+          transform="rotate(90 12 68)"
         >
           COORD // 1440.760
         </text>
       </g>
 
       <!-- Far-Left Precision Technical Baseline Ruler & Label -->
-      <g transform="translate(25, 385)" opacity="0.65">
+      <g transform="translate(25, 385)" opacity="0.75">
         <path
-          d="M 0 0 H 5 M 0 16 H 2.5 M 0 32 H 2.5 M 0 48 H 2.5 M 0 64 H 5 M 0 80 H 2.5 M 0 96 H 2.5 M 0 112 H 2.5 M 0 128 H 5"
+          d="M 0 0 H 6 M 0 16 H 3 M 0 32 H 3 M 0 48 H 3 M 0 64 H 6 M 0 80 H 3 M 0 96 H 3 M 0 112 H 3 M 0 128 H 6"
           stroke="#111827"
-          stroke-width="0.65"
-          opacity="0.10"
+          stroke-width="0.75"
+          opacity="0.15"
         />
         <text
-          x="-7"
+          x="-8"
           y="68"
           font-family="ui-monospace, monospace"
-          font-size="7"
+          font-size="7.5"
           fill="#111827"
-          opacity="0.16"
-          font-weight="500"
+          opacity="0.24"
+          font-weight="600"
           letter-spacing="0.14em"
-          transform="rotate(-90 -7 68)"
+          transform="rotate(-90 -8 68)"
         >
           GRID // PROTOCOL
         </text>
@@ -634,6 +835,10 @@
       animation: glow-breathe-ur 18s ease-in-out infinite alternate;
     }
 
+    .ambient-glow-ul {
+      animation: glow-breathe-ul 20s ease-in-out infinite alternate;
+    }
+
     .ambient-glow-left {
       animation: glow-breathe-left 22s ease-in-out infinite alternate;
     }
@@ -647,7 +852,17 @@
       animation: node-soft-breathe 5s ease-in-out infinite alternate;
     }
 
-    /* Slow micro-drifts for floating glass nodes */
+    /* Prominent Concentric Target Nodes Radar Pulse */
+    .radar-pulse {
+      animation: radar-soft-pulse 7s ease-in-out infinite alternate;
+    }
+
+    /* Luxury Star Pulsation */
+    .luxury-star-pulse {
+      animation: star-breathe 6s ease-in-out infinite alternate;
+    }
+
+    /* Slow micro-drifts for floating target nodes */
     .orbital-drifting-node-1 {
       animation: node-micro-drift-1 20s ease-in-out infinite alternate;
     }
@@ -695,6 +910,17 @@
     }
   }
 
+  @keyframes glow-breathe-ul {
+    0% {
+      opacity: 0.7;
+      transform: scale(0.98);
+    }
+    100% {
+      opacity: 0.95;
+      transform: scale(1.02);
+    }
+  }
+
   @keyframes glow-breathe-left {
     0% {
       opacity: 0.7;
@@ -719,11 +945,33 @@
 
   @keyframes node-soft-breathe {
     0% {
-      opacity: 0.35;
+      opacity: 0.4;
       transform: scale(0.95);
     }
     100% {
-      opacity: 0.7;
+      opacity: 0.8;
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes radar-soft-pulse {
+    0% {
+      opacity: 0.15;
+      transform: scale(0.92);
+    }
+    100% {
+      opacity: 0.35;
+      transform: scale(1.08);
+    }
+  }
+
+  @keyframes star-breathe {
+    0% {
+      opacity: 0.22;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 0.45;
       transform: scale(1.1);
     }
   }
@@ -771,16 +1019,17 @@
   @media (max-width: 768px) {
     .blueprint-elements,
     .connector-group,
-    .coordinate-details {
+    .coordinate-details,
+    .orbital-left-upper {
       display: none !important;
     }
     
     .orbital-system-right {
-      opacity: 0.75;
+      opacity: 0.80;
     }
     
     .orbital-left-bottom {
-      opacity: 0.75;
+      opacity: 0.80;
     }
   }
 </style>
