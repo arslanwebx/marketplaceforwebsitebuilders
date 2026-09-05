@@ -48,9 +48,9 @@ export const builders: Builder[] = [
         description: 'Sustainable skincare brand online storefront with bespoke animations and custom product quizzes.',
         category: 'Ecommerce',
         platform: 'Webflow',
-        thumbnail: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=800&auto=format&fit=crop&q=80',
+        thumbnail: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=80',
         images: [
-          'https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=1200&auto=format&fit=crop&q=80'
+          'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&auto=format&fit=crop&q=80'
         ],
         liveUrl: 'https://vervebotanicals.com',
         metrics: 'Featured on Awwwards Nominee',
@@ -411,8 +411,8 @@ export const builders: Builder[] = [
         description: 'Lead-generation powerhouse with instant estimate calculator and automated dispatch CRM integration.',
         category: 'Business Websites',
         platform: 'WordPress',
-        thumbnail: 'https://images.unsplash.com/photo-1541888946425-d0fbb180c5f7?w=800&auto=format&fit=crop&q=80',
-        images: ['https://images.unsplash.com/photo-1541888946425-d0fbb180c5f7?w=1200&auto=format&fit=crop&q=80'],
+        thumbnail: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop&q=80',
+        images: ['https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&auto=format&fit=crop&q=80'],
         metrics: 'Generates $400k in monthly bids',
         completedYear: 2024
       }

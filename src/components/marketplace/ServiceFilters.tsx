@@ -392,6 +392,9 @@ export default function ServiceFilters({
                           src={service.thumbnail}
                           alt={service.title}
                           loading="lazy"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80';
+                          }}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </a>
@@ -417,6 +420,9 @@ export default function ServiceFilters({
                         <img
                           src={service.builder.avatar}
                           alt={service.builder.name}
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80';
+                          }}
                           className="w-6 h-6 rounded-full object-cover"
                         />
                         <span className="text-xs font-semibold text-slate-800 truncate">

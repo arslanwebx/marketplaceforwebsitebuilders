@@ -161,6 +161,9 @@ export default function TalentFilters({ initialBuilders }: TalentFiltersProps) {
                       <img
                         src={builder.avatar}
                         alt={builder.name}
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=240&auto=format&fit=crop&q=80';
+                        }}
                         className="w-13 h-13 rounded-full object-cover border border-slate-200"
                       />
                       {builder.verified && (
@@ -220,7 +223,14 @@ export default function TalentFilters({ initialBuilders }: TalentFiltersProps) {
                   <div className="mt-4 grid grid-cols-2 gap-2">
                     {builder.portfolio.slice(0, 2).map(p => (
                       <div key={p.id} className="aspect-video rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
-                        <img src={p.thumbnail} alt={p.title} className="w-full h-full object-cover" />
+                        <img
+                          src={p.thumbnail}
+                          alt={p.title}
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80';
+                          }}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     ))}
                   </div>

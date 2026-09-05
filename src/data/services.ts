@@ -13,9 +13,9 @@ Every store is hand-coded using modern Shopify Liquid, semantic HTML, and perfor
 I also set up critical e-commerce integrations including Klaviyo email flows, subscription tools (Recharge/Smartrr), customer review widgets, and advanced bundle builders.`,
     category: 'Ecommerce',
     platform: 'Shopify',
-    thumbnail: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=800&auto=format&fit=crop&q=80',
+    thumbnail: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=80',
     galleryImages: [
-      'https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=1200&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&auto=format&fit=crop&q=80',
       'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200&auto=format&fit=crop&q=80',
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80'
     ],
