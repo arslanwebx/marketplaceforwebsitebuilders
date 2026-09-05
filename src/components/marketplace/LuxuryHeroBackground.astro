@@ -2,22 +2,19 @@
 /**
  * LuxuryHeroBackground.astro
  * 
- * "LUXURY ORBITAL WEB ARCHITECTURE" - Enhanced Filled Minimalist Edition
+ * "LUXURY ORBITAL WEB ARCHITECTURE" - Smooth 50% Transparent Edition
  * 
- * Refinements:
- * 1. Enlarged Prominent Concentric Target Nodes:
- *    - Increased size of target circles (r=11-13px outer white circle with #635BFF border + r=3.2px inner dot)
- *    - Secondary concentric radar dashed ring (r=22px) and soft drop shadow
- * 2. More Filled, Balanced Background:
- *    - Architectural perimeter dot matrix grid (masked away from center text zone)
- *    - Extended sweeping concentric orbital rings (r=130, 200, 280, 380, 480)
- *    - Radial angle calibration ticks along celestial orbits
- *    - Balanced upper-left orbital curve system framing the left flank
- *    - Multiple 4-point diamond luxury stars with gentle breathing
- *    - Delicate isometric architectural wireframes along outer perimeters
+ * Refinements based on user feedback:
+ * 1. Smooth Translucent Circles:
+ *    - Removed ALL center dots completely (zero solid dots in the center).
+ *    - Made circles 50% transparent (opacity 0.5, translucent smooth gradient fill).
+ *    - Replaced solid opaque fills with smooth, glassy, hollow dual-ring optics.
+ * 2. Smoother Overall Aesthetic:
+ *    - Concentric smooth ripples with delicate stroke gradients.
+ *    - Secondary hollow satellite rings with 50% opacity and no center dots.
+ *    - Fluid ambient motion with soft breathing and celestial drifts.
  * 3. 100% Preserved Center Safe Zone:
- *    - Eyebrow text, headline, search bar, and CTAs remain in pristine, crystal-clear white/bright space
- * 4. Ultra-smooth restrained ambient motion with prefers-reduced-motion compliance
+ *    - Eyebrow text, headline, search bar, and CTAs remain in pristine, crystal-clear white/bright space.
  */
 ---
 
@@ -53,7 +50,7 @@
     <defs>
       <!-- Architectural Dot Matrix Pattern for Filled Minimalist Background -->
       <pattern id="hero-dot-grid" width="34" height="34" patternUnits="userSpaceOnUse">
-        <circle cx="17" cy="17" r="0.9" fill="#635BFF" opacity="0.12" />
+        <circle cx="17" cy="17" r="0.85" fill="#635BFF" opacity="0.10" />
       </pattern>
 
       <!-- Center Mask: Fades Dot Grid completely away from the Headline and Search Area -->
@@ -72,19 +69,26 @@
         <feGaussianBlur stdDeviation="0.8" />
       </filter>
 
-      <!-- Prominent Drop Shadow for Large Concentric Target Nodes -->
-      <filter id="target-node-shadow" x="-50%" y="-50%" width="200%" height="200%">
-        <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#635BFF" flood-opacity="0.22" />
+      <!-- Smooth Translucent Circle Drop Shadow (50% Soft Spread) -->
+      <filter id="smooth-circle-shadow" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#635BFF" flood-opacity="0.15" />
       </filter>
 
-      <!-- Delicate Node Halo Blur -->
-      <filter id="node-halo" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="5" result="glow" />
+      <!-- Delicate Circle Halo Glow Filter -->
+      <filter id="smooth-circle-halo" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="4" result="glow" />
         <feMerge>
           <feMergeNode in="glow" />
           <feMergeNode in="SourceGraphic" />
         </feMerge>
       </filter>
+
+      <!-- Smooth Radial Translucent Fill (50% Transparency, Not Solid) -->
+      <radialGradient id="smooth-radial-lens" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#635BFF" stop-opacity="0.09" />
+        <stop offset="70%" stop-color="#7A72FF" stop-opacity="0.04" />
+        <stop offset="100%" stop-color="#7A72FF" stop-opacity="0.01" />
+      </radialGradient>
 
       <!-- Upper-Right Translucent Purple Disc Gradient -->
       <radialGradient id="disc-grad-ur" cx="50%" cy="50%" r="50%">
@@ -256,10 +260,10 @@
         />
         <!-- Header Bar -->
         <line x1="0" y1="20" x2="215" y2="20" stroke="#635BFF" stroke-width="0.55" opacity="0.05" />
-        <!-- Header Micro-Dots -->
-        <circle cx="10" cy="10" r="1.3" fill="#635BFF" opacity="0.14" />
-        <circle cx="15" cy="10" r="1.3" fill="#635BFF" opacity="0.14" />
-        <circle cx="20" cy="10" r="1.3" fill="#635BFF" opacity="0.14" />
+        <!-- Header Micro-Dots (Hollow translucent micro-rings) -->
+        <circle cx="10" cy="10" r="1.3" fill="none" stroke="#635BFF" stroke-width="0.6" opacity="0.3" />
+        <circle cx="15" cy="10" r="1.3" fill="none" stroke="#635BFF" stroke-width="0.6" opacity="0.3" />
+        <circle cx="20" cy="10" r="1.3" fill="none" stroke="#635BFF" stroke-width="0.6" opacity="0.3" />
         <!-- 2 Content Columns -->
         <rect
           x="10"
@@ -294,11 +298,8 @@
 
       <!-- Isometric Minimalist Wireframe Cube Accent (Upper Right Flank) -->
       <g transform="translate(1380, 50)" opacity="0.12">
-        <!-- Top Face -->
         <polygon points="0,-18 20,-8 0,2 -20,-8" fill="none" stroke="#635BFF" stroke-width="0.75" />
-        <!-- Left Face -->
         <polygon points="-20,-8 0,2 0,26 -20,16" fill="none" stroke="#635BFF" stroke-width="0.75" />
-        <!-- Right Face -->
         <polygon points="0,2 20,-8 20,16 0,26" fill="none" stroke="#635BFF" stroke-width="0.75" />
       </g>
 
@@ -316,9 +317,9 @@
           opacity="0.055"
         />
         <line x1="0" y1="22" x2="185" y2="22" stroke="#635BFF" stroke-width="0.55" opacity="0.05" />
-        <circle cx="56" cy="11" r="1.3" fill="#635BFF" opacity="0.12" />
-        <circle cx="62" cy="11" r="1.3" fill="#635BFF" opacity="0.12" />
-        <circle cx="68" cy="11" r="1.3" fill="#635BFF" opacity="0.12" />
+        <circle cx="56" cy="11" r="1.3" fill="none" stroke="#635BFF" stroke-width="0.6" opacity="0.3" />
+        <circle cx="62" cy="11" r="1.3" fill="none" stroke="#635BFF" stroke-width="0.6" opacity="0.3" />
+        <circle cx="68" cy="11" r="1.3" fill="none" stroke="#635BFF" stroke-width="0.6" opacity="0.3" />
         <rect x="56" y="34" width="115" height="38" rx="3" fill="none" stroke="#111827" stroke-width="0.5" opacity="0.04" />
         <rect x="56" y="80" width="115" height="38" rx="3" fill="none" stroke="#111827" stroke-width="0.5" opacity="0.035" />
       </g>
@@ -447,7 +448,7 @@
         stroke-dasharray="140 1200"
       />
       
-      <!-- Secondary Faint Echo Connector Arc (Adds richness without clutter) -->
+      <!-- Secondary Faint Echo Connector Arc -->
       <path
         d="M 40 525 C 200 488, 280 458, 380 460 C 530 465, 640 580, 780 595"
         fill="none"
@@ -501,21 +502,13 @@
         />
 
         <!-- Precision Celestial Angle Calibration Ticks along Ring 3 (r=280) -->
-        <!-- Radially placed ticks giving the luxury astronomical dial aesthetic -->
         <g opacity="0.16" stroke="#635BFF" stroke-width="0.75">
-          <!-- 0 deg -->
           <line x1="1530" y1="250" x2="1538" y2="250" />
-          <!-- 15 deg -->
           <line x1="1520" y1="322" x2="1528" y2="324" />
-          <!-- 30 deg -->
           <line x1="1492" y1="390" x2="1499" y2="394" />
-          <!-- 45 deg -->
           <line x1="1448" y1="448" x2="1454" y2="454" />
-          <!-- -15 deg -->
           <line x1="1520" y1="178" x2="1528" y2="176" />
-          <!-- -30 deg -->
           <line x1="1492" y1="110" x2="1499" y2="106" />
-          <!-- -45 deg -->
           <line x1="1448" y1="52" x2="1454" y2="46" />
         </g>
 
@@ -601,85 +594,77 @@
     </g>
 
     <!-- ============================================================== -->
-    <!-- LAYER C: PROMINENT CONCENTRIC TARGET NODES (ENLARGED)          -->
-    <!-- As specifically requested: concentric circle target nodes with  -->
-    <!-- outer ring (r=11-13), center dot (r=3.2), and radar pulse rings -->
+    <!-- LAYER C: SMOOTH 50% TRANSPARENT CIRCLES (NO CENTER DOTS)       -->
+    <!-- Hollow, smooth, glassy dual-ring optics with 50% transparency  -->
     <!-- ============================================================== -->
 
-    <!-- Target Node 1: Right Upper Orbit (cx: 1158, cy: 158) -->
-    <g class="target-node-item orbital-drifting-node-1" transform="translate(0, 0)">
-      <!-- Faint Radar Aura -->
-      <circle cx="1158" cy="158" r="23" fill="none" stroke="#7A72FF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.24" class="radar-pulse" />
-      <!-- Outer Solid Glass Ring -->
-      <circle cx="1158" cy="158" r="12" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.6" filter="url(#target-node-shadow)" />
-      <!-- Inner Concentric Dot -->
-      <circle cx="1158" cy="158" r="3.2" fill="#635BFF" />
-      <!-- Tiny Measurement Cross-Ticks -->
-      <line x1="1143" y1="158" x2="1140" y2="158" stroke="#635BFF" stroke-width="1" opacity="0.4" />
-      <line x1="1173" y1="158" x2="1176" y2="158" stroke="#635BFF" stroke-width="1" opacity="0.4" />
+    <!-- Circle Node 1: Right Upper Orbit (cx: 1158, cy: 158) -->
+    <g class="smooth-circle-node orbital-drifting-node-1" opacity="0.5">
+      <!-- Outer smooth ripple -->
+      <circle cx="1158" cy="158" r="23" fill="none" stroke="#7A72FF" stroke-width="0.75" stroke-dasharray="3 5" opacity="0.4" class="radar-pulse" />
+      <!-- Main smooth translucent circle (50% transparent, no solid fill, no dot) -->
+      <circle cx="1158" cy="158" r="13" fill="url(#smooth-radial-lens)" stroke="#635BFF" stroke-width="1.2" filter="url(#smooth-circle-shadow)" />
+      <!-- Inner smooth concentric ring (hollow, NO DOT) -->
+      <circle cx="1158" cy="158" r="7.5" fill="none" stroke="#7A72FF" stroke-width="0.8" opacity="0.5" />
     </g>
 
-    <!-- Target Node 2: Right Middle Orbit (cx: 1075, cy: 176) -->
-    <g class="target-node-item orbital-drifting-node-2" transform="translate(0, 0)">
-      <circle cx="1075" cy="176" r="21" fill="none" stroke="#7A72FF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.22" class="radar-pulse" />
-      <circle cx="1075" cy="176" r="11" fill="#FFFFFF" stroke="#7A72FF" stroke-width="1.5" filter="url(#target-node-shadow)" />
-      <circle cx="1075" cy="176" r="3.0" fill="#7A72FF" />
+    <!-- Circle Node 2: Right Middle Orbit (cx: 1075, cy: 176) -->
+    <g class="smooth-circle-node orbital-drifting-node-2" opacity="0.5">
+      <circle cx="1075" cy="176" r="21" fill="none" stroke="#7A72FF" stroke-width="0.75" stroke-dasharray="3 5" opacity="0.38" class="radar-pulse" />
+      <circle cx="1075" cy="176" r="12" fill="url(#smooth-radial-lens)" stroke="#7A72FF" stroke-width="1.2" filter="url(#smooth-circle-shadow)" />
+      <circle cx="1075" cy="176" r="6.8" fill="none" stroke="#635BFF" stroke-width="0.8" opacity="0.5" />
     </g>
 
-    <!-- Target Node 3: Right Flank Orbit (cx: 998, cy: 334) -->
-    <g class="target-node-item orbital-drifting-node-3" transform="translate(0, 0)">
-      <!-- Soft Ambient Halo behind Node -->
-      <circle cx="998" cy="334" r="18" fill="#635BFF" opacity="0.06" filter="url(#node-halo)" />
-      <circle cx="998" cy="334" r="24" fill="none" stroke="#635BFF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.26" class="radar-pulse" />
-      <circle cx="998" cy="334" r="13" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.7" filter="url(#target-node-shadow)" />
-      <circle cx="998" cy="334" r="3.4" fill="#635BFF" />
-      <line x1="998" y1="318" x2="998" y2="315" stroke="#635BFF" stroke-width="1" opacity="0.4" />
-      <line x1="998" y1="350" x2="998" y2="353" stroke="#635BFF" stroke-width="1" opacity="0.4" />
+    <!-- Circle Node 3: Right Flank Orbit (cx: 998, cy: 334) -->
+    <g class="smooth-circle-node orbital-drifting-node-3" opacity="0.5">
+      <circle cx="998" cy="334" r="25" fill="none" stroke="#635BFF" stroke-width="0.75" stroke-dasharray="3 6" opacity="0.4" class="radar-pulse" />
+      <circle cx="998" cy="334" r="14" fill="url(#smooth-radial-lens)" stroke="#635BFF" stroke-width="1.3" filter="url(#smooth-circle-shadow)" />
+      <circle cx="998" cy="334" r="8" fill="none" stroke="#7A72FF" stroke-width="0.85" opacity="0.5" />
     </g>
 
-    <!-- Target Node 4: Upper-Right Outer Apex (cx: 1220, cy: 90) -->
-    <g class="target-node-item hidden sm:block">
-      <circle cx="1220" cy="90" r="20" fill="none" stroke="#7A72FF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.20" class="radar-pulse" />
-      <circle cx="1220" cy="90" r="10.5" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.5" filter="url(#target-node-shadow)" />
-      <circle cx="1220" cy="90" r="2.8" fill="#635BFF" />
+    <!-- Circle Node 4: Upper-Right Outer Apex (cx: 1220, cy: 90) -->
+    <g class="smooth-circle-node hidden sm:block" opacity="0.5">
+      <circle cx="1220" cy="90" r="20" fill="none" stroke="#7A72FF" stroke-width="0.7" stroke-dasharray="3 5" opacity="0.35" class="radar-pulse" />
+      <circle cx="1220" cy="90" r="11.5" fill="url(#smooth-radial-lens)" stroke="#635BFF" stroke-width="1.1" filter="url(#smooth-circle-shadow)" />
+      <circle cx="1220" cy="90" r="6.5" fill="none" stroke="#7A72FF" stroke-width="0.75" opacity="0.5" />
     </g>
 
-    <!-- Target Node 5: Connector Path Left Station (cx: 380, cy: 435) -->
-    <g class="target-node-item hidden sm:block">
-      <circle cx="380" cy="435" r="22" fill="none" stroke="#635BFF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.22" class="radar-pulse" />
-      <circle cx="380" cy="435" r="11.5" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.6" filter="url(#target-node-shadow)" />
-      <circle cx="380" cy="435" r="3.0" fill="#635BFF" />
+    <!-- Circle Node 5: Connector Path Left Station (cx: 380, cy: 435) -->
+    <g class="smooth-circle-node hidden sm:block" opacity="0.5">
+      <circle cx="380" cy="435" r="22" fill="none" stroke="#635BFF" stroke-width="0.75" stroke-dasharray="3 5" opacity="0.38" class="radar-pulse" />
+      <circle cx="380" cy="435" r="12.5" fill="url(#smooth-radial-lens)" stroke="#635BFF" stroke-width="1.2" filter="url(#smooth-circle-shadow)" />
+      <circle cx="380" cy="435" r="7" fill="none" stroke="#7A72FF" stroke-width="0.8" opacity="0.5" />
     </g>
 
-    <!-- Target Node 6: Connector Path Right Station (cx: 1140, cy: 462) -->
-    <g class="target-node-item hidden sm:block">
-      <circle cx="1140" cy="462" r="22" fill="none" stroke="#7A72FF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.22" class="radar-pulse" />
-      <circle cx="1140" cy="462" r="11.5" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.6" filter="url(#target-node-shadow)" />
-      <circle cx="1140" cy="462" r="3.0" fill="#635BFF" />
+    <!-- Circle Node 6: Connector Path Right Station (cx: 1140, cy: 462) -->
+    <g class="smooth-circle-node hidden sm:block" opacity="0.5">
+      <circle cx="1140" cy="462" r="22" fill="none" stroke="#7A72FF" stroke-width="0.75" stroke-dasharray="3 5" opacity="0.38" class="radar-pulse" />
+      <circle cx="1140" cy="462" r="12.5" fill="url(#smooth-radial-lens)" stroke="#635BFF" stroke-width="1.2" filter="url(#smooth-circle-shadow)" />
+      <circle cx="1140" cy="462" r="7" fill="none" stroke="#7A72FF" stroke-width="0.8" opacity="0.5" />
     </g>
 
-    <!-- Target Node 7: Left-Bottom Arc Intersect (cx: 160, cy: 517) -->
-    <g class="target-node-item">
-      <circle cx="160" cy="517" r="16" fill="#635BFF" opacity="0.05" filter="url(#node-halo)" />
-      <circle cx="160" cy="517" r="23" fill="none" stroke="#635BFF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.22" class="radar-pulse" />
-      <circle cx="160" cy="517" r="12" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.6" filter="url(#target-node-shadow)" />
-      <circle cx="160" cy="517" r="3.2" fill="#635BFF" />
+    <!-- Circle Node 7: Left-Bottom Arc Intersect (cx: 160, cy: 517) -->
+    <g class="smooth-circle-node" opacity="0.5">
+      <circle cx="160" cy="517" r="23" fill="none" stroke="#635BFF" stroke-width="0.75" stroke-dasharray="3 5" opacity="0.38" class="radar-pulse" />
+      <circle cx="160" cy="517" r="13" fill="url(#smooth-radial-lens)" stroke="#635BFF" stroke-width="1.2" filter="url(#smooth-circle-shadow)" />
+      <circle cx="160" cy="517" r="7.2" fill="none" stroke="#7A72FF" stroke-width="0.8" opacity="0.5" />
     </g>
 
-    <!-- Target Node 8: Left-Upper Framing Station (cx: 200, cy: 230) -->
-    <g class="target-node-item hidden md:block">
-      <circle cx="200" cy="230" r="21" fill="none" stroke="#7A72FF" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.20" class="radar-pulse" />
-      <circle cx="200" cy="230" r="11" fill="#FFFFFF" stroke="#7A72FF" stroke-width="1.5" filter="url(#target-node-shadow)" />
-      <circle cx="200" cy="230" r="2.8" fill="#7A72FF" />
+    <!-- Circle Node 8: Left-Upper Framing Station (cx: 200, cy: 230) -->
+    <g class="smooth-circle-node hidden md:block" opacity="0.5">
+      <circle cx="200" cy="230" r="21" fill="none" stroke="#7A72FF" stroke-width="0.7" stroke-dasharray="3 5" opacity="0.35" class="radar-pulse" />
+      <circle cx="200" cy="230" r="12" fill="url(#smooth-radial-lens)" stroke="#7A72FF" stroke-width="1.2" filter="url(#smooth-circle-shadow)" />
+      <circle cx="200" cy="230" r="6.8" fill="none" stroke="#635BFF" stroke-width="0.75" opacity="0.5" />
     </g>
 
-    <!-- Secondary Accent Satellite Nodes (Smaller Accents) -->
-    <circle cx="1355" cy="326" r="4.5" fill="#635BFF" opacity="0.65" class="orbital-breathe-node" />
-    <circle cx="1435" cy="88" r="4" fill="#7A72FF" opacity="0.55" />
-    <circle cx="935" cy="140" r="5" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.2" filter="url(#target-node-shadow)" />
-    <circle cx="935" cy="140" r="1.8" fill="#635BFF" />
-    <circle cx="1110" cy="566" r="4.5" fill="#635BFF" opacity="0.6" class="orbital-breathe-node" />
-    <circle cx="800" cy="580" r="4" fill="#7A72FF" opacity="0.5" class="orbital-breathe-node" />
+    <!-- Secondary Accent Hollow Satellite Rings (50% Transparent, NO DOTS) -->
+    <g opacity="0.5">
+      <circle cx="1355" cy="326" r="7" fill="url(#smooth-radial-lens)" stroke="#635BFF" stroke-width="1.0" class="orbital-breathe-node" />
+      <circle cx="1435" cy="88" r="6" fill="url(#smooth-radial-lens)" stroke="#7A72FF" stroke-width="0.9" />
+      <circle cx="935" cy="140" r="8" fill="url(#smooth-radial-lens)" stroke="#635BFF" stroke-width="1.0" filter="url(#smooth-circle-shadow)" />
+      <circle cx="1110" cy="566" r="7" fill="url(#smooth-radial-lens)" stroke="#635BFF" stroke-width="1.0" class="orbital-breathe-node" />
+      <circle cx="800" cy="580" r="6" fill="url(#smooth-radial-lens)" stroke="#7A72FF" stroke-width="0.9" class="orbital-breathe-node" />
+    </g>
 
     <!-- ============================================================== -->
     <!-- LAYER D: LUXURY DETAIL ACCENTS (Stars, Coordinates, Rulers)    -->
@@ -718,11 +703,10 @@
       opacity="0.30"
     />
 
-    <!-- Concentric Precision Ring at x=180, y=300 -->
-    <g class="hidden sm:block">
-      <circle cx="180" cy="300" r="16" fill="none" stroke="#635BFF" stroke-width="0.9" opacity="0.18" />
-      <circle cx="180" cy="300" r="8" fill="none" stroke="#7A72FF" stroke-width="0.6" stroke-dasharray="2 3" opacity="0.16" />
-      <circle cx="180" cy="300" r="2.5" fill="#635BFF" opacity="0.25" />
+    <!-- Smooth Concentric Precision Ring at x=180, y=300 (Hollow, NO DOT) -->
+    <g class="hidden sm:block" opacity="0.5">
+      <circle cx="180" cy="300" r="16" fill="none" stroke="#635BFF" stroke-width="0.9" opacity="0.5" />
+      <circle cx="180" cy="300" r="8" fill="none" stroke="#7A72FF" stroke-width="0.65" stroke-dasharray="2 3" opacity="0.45" />
     </g>
 
     <!-- Designer Grid Details: Sparse, Refined, Outside Safe Center -->
@@ -745,16 +729,16 @@
       <!-- Bottom-Right Crosshair (+) -->
       <path d="M 1344 675 H 1356 M 1350 669 V 681" stroke="#635BFF" stroke-width="1.0" opacity="0.18" />
 
-      <!-- Sparse Coordinate Dots (·) -->
-      <circle cx="210" cy="180" r="1.5" fill="#635BFF" opacity="0.25" />
-      <circle cx="120" cy="450" r="1.5" fill="#635BFF" opacity="0.25" />
-      <circle cx="1320" cy="460" r="1.5" fill="#635BFF" opacity="0.25" />
-      <circle cx="1240" cy="670" r="1.5" fill="#635BFF" opacity="0.22" />
+      <!-- Sparse Coordinate Micro-Rings (Hollow, 50% opacity, NO SOLID DOTS) -->
+      <circle cx="210" cy="180" r="2" fill="none" stroke="#635BFF" stroke-width="0.75" opacity="0.5" />
+      <circle cx="120" cy="450" r="2" fill="none" stroke="#635BFF" stroke-width="0.75" opacity="0.5" />
+      <circle cx="1320" cy="460" r="2" fill="none" stroke="#635BFF" stroke-width="0.75" opacity="0.5" />
+      <circle cx="1240" cy="670" r="2" fill="none" stroke="#635BFF" stroke-width="0.75" opacity="0.45" />
 
-      <!-- Below Search Area Subtle Center Tick Mark & Alignment Dots -->
+      <!-- Below Search Area Subtle Center Tick Mark & Hollow Alignment Rings -->
       <path d="M 714 626 H 726" stroke="#635BFF" stroke-width="0.9" opacity="0.14" />
-      <circle cx="676" cy="626" r="1.4" fill="#635BFF" opacity="0.16" />
-      <circle cx="764" cy="626" r="1.4" fill="#635BFF" opacity="0.16" />
+      <circle cx="676" cy="626" r="2" fill="none" stroke="#635BFF" stroke-width="0.75" opacity="0.4" />
+      <circle cx="764" cy="626" r="2" fill="none" stroke="#635BFF" stroke-width="0.75" opacity="0.4" />
 
       <!-- Far-Right Precision Vertical Measurement Ruler & Coordinate Label -->
       <g transform="translate(1415, 215)" opacity="0.8">
@@ -852,9 +836,9 @@
       animation: node-soft-breathe 5s ease-in-out infinite alternate;
     }
 
-    /* Prominent Concentric Target Nodes Radar Pulse */
+    /* Smooth Concentric Rings Radar Pulse */
     .radar-pulse {
-      animation: radar-soft-pulse 7s ease-in-out infinite alternate;
+      animation: radar-soft-pulse 8s ease-in-out infinite alternate;
     }
 
     /* Luxury Star Pulsation */
@@ -862,7 +846,7 @@
       animation: star-breathe 6s ease-in-out infinite alternate;
     }
 
-    /* Slow micro-drifts for floating target nodes */
+    /* Slow micro-drifts for floating smooth circles */
     .orbital-drifting-node-1 {
       animation: node-micro-drift-1 20s ease-in-out infinite alternate;
     }
@@ -945,23 +929,23 @@
 
   @keyframes node-soft-breathe {
     0% {
-      opacity: 0.4;
-      transform: scale(0.95);
+      opacity: 0.35;
+      transform: scale(0.96);
     }
     100% {
-      opacity: 0.8;
-      transform: scale(1.1);
+      opacity: 0.65;
+      transform: scale(1.06);
     }
   }
 
   @keyframes radar-soft-pulse {
     0% {
-      opacity: 0.15;
-      transform: scale(0.92);
+      opacity: 0.2;
+      transform: scale(0.94);
     }
     100% {
-      opacity: 0.35;
-      transform: scale(1.08);
+      opacity: 0.45;
+      transform: scale(1.06);
     }
   }
 
