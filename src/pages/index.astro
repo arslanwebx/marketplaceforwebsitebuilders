@@ -47,437 +47,103 @@ const faqs = [
   description="CraftGrid connects businesses with vetted website builders, Webflow designers, Shopify developers, and web agencies. Transparent pricing, milestone escrow protection, and direct collaboration."
 >
   
-  <!-- HERO SECTION (LUXURY BESPOKE MARKETPLACE) -->
-  <section class="relative bg-page-bg border-b border-border/80 pt-12 pb-16 lg:pt-20 lg:pb-24">
-    
-    <!-- Subtle Architectural Grid Background -->
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,#E4E7EC_1px,transparent_1px),linear-gradient(to_bottom,#E4E7EC_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)] opacity-50 pointer-events-none" />
+  <!-- HERO SECTION (CENTERED LUXURY MARKETPLACE) -->
+  <section class="relative bg-white border-b border-border/80 pt-16 pb-16 lg:pt-24 lg:pb-24">
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <!-- Pure Editorial Kicker -->
+      <p class="text-xs font-bold uppercase tracking-widest text-primary mb-4">
+        Specialized Website Development Marketplace
+      </p>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-center">
+      <!-- Headline: Authoritative Brand Statement -->
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-dark tracking-tight leading-[1.1] max-w-3xl mx-auto">
+        Find the right web expert.<br />
+        <span class="text-primary">Build with confidence.</span>
+      </h1>
+
+      <!-- Supporting Context -->
+      <p class="mt-6 text-base sm:text-lg text-secondary leading-relaxed max-w-2xl mx-auto font-normal">
+        CraftGrid is a specialized marketplace connecting businesses with experienced website builders, designers, and web agencies. Hire with milestone escrow protection, upfront project scopes, and direct collaboration.
+      </p>
+
+      <!-- Centered Precision Search Bar -->
+      <form
+        action="/services"
+        method="GET"
+        class="mt-8 max-w-2xl mx-auto bg-white p-2 rounded-2xl border border-slate-200 shadow-[0_8px_30px_rgba(16,24,40,0.06)] flex flex-col sm:flex-row items-stretch sm:items-center gap-2 transition-all focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/10 text-left"
+      >
+        <div class="relative flex-1 flex items-center">
+          <svg class="w-5 h-5 text-slate-400 absolute left-3.5 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input
+            type="text"
+            name="q"
+            placeholder="Search by skill, CMS, or project type..."
+            class="w-full pl-10 pr-3 py-2.5 text-sm bg-transparent border-0 focus:outline-none focus:ring-0 text-dark placeholder:text-slate-400 font-medium"
+          />
+        </div>
         
-        <!-- Left Hero Column: Clean Editorial Authority -->
-        <div class="lg:col-span-6 space-y-6 text-left">
-          
-          <!-- Pure Editorial Kicker (No Generic Pill, No Pulsing Dot) -->
-          <div>
-            <p class="text-xs font-bold uppercase tracking-widest text-primary">
-              Specialized Website Development Marketplace
-            </p>
-          </div>
+        <div class="hidden sm:block h-7 w-px bg-slate-200 mx-1" />
 
-          <!-- Headline: Authoritative Brand Statement -->
-          <h1 class="text-4xl sm:text-5xl lg:text-[54px] font-black text-dark tracking-tight leading-[1.12]">
-            Find the right web expert.<br />
-            <span class="text-primary">Build with confidence.</span>
-          </h1>
+        <select
+          name="category"
+          class="hidden sm:block text-xs font-semibold text-slate-700 bg-slate-50 border border-slate-200/80 rounded-xl px-3 py-2.5 focus:outline-none cursor-pointer hover:bg-slate-100 transition"
+        >
+          <option value="">All Disciplines</option>
+          <option value="business-websites">Business Websites</option>
+          <option value="ecommerce">Ecommerce Stores</option>
+          <option value="landing-pages">Landing Pages</option>
+          <option value="saas-websites">SaaS Websites</option>
+          <option value="web-applications">Web Applications</option>
+          <option value="website-redesign">Website Redesign</option>
+        </select>
 
-          <!-- Supporting Context -->
-          <p class="text-base sm:text-lg text-secondary leading-relaxed max-w-xl font-normal">
-            CraftGrid is a specialized marketplace connecting businesses with experienced website builders, designers, and web agencies. Hire with milestone escrow protection, upfront project scopes, and direct collaboration.
-          </p>
+        <button
+          type="submit"
+          class="px-6 py-3 bg-primary hover:bg-primary-hover text-white text-sm font-bold rounded-xl shadow-xs transition shrink-0 flex items-center justify-center gap-1.5"
+        >
+          <span>Search Experts</span>
+          <svg class="w-4 h-4 fill-none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+      </form>
 
-          <!-- Precision Search Bar -->
-          <form
-            action="/services"
-            method="GET"
-            class="bg-white p-2 rounded-2xl border border-slate-200/90 shadow-card flex flex-col sm:flex-row items-stretch sm:items-center gap-2 max-w-xl transition-all focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/10"
-          >
-            <div class="relative flex-1 flex items-center">
-              <svg class="w-5 h-5 text-slate-400 absolute left-3.5 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              <input
-                type="text"
-                name="q"
-                placeholder="Search by skill, CMS, or project type..."
-                class="w-full pl-10 pr-3 py-2.5 text-sm bg-transparent border-0 focus:outline-none focus:ring-0 text-dark placeholder:text-slate-400 font-medium"
-              />
-            </div>
-            
-            <div class="hidden sm:block h-7 w-px bg-slate-200 mx-1" />
-
-            <select
-              name="category"
-              class="hidden sm:block text-xs font-semibold text-slate-700 bg-slate-50 border border-slate-200/80 rounded-xl px-3 py-2.5 focus:outline-none cursor-pointer hover:bg-slate-100 transition"
-            >
-              <option value="">All Disciplines</option>
-              <option value="business-websites">Business Websites</option>
-              <option value="ecommerce">Ecommerce Stores</option>
-              <option value="landing-pages">Landing Pages</option>
-              <option value="saas-websites">SaaS Websites</option>
-              <option value="web-applications">Web Applications</option>
-              <option value="website-redesign">Website Redesign</option>
-            </select>
-
-            <button
-              type="submit"
-              class="px-6 py-3 bg-primary hover:bg-primary-hover text-white text-sm font-bold rounded-xl shadow-xs transition shrink-0 flex items-center justify-center gap-1.5"
-            >
-              <span>Search Experts</span>
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </button>
-          </form>
-
-          <!-- Primary Actions -->
-          <div class="flex flex-wrap items-center gap-3 pt-1">
-            <a
-              href="/talent"
-              class="px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm font-bold shadow-xs transition flex items-center gap-2"
-            >
-              <span>Explore Talent Directory</span>
-              <span class="text-xs">→</span>
-            </a>
-            <a
-              href="/post-project"
-              class="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-dark text-sm font-bold shadow-subtle transition"
-            >
-              Post a Project Brief
-            </a>
-          </div>
-
-          <!-- Clean Editorial Tags (No Generic Pill Buttons) -->
-          <div class="pt-1 text-xs text-secondary flex flex-wrap items-center gap-2 leading-relaxed">
-            <span class="font-bold text-dark">Popular:</span>
-            <a href="/services?platform=Shopify" class="text-secondary hover:text-primary transition underline decoration-slate-300 underline-offset-4 font-medium">Shopify Plus</a>
-            <span class="text-slate-300">·</span>
-            <a href="/services?platform=Webflow" class="text-secondary hover:text-primary transition underline decoration-slate-300 underline-offset-4 font-medium">Webflow CMS</a>
-            <span class="text-slate-300">·</span>
-            <a href="/services?platform=WordPress" class="text-secondary hover:text-primary transition underline decoration-slate-300 underline-offset-4 font-medium">Custom WordPress</a>
-            <span class="text-slate-300">·</span>
-            <a href="/services?category=landing-pages" class="text-secondary hover:text-primary transition underline decoration-slate-300 underline-offset-4 font-medium">Framer Landing Pages</a>
-            <span class="text-slate-300">·</span>
-            <a href="/services?platform=Next.js" class="text-secondary hover:text-primary transition underline decoration-slate-300 underline-offset-4 font-medium">Astro & Next.js</a>
-          </div>
-
-        </div>
-
-        <!-- Right Hero Column: Museum-Grade Website Production & Builder Studio Viewport -->
-        <div class="lg:col-span-6 relative">
-          
-          <!-- Subtle Luxury Back-Glow -->
-          <div class="absolute -inset-2 bg-gradient-to-tr from-primary/20 via-indigo-600/10 to-violet-500/20 rounded-[28px] blur-2xl opacity-70 pointer-events-none" />
-
-          <!-- Main Architectural Studio Shell -->
-          <div class="relative bg-[#0B0F19] rounded-2xl border border-slate-800/90 shadow-[0_25px_60px_-15px_rgba(16,24,40,0.3)] overflow-hidden text-slate-100 flex flex-col">
-            
-            <!-- Studio Chrome Top Bar -->
-            <div class="px-4 py-3 bg-[#111726] border-b border-slate-800/90 flex items-center justify-between gap-3">
-              
-              <!-- Window Dots & Title -->
-              <div class="flex items-center gap-2 shrink-0">
-                <div class="flex items-center gap-1.5">
-                  <span class="w-2.5 h-2.5 rounded-full bg-slate-700/80" />
-                  <span class="w-2.5 h-2.5 rounded-full bg-slate-700/80" />
-                  <span class="w-2.5 h-2.5 rounded-full bg-slate-700/80" />
-                </div>
-                <span class="text-[11px] font-mono font-medium text-slate-400 pl-2 hidden sm:inline">STUDIO VIEWPORT</span>
-              </div>
-
-              <!-- Interactive Project Switcher (Clean Luxury Tabs, NO AI Pills) -->
-              <div class="flex items-center gap-1 bg-slate-900/90 p-1 rounded-lg border border-slate-800 text-[11px] font-semibold" id="showcase-nav">
-                <button
-                  type="button"
-                  data-showcase="1"
-                  class="showcase-btn px-2.5 py-1 rounded transition bg-slate-800 text-white font-bold"
-                >
-                  01 Flagship DTC
-                </button>
-                <button
-                  type="button"
-                  data-showcase="2"
-                  class="showcase-btn px-2.5 py-1 rounded transition text-slate-400 hover:text-slate-200"
-                >
-                  02 SaaS Platform
-                </button>
-                <button
-                  type="button"
-                  data-showcase="3"
-                  class="showcase-btn px-2.5 py-1 rounded transition text-slate-400 hover:text-slate-200"
-                >
-                  03 Architecture
-                </button>
-              </div>
-
-              <!-- Live Domain & Speed Metric -->
-              <div class="hidden md:flex items-center gap-1.5 text-[11px] text-slate-400 font-mono">
-                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                <span class="text-slate-300">100</span>
-                <span class="text-slate-500">Lighthouse</span>
-              </div>
-
-            </div>
-
-            <!-- Viewport Stage Area -->
-            <div class="relative min-h-[380px] sm:min-h-[410px] flex flex-col justify-between overflow-hidden">
-              
-              <!-- SHOWCASE 1: Lumina Botanicals (Luxury Ecommerce Flagship) -->
-              <div id="showcase-view-1" class="showcase-view active flex-1 flex flex-col justify-between p-6 sm:p-7 relative transition-opacity duration-300">
-                
-                <!-- Background Ambient Gradient / Luxury Artwork -->
-                <div class="absolute inset-0 bg-gradient-to-br from-emerald-950/30 via-[#0B0F19] to-slate-950 pointer-events-none" />
-                
-                <!-- Virtual Website Mockup Inside -->
-                <div class="relative z-10 space-y-4">
-                  <!-- Mock Browser Navbar -->
-                  <div class="flex items-center justify-between border-b border-white/10 pb-3 text-xs">
-                    <span class="font-serif tracking-widest text-white uppercase font-bold text-sm">LUMINA BOTANICA</span>
-                    <div class="hidden sm:flex items-center gap-4 text-[11px] text-slate-300 font-medium tracking-wide">
-                      <span>RITUALS</span>
-                      <span>COLLECTIONS</span>
-                      <span>EXTRACTION</span>
-                    </div>
-                    <span class="text-[11px] text-emerald-400 font-mono">BAG [01]</span>
-                  </div>
-
-                  <!-- Mock Website Hero Content -->
-                  <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center pt-2">
-                    <div class="sm:col-span-7 space-y-2.5">
-                      <span class="text-[10px] font-mono uppercase tracking-widest text-emerald-400">Cold-Pressed Formulations · Edition 04</span>
-                      <h3 class="text-xl sm:text-2xl font-serif text-white tracking-tight leading-tight">
-                        Botanical cellular restoration for modern living.
-                      </h3>
-                      <p class="text-xs text-slate-300 leading-relaxed max-w-xs">
-                        Custom Headless Shopify Plus store with 3D product visualizer and 0.4s instant checkout.
-                      </p>
-                      <div class="pt-1 flex items-center gap-3">
-                        <span class="text-xs font-mono font-bold text-white bg-white/10 px-2.5 py-1 rounded">$145.00 USD</span>
-                        <span class="text-[11px] text-slate-400">In Stock · Ships Worldwide</span>
-                      </div>
-                    </div>
-
-                    <!-- Product Mock Visual -->
-                    <div class="sm:col-span-5 relative flex justify-center sm:justify-end">
-                      <div class="relative w-36 h-44 rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-gradient-to-b from-slate-800 to-slate-900 group">
-                        <img
-                          src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500&auto=format&fit=crop&q=80"
-                          alt="Lumina Botanical Skincare Product"
-                          class="w-full h-full object-cover opacity-90 transition group-hover:scale-105 duration-500"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2.5">
-                          <span class="text-[10px] font-mono text-emerald-300">Active Formulation</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Floating Architect & Verified Escrow Card -->
-                <div class="relative z-10 mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white/[0.03] p-3.5 rounded-xl border border-white/5">
-                  <div class="flex items-center gap-3">
-                    <img
-                      src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&auto=format&fit=crop&q=80"
-                      alt="Maya Bennett"
-                      class="w-10 h-10 rounded-lg object-cover border border-white/20 shrink-0"
-                    />
-                    <div>
-                      <div class="flex items-center gap-1.5">
-                        <a href="/talent/maya-bennett" class="text-xs font-bold text-white hover:text-primary transition">Maya Bennett</a>
-                        <span class="text-[10px] text-emerald-400 font-bold">✓ Certified</span>
-                      </div>
-                      <p class="text-[11px] text-slate-400">Headless Shopify & Webflow Architect · Austin, TX</p>
-                    </div>
-                  </div>
-
-                  <div class="text-left sm:text-right shrink-0">
-                    <span class="text-xs font-mono font-bold text-white block">$5,800 Milestone Escrow</span>
-                    <span class="text-[10px] text-emerald-400 font-mono">100% Released · Zero Disputes</span>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- SHOWCASE 2: CloudScale AI (Enterprise SaaS Engine) -->
-              <div id="showcase-view-2" class="showcase-view hidden flex-1 flex flex-col justify-between p-6 sm:p-7 relative transition-opacity duration-300">
-                
-                <!-- Background Ambient Gradient -->
-                <div class="absolute inset-0 bg-gradient-to-br from-indigo-950/30 via-[#0B0F19] to-slate-950 pointer-events-none" />
-
-                <!-- Virtual SaaS Website Mockup -->
-                <div class="relative z-10 space-y-4">
-                  <!-- Mock Browser Navbar -->
-                  <div class="flex items-center justify-between border-b border-white/10 pb-3 text-xs">
-                    <span class="font-mono tracking-wider text-white font-bold text-sm flex items-center gap-1.5">
-                      <span class="w-2 h-2 rounded bg-indigo-500 inline-block" /> CLOUDSCALE // AI
-                    </span>
-                    <div class="hidden sm:flex items-center gap-4 text-[11px] text-slate-300 font-mono">
-                      <span>CLUSTER</span>
-                      <span>INFERENCE</span>
-                      <span>LATENCY</span>
-                    </div>
-                    <span class="text-[11px] text-indigo-400 font-mono">STATUS: 99.99%</span>
-                  </div>
-
-                  <!-- Mock SaaS Hero Content -->
-                  <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center pt-2">
-                    <div class="sm:col-span-7 space-y-2.5">
-                      <span class="text-[10px] font-mono uppercase tracking-widest text-indigo-400">Autonomous GPU Mesh Orchestration</span>
-                      <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight leading-tight">
-                        Deploy distributed foundation models at 1.2ms latency.
-                      </h3>
-                      <p class="text-xs text-slate-300 leading-relaxed max-w-xs">
-                        Custom Webflow marketing site with interactive WebGL cluster simulation and dynamic pricing matrix.
-                      </p>
-                      <div class="pt-1 flex items-center gap-3">
-                        <span class="text-xs font-mono font-bold text-white bg-white/10 px-2.5 py-1 rounded">Cluster Live</span>
-                        <span class="text-[11px] text-slate-400">4.2M req/sec processed</span>
-                      </div>
-                    </div>
-
-                    <!-- Telemetry Chart Visual -->
-                    <div class="sm:col-span-5 relative flex justify-center sm:justify-end">
-                      <div class="w-40 rounded-xl p-3 bg-slate-900/90 border border-indigo-500/30 shadow-2xl space-y-2 font-mono text-[10px]">
-                        <div class="flex justify-between text-slate-400">
-                          <span>INFERENCE</span>
-                          <span class="text-indigo-400">0.82ms</span>
-                        </div>
-                        <div class="h-12 flex items-end gap-1 pt-2">
-                          <div class="w-1/6 bg-indigo-500/40 h-4 rounded-t" />
-                          <div class="w-1/6 bg-indigo-500/60 h-7 rounded-t" />
-                          <div class="w-1/6 bg-indigo-500/50 h-5 rounded-t" />
-                          <div class="w-1/6 bg-indigo-500/80 h-10 rounded-t" />
-                          <div class="w-1/6 bg-indigo-500 h-9 rounded-t" />
-                          <div class="w-1/6 bg-indigo-400 h-12 rounded-t" />
-                        </div>
-                        <div class="pt-1 border-t border-slate-800 text-[9px] text-slate-400 flex justify-between">
-                          <span>THROUGHPUT</span>
-                          <span class="text-white font-bold">128 TFLOPS</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Floating Architect & Verified Escrow Card -->
-                <div class="relative z-10 mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white/[0.03] p-3.5 rounded-xl border border-white/5">
-                  <div class="flex items-center gap-3">
-                    <img
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80"
-                      alt="Daniel Brooks"
-                      class="w-10 h-10 rounded-lg object-cover border border-white/20 shrink-0"
-                    />
-                    <div>
-                      <div class="flex items-center gap-1.5">
-                        <a href="/talent/daniel-brooks" class="text-xs font-bold text-white hover:text-primary transition">Daniel Brooks</a>
-                        <span class="text-[10px] text-indigo-400 font-bold">✓ Certified</span>
-                      </div>
-                      <p class="text-[11px] text-slate-400">Full-Stack React & Webflow Specialist · New York, NY</p>
-                    </div>
-                  </div>
-
-                  <div class="text-left sm:text-right shrink-0">
-                    <span class="text-xs font-mono font-bold text-white block">$6,500 Milestone Escrow</span>
-                    <span class="text-[10px] text-indigo-400 font-mono">Phase 2 Delivered · Reviewed</span>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- SHOWCASE 3: Atelier Kōhaku (Luxury Architecture Portfolio) -->
-              <div id="showcase-view-3" class="showcase-view hidden flex-1 flex flex-col justify-between p-6 sm:p-7 relative transition-opacity duration-300">
-                
-                <!-- Background Ambient Gradient -->
-                <div class="absolute inset-0 bg-gradient-to-br from-stone-900/40 via-[#0B0F19] to-slate-950 pointer-events-none" />
-
-                <!-- Virtual Architecture Mockup -->
-                <div class="relative z-10 space-y-4">
-                  <!-- Mock Browser Navbar -->
-                  <div class="flex items-center justify-between border-b border-white/10 pb-3 text-xs">
-                    <span class="font-serif tracking-widest text-white font-bold text-sm uppercase">ATELIER KŌHAKU</span>
-                    <div class="hidden sm:flex items-center gap-4 text-[11px] text-slate-300 font-mono tracking-widest">
-                      <span>MONOLITHS</span>
-                      <span>PAVILIONS</span>
-                      <span>EXHIBITS</span>
-                    </div>
-                    <span class="text-[11px] text-amber-400 font-mono">KYOTO / PARIS</span>
-                  </div>
-
-                  <!-- Mock Architecture Hero Content -->
-                  <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center pt-2">
-                    <div class="sm:col-span-7 space-y-2.5">
-                      <span class="text-[10px] font-mono uppercase tracking-widest text-amber-400">Monolithic Concrete & Sacred Void</span>
-                      <h3 class="text-xl sm:text-2xl font-serif text-white tracking-tight leading-tight">
-                        Spaces sculpted from raw stone, light, and silence.
-                      </h3>
-                      <p class="text-xs text-slate-300 leading-relaxed max-w-xs">
-                        Award-winning Framer CMS portfolio with smooth custom cursor interactions and horizontal gallery reveal.
-                      </p>
-                      <div class="pt-1 flex items-center gap-3">
-                        <span class="text-xs font-mono font-bold text-white bg-white/10 px-2.5 py-1 rounded">Awwwards SOTD</span>
-                        <span class="text-[11px] text-slate-400">Site of the Day Nominee</span>
-                      </div>
-                    </div>
-
-                    <!-- Architecture Photo Mock Visual -->
-                    <div class="sm:col-span-5 relative flex justify-center sm:justify-end">
-                      <div class="relative w-36 h-44 rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900 group">
-                        <img
-                          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&auto=format&fit=crop&q=80"
-                          alt="Atelier Kōhaku Architectural Interior"
-                          class="w-full h-full object-cover grayscale contrast-125 transition group-hover:scale-105 duration-500"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2.5">
-                          <span class="text-[10px] font-mono text-amber-300">Pavilion VII · Kyoto</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Floating Architect & Verified Escrow Card -->
-                <div class="relative z-10 mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white/[0.03] p-3.5 rounded-xl border border-white/5">
-                  <div class="flex items-center gap-3">
-                    <img
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80"
-                      alt="Elena Rostova"
-                      class="w-10 h-10 rounded-lg object-cover border border-white/20 shrink-0"
-                    />
-                    <div>
-                      <div class="flex items-center gap-1.5">
-                        <a href="/talent/elena-rostova" class="text-xs font-bold text-white hover:text-primary transition">Elena Rostova</a>
-                        <span class="text-[10px] text-amber-400 font-bold">✓ Certified</span>
-                      </div>
-                      <p class="text-[11px] text-slate-400">Creative Director & Framer Motion Master · Berlin</p>
-                    </div>
-                  </div>
-
-                  <div class="text-left sm:text-right shrink-0">
-                    <span class="text-xs font-mono font-bold text-white block">$7,200 Milestone Escrow</span>
-                    <span class="text-[10px] text-amber-400 font-mono">100% Released · Completed</span>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-            <!-- Studio Bottom Bar: Controls & Direct Platform Trust Link -->
-            <div class="px-5 py-3 bg-[#0e1422] border-t border-slate-800/90 flex items-center justify-between text-xs">
-              <div class="flex items-center gap-2 text-slate-400">
-                <span class="w-1.5 h-1.5 rounded-sm bg-primary" />
-                <span class="text-[11px] font-medium text-slate-300">Milestone Escrow Custody on All Engagements</span>
-              </div>
-              <a
-                href="/talent"
-                class="text-xs font-bold text-primary hover:text-indigo-300 flex items-center gap-1 transition"
-              >
-                <span>Browse All 350+ Verified Creators</span>
-                <span>→</span>
-              </a>
-            </div>
-
-          </div>
-
-        </div>
-
+      <!-- Primary Action Buttons -->
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <a
+          href="/talent"
+          class="px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm font-bold shadow-xs transition flex items-center gap-2"
+        >
+          <span>Explore Talent Directory</span>
+          <span class="text-xs">→</span>
+        </a>
+        <a
+          href="/post-project"
+          class="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-dark text-sm font-bold shadow-subtle transition"
+        >
+          Post a Project Brief
+        </a>
       </div>
 
-      <!-- MARKETPLACE VERIFIED BENCHMARKS -->
-      <div class="mt-16 pt-10 border-t border-border/80 grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+      <!-- Clean Editorial Tags (Centered) -->
+      <div class="mt-6 text-xs text-secondary flex flex-wrap items-center justify-center gap-2 leading-relaxed">
+        <span class="font-bold text-dark">Popular:</span>
+        <a href="/services?platform=Shopify" class="text-secondary hover:text-primary transition underline decoration-slate-300 underline-offset-4 font-medium">Shopify Plus</a>
+        <span class="text-slate-300">·</span>
+        <a href="/services?platform=Webflow" class="text-secondary hover:text-primary transition underline decoration-slate-300 underline-offset-4 font-medium">Webflow CMS</a>
+        <span class="text-slate-300">·</span>
+        <a href="/services?platform=WordPress" class="text-secondary hover:text-primary transition underline decoration-slate-300 underline-offset-4 font-medium">Custom WordPress</a>
+        <span class="text-slate-300">·</span>
+        <a href="/services?category=landing-pages" class="text-secondary hover:text-primary transition underline decoration-slate-300 underline-offset-4 font-medium">Framer Landing Pages</a>
+        <span class="text-slate-300">·</span>
+        <a href="/services?platform=Next.js" class="text-secondary hover:text-primary transition underline decoration-slate-300 underline-offset-4 font-medium">Astro & Next.js</a>
+      </div>
+
+      <!-- MARKETPLACE VERIFIED BENCHMARKS (CENTERED) -->
+      <div class="mt-16 pt-10 border-t border-border/80 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center max-w-4xl mx-auto">
         <div>
           <span class="text-3xl font-black text-dark tracking-tight block">$3.8M+</span>
           <p class="text-xs font-bold text-dark mt-1">Escrow Disbursed</p>
@@ -501,34 +167,6 @@ const faqs = [
       </div>
 
     </div>
-
-    <!-- Client-Side Showcase View Switching Script -->
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', () => {
-        const buttons = document.querySelectorAll('.showcase-btn');
-        buttons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            buttons.forEach(b => {
-              b.classList.remove('bg-slate-800', 'text-white', 'font-bold');
-              b.classList.add('text-slate-400');
-            });
-            btn.classList.add('bg-slate-800', 'text-white', 'font-bold');
-            btn.classList.remove('text-slate-400');
-
-            const id = btn.getAttribute('data-showcase');
-            document.querySelectorAll('.showcase-view').forEach(view => {
-              view.classList.add('hidden');
-              view.classList.remove('active');
-            });
-            const targetView = document.getElementById('showcase-view-' + id);
-            if (targetView) {
-              targetView.classList.remove('hidden');
-              targetView.classList.add('active');
-            }
-          });
-        });
-      });
-    </script>
   </section>
 
   <!-- POPULAR WEBSITE SERVICES -->
