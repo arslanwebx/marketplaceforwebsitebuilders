@@ -81,7 +81,7 @@ export default function MobileMenu() {
                   onClick={() => setIsOpen(false)}
                 >
                   <span>Messages & Orders</span>
-                  <span className="px-2 py-0.5 text-xs bg-primary text-white rounded-full">Active</span>
+                  <span className="px-2 py-0.5 text-[11px] font-semibold bg-primary text-white rounded-md">Active</span>
                 </a>
                 <a
                   href="/admin"
