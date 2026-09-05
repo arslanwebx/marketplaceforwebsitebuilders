@@ -1,0 +1,42 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CheckoutForm from '@/components/checkout/CheckoutForm';
+import { services } from '@/data/services';
+import type { Service } from '@/types/marketplace';
+
+export async function getStaticPaths() {
+  return services.map(service => ({
+    params: { service: service.slug },
+    props: { service }
+  }));
+}
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+const tierParam = Astro.url.searchParams.get('tier') as 'starter' | 'growth' | 'advanced' | null;
+const initialTier = tierParam || 'growth';
+---
+
+<BaseLayout
+  title={`Checkout: ${service.title} | CraftGrid Escrow`}
+  description="Secure milestone escrow authorization for your website project."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <div class="mb-8">
+      <span class="text-xs font-bold text-primary uppercase tracking-wider">Milestone Escrow Authorization</span>
+      <h1 class="text-2xl sm:text-3xl font-bold text-dark mt-1">Confirm and Fund Project Escrow</h1>
+      <p class="text-xs sm:text-sm text-secondary mt-1">
+        Funds remain safely in escrow until you personally inspect and approve each project milestone.
+      </p>
+    </div>
+
+    <CheckoutForm
+      client:load
+      service={service}
+      initialTier={initialTier}
+    />
+  </div>
+</BaseLayout>

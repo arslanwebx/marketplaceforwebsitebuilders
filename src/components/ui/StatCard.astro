@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  value: string | number;
+  change?: string;
+  changeType?: 'positive' | 'negative' | 'neutral';
+  subtext?: string;
+}
+
+const { title, value, change, changeType = 'positive', subtext } = Astro.props;
+---
+
+<div class="bg-white rounded-2xl border border-border p-5 shadow-card hover:shadow-card-hover transition">
+  <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">{title}</p>
+  <div class="mt-2 flex items-baseline justify-between">
+    <p class="text-2xl font-bold text-dark tracking-tight">{value}</p>
+    {change && (
+      <span class:list={[
+        "text-xs font-semibold px-2 py-0.5 rounded-full",
+        changeType === 'positive' && "text-emerald-700 bg-emerald-50",
+        changeType === 'negative' && "text-rose-700 bg-rose-50",
+        changeType === 'neutral' && "text-slate-600 bg-slate-100"
+      ]}>
+        {change}
+      </span>
+    )}
+  </div>
+  {subtext && <p class="mt-1 text-xs text-secondary">{subtext}</p>}
+</div>

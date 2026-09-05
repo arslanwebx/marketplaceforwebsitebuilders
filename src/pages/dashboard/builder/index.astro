@@ -1,0 +1,131 @@
+---
+import DashboardLayout from '@/layouts/DashboardLayout.astro';
+import StatCard from '@/components/ui/StatCard.astro';
+import EarningsChart from '@/components/dashboard/EarningsChart';
+import { orders } from '@/data/orders';
+import { projects } from '@/data/projects';
+import { formatCurrency } from '@/lib/formatters';
+
+const activeOrders = orders.filter(o => o.builder.name.includes('Maya') || o.status === 'Active');
+const openLeads = projects.slice(0, 3);
+---
+
+<DashboardLayout title="Builder Dashboard" role="builder" activeTab="overview">
+  <div class="space-y-8">
+    
+    <!-- Greeting -->
+    <div>
+      <h2 class="text-2xl font-bold text-dark">Good morning, Maya</h2>
+      <p class="text-xs sm:text-sm text-secondary mt-0.5">
+        Here is your operational summary, upcoming milestone deadlines, and project leads.
+      </p>
+    </div>
+
+    <!-- 4 Stats Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <StatCard
+        title="Active Orders"
+        value="2"
+        change="1 awaiting review"
+        changeType="positive"
+        subtext="Total $9,900 in pipeline"
+      />
+      <StatCard
+        title="Open Proposals"
+        value="3"
+        change="2 shortlisted"
+        changeType="positive"
+        subtext="Under client review"
+      />
+      <StatCard
+        title="This Month Earnings"
+        value={formatCurrency(5130)}
+        change="+18% vs last mo"
+        changeType="positive"
+        subtext="Net builder payouts"
+      />
+      <StatCard
+        title="Profile Views"
+        value="482"
+        change="+24% this week"
+        changeType="positive"
+        subtext="Austin & Global traffic"
+      />
+    </div>
+
+    <!-- Earnings Chart Island -->
+    <EarningsChart client:load />
+
+    <!-- Active Orders Module -->
+    <section class="bg-white rounded-2xl border border-border p-6 shadow-card space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-border">
+        <div>
+          <h3 class="text-base font-bold text-dark">Active Client Orders</h3>
+          <p class="text-xs text-secondary">Milestone deliverables and client review statuses.</p>
+        </div>
+        <a href="/orders/ord_cg_9021" class="text-xs font-bold text-primary hover:underline">
+          Go to Order Workspace →
+        </a>
+      </div>
+
+      <div class="space-y-4">
+        {activeOrders.slice(0, 1).map(order => (
+          <div class="p-4 rounded-xl border border-border bg-slate-50/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="space-y-1">
+              <span class="text-[11px] font-bold text-primary uppercase">{order.orderNumber} · {order.selectedPackageName || 'Custom'}</span>
+              <h4 class="text-sm font-bold text-dark">{order.title}</h4>
+              <p class="text-xs text-secondary">Client: {order.client.name} ({order.client.company}) · Due: {order.dueDate}</p>
+              <div class="pt-1">
+                <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+                  Phase 2: Deliverable Submitted (Awaiting Approval)
+                </span>
+              </div>
+            </div>
+
+            <div class="sm:text-right shrink-0">
+              <span class="text-lg font-bold text-dark block">{formatCurrency(order.totalAmount)}</span>
+              <a
+                href={`/orders/${order.id}`}
+                class="inline-block mt-2 px-4 py-2 bg-primary hover:bg-primary-hover text-white text-xs font-bold rounded-lg transition"
+              >
+                Open Workspace
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Project Leads Opportunity Feed -->
+    <section class="bg-white rounded-2xl border border-border p-6 shadow-card space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-border">
+        <div>
+          <h3 class="text-base font-bold text-dark">Recent Project Opportunities (Webflow & Design)</h3>
+          <p class="text-xs text-secondary">Curated client requests matching your platform expertise.</p>
+        </div>
+        <a href="/projects" class="text-xs font-bold text-primary hover:underline">
+          Browse All Leads →
+        </a>
+      </div>
+
+      <div class="space-y-3">
+        {openLeads.map(lead => (
+          <div class="p-4 rounded-xl border border-border bg-slate-50/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <span class="text-[11px] font-semibold text-primary">{lead.client.company} · {lead.platform}</span>
+              <h4 class="text-sm font-bold text-dark mt-0.5">{lead.title}</h4>
+              <p class="text-xs text-secondary mt-0.5">Budget: {formatCurrency(lead.budget.min)} – {formatCurrency(lead.budget.max)} · {lead.timeline}</p>
+            </div>
+            <a
+              href={`/projects/${lead.slug}`}
+              class="px-4 py-2 bg-white border border-border hover:border-primary text-dark text-xs font-bold rounded-lg transition shrink-0"
+            >
+              Submit Proposal
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+  </div>
+</DashboardLayout>

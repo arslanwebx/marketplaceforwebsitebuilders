@@ -1,0 +1,91 @@
+---
+import DashboardLayout from '@/layouts/DashboardLayout.astro';
+import EarningsChart from '@/components/dashboard/EarningsChart';
+import { transactions } from '@/data/transactions';
+import { formatCurrency } from '@/lib/formatters';
+
+const builderTransactions = transactions.filter(t => t.builderName.includes('Maya') || t.type === 'milestone_released' || t.type === 'payout');
+---
+
+<DashboardLayout title="Earnings & Payouts" role="builder" activeTab="earnings">
+  <div class="space-y-6">
+    <div>
+      <h2 class="text-xl font-bold text-dark">Earnings & Payout Management</h2>
+      <p class="text-xs text-secondary mt-0.5">
+        Detailed breakdown of cleared milestones, pending escrow balances, and Stripe Connect payouts.
+      </p>
+    </div>
+
+    <!-- 3 Balance KPI Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="bg-white rounded-2xl border border-border p-5 shadow-card">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Available for Payout</span>
+        <p class="text-3xl font-black text-dark mt-1">{formatCurrency(3420)}</p>
+        <p class="text-xs text-emerald-600 font-semibold mt-1">Ready for instant Stripe payout</p>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-border p-5 shadow-card">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Pending Milestone Escrow</span>
+        <p class="text-3xl font-black text-slate-700 mt-1">{formatCurrency(3600)}</p>
+        <p class="text-xs text-secondary mt-1">Clears upon client milestone approval</p>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-border p-5 shadow-card">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Lifetime Net Earned</span>
+        <p class="text-3xl font-black text-primary mt-1">{formatCurrency(31530)}</p>
+        <p class="text-xs text-secondary mt-1">Across 18 completed projects</p>
+      </div>
+    </div>
+
+    <!-- Interactive Earnings Chart Island -->
+    <EarningsChart client:load />
+
+    <!-- Transactions Table -->
+    <div class="bg-white rounded-2xl border border-border shadow-card overflow-hidden">
+      <div class="p-5 border-b border-border flex items-center justify-between">
+        <h3 class="text-sm font-bold text-dark">Payout & Settlement History</h3>
+        <span class="text-xs text-secondary">CraftGrid Platform Fee: 5%</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-slate-50 border-b border-border text-slate-500 font-bold uppercase tracking-wider text-[11px]">
+            <tr>
+              <th class="p-4">Date</th>
+              <th class="p-4">Project</th>
+              <th class="p-4">Client</th>
+              <th class="p-4">Gross Amount</th>
+              <th class="p-4">Fee (5%)</th>
+              <th class="p-4">Net Payout</th>
+              <th class="p-4">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            {builderTransactions.map(tx => (
+              <tr class="hover:bg-slate-50/80 transition">
+                <td class="p-4 text-secondary">{tx.date}</td>
+                <td class="p-4">
+                  <span class="font-bold text-dark block">{tx.orderTitle}</span>
+                  <span class="text-secondary text-[11px]">{tx.milestoneTitle}</span>
+                </td>
+                <td class="p-4 font-medium text-slate-800">{tx.clientName}</td>
+                <td class="p-4 font-bold text-dark">{formatCurrency(tx.amount)}</td>
+                <td class="p-4 text-slate-500">-{formatCurrency(tx.fee)}</td>
+                <td class="p-4 font-bold text-emerald-600">{formatCurrency(tx.net)}</td>
+                <td class="p-4">
+                  <span class={`px-2.5 py-0.5 rounded-full font-semibold text-[11px] ${
+                    tx.status === 'Completed'
+                      ? 'bg-emerald-50 text-emerald-700'
+                      : 'bg-soft-primary text-primary'
+                  }`}>
+                    {tx.status}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</DashboardLayout>

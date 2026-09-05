@@ -1,0 +1,110 @@
+---
+import type { Builder } from '@/types/marketplace';
+import RatingStars from '@/components/ui/RatingStars.astro';
+import { formatCurrency } from '@/lib/formatters';
+
+interface Props {
+  builder: Builder;
+}
+
+const { builder } = Astro.props;
+---
+
+<div class="bg-white rounded-xl border border-border p-5 sm:p-6 shadow-card hover:shadow-card-hover transition-all duration-200 flex flex-col justify-between">
+  <div>
+    <!-- Top Row: Avatar, Identity, Verification & Rate -->
+    <div class="flex items-start justify-between gap-4">
+      <div class="flex items-start gap-3.5">
+        <div class="relative">
+          <img
+            src={builder.avatar}
+            alt={builder.name}
+            class="w-14 h-14 rounded-full object-cover border border-border"
+          />
+          {builder.verified && (
+            <span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-white text-primary flex items-center justify-center shadow-xs">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          )}
+        </div>
+
+        <div>
+          <a href={`/talent/${builder.username}`} class="hover:text-primary transition">
+            <h3 class="text-base font-bold text-dark leading-tight">{builder.name}</h3>
+          </a>
+          <p class="text-xs text-primary font-medium mt-0.5">{builder.title}</p>
+          <div class="flex items-center gap-2 text-xs text-secondary mt-1">
+            <span>{builder.location}</span>
+            <span>·</span>
+            <span class="text-emerald-600 font-medium">{builder.availability}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rate -->
+      <div class="text-right shrink-0">
+        <span class="text-lg font-bold text-dark block leading-none">{formatCurrency(builder.hourlyRate)}</span>
+        <span class="text-[11px] text-slate-400 font-normal">/ hour</span>
+      </div>
+    </div>
+
+    <!-- Rating & Stats Bar -->
+    <div class="mt-3.5 flex items-center justify-between py-2 px-3 rounded-lg bg-slate-50 text-xs">
+      <RatingStars rating={builder.rating} reviewsCount={builder.reviewsCount} size="sm" />
+      <span class="text-slate-600 font-medium">{builder.completedProjectsCount} projects completed</span>
+    </div>
+
+    <!-- Bio Snippet -->
+    <p class="mt-3 text-xs text-secondary line-clamp-2 leading-relaxed">
+      {builder.bio}
+    </p>
+
+    <!-- Skills Chips -->
+    <div class="mt-3 flex flex-wrap gap-1.5">
+      {builder.skills.slice(0, 4).map(skill => (
+        <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-medium">
+          {skill}
+        </span>
+      ))}
+      {builder.skills.length > 4 && (
+        <span class="text-[11px] px-1.5 py-0.5 text-slate-400">
+          +{builder.skills.length - 4}
+        </span>
+      )}
+    </div>
+
+    <!-- Portfolio Thumbnails (if available) -->
+    {builder.portfolio && builder.portfolio.length > 0 && (
+      <div class="mt-4 grid grid-cols-3 gap-2">
+        {builder.portfolio.slice(0, 3).map(item => (
+          <div class="aspect-video rounded-lg overflow-hidden bg-slate-100 border border-border">
+            <img
+              src={item.thumbnail}
+              alt={item.title}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="mt-5 pt-4 border-t border-border flex items-center gap-2">
+    <a
+      href={`/talent/${builder.username}`}
+      class="flex-1 text-center py-2 px-3 rounded-lg bg-primary hover:bg-primary-hover text-white text-xs font-semibold shadow-xs transition"
+    >
+      View Profile
+    </a>
+    <a
+      href={`/messages?user=${builder.id}`}
+      class="py-2 px-3 rounded-lg border border-border hover:bg-slate-50 text-slate-700 text-xs font-semibold transition"
+    >
+      Message
+    </a>
+  </div>
+</div>

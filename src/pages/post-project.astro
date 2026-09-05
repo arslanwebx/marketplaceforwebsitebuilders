@@ -1,0 +1,27 @@
+---
+import MarketplaceLayout from '@/layouts/MarketplaceLayout.astro';
+import PostProjectWizard from '@/components/forms/PostProjectWizard';
+---
+
+<MarketplaceLayout
+  title="Post a Website Project Brief | CraftGrid"
+  description="Publish a structured website project brief. Set your pages, platform, budget, and timeline to receive proposals from vetted website builders."
+  breadcrumbs={[
+    { label: 'Marketplace', href: '/' },
+    { label: 'Post a Project' }
+  ]}
+>
+  <div class="space-y-6">
+    <div class="text-center max-w-xl mx-auto space-y-2">
+      <span class="text-xs font-bold text-primary uppercase tracking-wider">Client Project Creator</span>
+      <h1 class="text-2xl sm:text-3xl font-black text-dark tracking-tight">
+        Tell us what you want built
+      </h1>
+      <p class="text-xs sm:text-sm text-secondary">
+        Answer a few quick questions to receive proposals from vetted website builders and agencies.
+      </p>
+    </div>
+
+    <PostProjectWizard client:load />
+  </div>
+</MarketplaceLayout>

@@ -1,0 +1,80 @@
+---
+import DashboardLayout from '@/layouts/DashboardLayout.astro';
+import { formatCurrency } from '@/lib/formatters';
+
+const myProposals = [
+  {
+    id: 'prop_builder_1',
+    projectTitle: 'Shopify redesign for sustainable skincare brand',
+    clientCompany: 'Luminary Brands LLC',
+    clientLocation: 'Austin, TX',
+    proposedPrice: 5500,
+    estimatedDays: 24,
+    submittedDate: 'Sep 4, 2025',
+    status: 'Shortlisted',
+    statusColor: 'bg-emerald-50 text-emerald-700 border-emerald-200'
+  },
+  {
+    id: 'prop_builder_2',
+    projectTitle: 'Webflow marketing site for B2B SaaS analytics startup',
+    clientCompany: 'MetricFlow Systems',
+    clientLocation: 'San Francisco, CA',
+    proposedPrice: 6200,
+    estimatedDays: 28,
+    submittedDate: 'Sep 2, 2025',
+    status: 'Under Review',
+    statusColor: 'bg-soft-primary text-primary border-primary/20'
+  },
+  {
+    id: 'prop_builder_3',
+    projectTitle: 'Bespoke portfolio website for Apex Architectural Studio',
+    clientCompany: 'Apex Architecture',
+    clientLocation: 'Toronto, Canada',
+    proposedPrice: 3800,
+    estimatedDays: 18,
+    submittedDate: 'Aug 20, 2025',
+    status: 'Accepted & Completed',
+    statusColor: 'bg-slate-100 text-slate-700 border-slate-200'
+  }
+];
+---
+
+<DashboardLayout title="Submitted Proposals" role="builder" activeTab="proposals">
+  <div class="space-y-6">
+    <div class="flex items-center justify-between pb-4 border-b border-border">
+      <div>
+        <h2 class="text-xl font-bold text-dark">Submitted Proposals & Bids</h2>
+        <p class="text-xs text-secondary mt-0.5">Track your project proposals, client response statuses, and interview requests.</p>
+      </div>
+      <a
+        href="/projects"
+        class="px-4 py-2 bg-primary hover:bg-primary-hover text-white text-xs font-bold rounded-xl shadow-xs transition"
+      >
+        Browse Open Leads
+      </a>
+    </div>
+
+    <div class="space-y-4">
+      {myProposals.map(prop => (
+        <div class="bg-white rounded-2xl border border-border p-5 sm:p-6 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2">
+              <span class={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${prop.statusColor}`}>
+                {prop.status}
+              </span>
+              <span class="text-xs text-secondary">Submitted on {prop.submittedDate}</span>
+            </div>
+            <h3 class="text-base font-bold text-dark">{prop.projectTitle}</h3>
+            <p class="text-xs text-secondary">Client: {prop.clientCompany} · {prop.clientLocation}</p>
+          </div>
+
+          <div class="sm:text-right shrink-0">
+            <span class="text-xs text-slate-400 block uppercase font-medium">Proposed Amount</span>
+            <span class="text-xl font-black text-dark block">{formatCurrency(prop.proposedPrice)}</span>
+            <span class="text-xs text-secondary">{prop.estimatedDays} days turnaround</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</DashboardLayout>

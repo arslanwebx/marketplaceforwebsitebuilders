@@ -1,0 +1,29 @@
+---
+import MarketplaceLayout from '@/layouts/MarketplaceLayout.astro';
+import ProjectFilters from '@/components/projects/ProjectFilters';
+import { projects } from '@/data/projects';
+---
+
+<MarketplaceLayout
+  title="Website Projects & Client Briefs | CraftGrid"
+  description="Explore active client website project requests. Fixed price and hourly contracts across Webflow, Shopify, WordPress, Framer, and custom development."
+  breadcrumbs={[
+    { label: 'Browse Projects', href: '/projects' },
+    { label: 'Active Opportunities' }
+  ]}
+>
+  <div class="space-y-6">
+    <div class="space-y-1">
+      <span class="text-xs font-bold text-primary uppercase tracking-wider">Opportunity Board</span>
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-dark tracking-tight">
+        Website projects looking for the right builder
+      </h1>
+      <p class="text-xs sm:text-sm text-secondary max-w-2xl">
+        Submit structured proposals on funded client project briefs. Upfront budgets, verified client identities, and milestone escrow terms.
+      </p>
+    </div>
+
+    <!-- Interactive Project Filters Island -->
+    <ProjectFilters client:load initialProjects={projects} />
+  </div>
+</MarketplaceLayout>

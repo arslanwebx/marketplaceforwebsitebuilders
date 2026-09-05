@@ -1,0 +1,38 @@
+---
+import MarketplaceLayout from '@/layouts/MarketplaceLayout.astro';
+import ServiceFilters from '@/components/marketplace/ServiceFilters';
+import { services } from '@/data/services';
+
+const initialCategory = Astro.url.searchParams.get('category') || '';
+const initialPlatform = Astro.url.searchParams.get('platform') || '';
+---
+
+<MarketplaceLayout
+  title="Website Services Marketplace | CraftGrid"
+  description="Browse vetted website design, development, and maintenance services across Shopify, Webflow, WordPress, and Framer. Upfront pricing and milestone escrow."
+  breadcrumbs={[
+    { label: 'Marketplace', href: '/services' },
+    { label: 'All Website Services' }
+  ]}
+>
+  <div class="space-y-6">
+    <!-- Header -->
+    <div class="space-y-1">
+      <span class="text-xs font-bold text-primary uppercase tracking-wider">Marketplace Directory</span>
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-dark tracking-tight">
+        Website services for every stage of your business
+      </h1>
+      <p class="text-xs sm:text-sm text-secondary max-w-2xl">
+        Discover packaged website deliverables with defined scopes, delivery turnaround schedules, and client reviews.
+      </p>
+    </div>
+
+    <!-- Client-side Interactive Filter Island -->
+    <ServiceFilters
+      client:load
+      initialServices={services}
+      initialCategory={initialCategory}
+      initialPlatform={initialPlatform}
+    />
+  </div>
+</MarketplaceLayout>

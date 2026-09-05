@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import NotificationCenter from '@/components/feedback/NotificationCenter';
+import { notifications } from '@/data/notifications';
+---
+
+<BaseLayout
+  title="Notifications | CraftGrid"
+  description="Platform activity alerts, milestone review updates, proposals, and direct messages."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+    <NotificationCenter client:load initialNotifications={notifications} />
+  </div>
+</BaseLayout>

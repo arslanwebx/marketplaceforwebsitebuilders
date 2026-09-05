@@ -1,0 +1,9 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- CraftGrid 2x2 Modular Grid Mark with negative space 'C' -->
+  <rect x="4" y="4" width="14" height="14" rx="4" fill="#635BFF"/>
+  <rect x="22" y="4" width="14" height="14" rx="4" fill="#635BFF"/>
+  <rect x="4" y="22" width="14" height="14" rx="4" fill="#635BFF"/>
+  <rect x="22" y="22" width="14" height="14" rx="4" fill="#8F88FF" fill-opacity="0.85"/>
+  <!-- Subtly rounded inner connector suggesting continuous 'C' counter -->
+  <path d="M18 11H22M11 18V22M18 29H22" stroke="#635BFF" stroke-width="2" stroke-linecap="round"/>
+</svg>

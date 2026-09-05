@@ -1,0 +1,164 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Builder Onboarding | CraftGrid">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      
+      <!-- Form Column -->
+      <div class="lg:col-span-2 bg-white rounded-2xl border border-border p-6 sm:p-8 shadow-card space-y-6">
+        <div>
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">Builder Application</span>
+          <h1 class="text-2xl font-bold text-dark mt-1">Publish your builder profile</h1>
+          <p class="text-xs text-secondary mt-0.5">Showcase your skills to clients looking for verified website professionals.</p>
+        </div>
+
+        <form
+          onsubmit="event.preventDefault(); localStorage.setItem('craftgrid_demo_role', 'builder'); window.location.href = '/dashboard/builder';"
+          class="space-y-4 text-xs"
+        >
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-bold text-dark mb-1.5">Full Name *</label>
+              <input
+                type="text"
+                required
+                value="Maya Bennett"
+                class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+            </div>
+
+            <div>
+              <label class="block font-bold text-dark mb-1.5">Professional Title *</label>
+              <input
+                type="text"
+                required
+                value="Senior Webflow Designer & Developer"
+                class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-bold text-dark mb-1.5">Professional Bio *</label>
+            <textarea
+              rows={3}
+              required
+              class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none focus:ring-1 focus:ring-primary leading-relaxed"
+            >Specialized in conversion-focused Webflow sites for funded startups and B2B businesses. Former senior agency art director with 8+ years building bespoke, award-winning web experiences.</textarea>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block font-bold text-dark mb-1.5">Hourly Rate (USD) *</label>
+              <input
+                type="number"
+                required
+                value="110"
+                class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none font-bold"
+              />
+            </div>
+
+            <div>
+              <label class="block font-bold text-dark mb-1.5">Min Project Budget</label>
+              <input
+                type="number"
+                value="2500"
+                class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none font-bold"
+              />
+            </div>
+
+            <div>
+              <label class="block font-bold text-dark mb-1.5">Availability *</label>
+              <select class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none">
+                <option>Available now</option>
+                <option>1–2 weeks</option>
+                <option>Next month</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-bold text-dark mb-1.5">Primary Platform *</label>
+              <select class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none">
+                <option>Webflow</option>
+                <option>Shopify</option>
+                <option>WordPress</option>
+                <option>Framer</option>
+                <option>Astro</option>
+                <option>Next.js</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block font-bold text-dark mb-1.5">Location *</label>
+              <input
+                type="text"
+                required
+                value="Austin, TX"
+                class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-bold text-dark mb-1.5">Featured Portfolio Live URL</label>
+            <input
+              type="url"
+              value="https://nexus-ai.demo"
+              class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none"
+            />
+          </div>
+
+          <div class="pt-4 border-t border-border flex items-center justify-between">
+            <a href="/signup" class="text-secondary hover:text-dark">Back</a>
+            <button
+              type="submit"
+              class="px-6 py-3 bg-primary hover:bg-primary-hover text-white text-xs font-bold rounded-xl shadow-sm transition"
+            >
+              Save Profile & Launch Dashboard
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Live Profile Preview Card -->
+      <div class="lg:col-span-1 space-y-4 sticky top-24">
+        <div class="bg-white rounded-2xl border border-border p-5 shadow-card space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-border">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Live Preview</span>
+            <span class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+              95% Complete
+            </span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <img
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80"
+              alt="Maya Bennett"
+              class="w-12 h-12 rounded-full object-cover border border-border"
+            />
+            <div>
+              <h4 class="text-sm font-bold text-dark">Maya Bennett</h4>
+              <p class="text-[11px] text-primary font-medium">Senior Webflow Designer & Developer</p>
+              <p class="text-[11px] text-secondary">Austin, TX · $110/hr</p>
+            </div>
+          </div>
+
+          <p class="text-[11px] text-secondary line-clamp-3 leading-relaxed">
+            Specialized in conversion-focused Webflow sites for funded startups and B2B businesses. Former senior agency art director with 8+ years building bespoke, award-winning web experiences.
+          </p>
+
+          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 text-[11px] text-slate-600 space-y-1">
+            <p>✓ Verified Identity Badge</p>
+            <p>✓ Direct Client Messaging</p>
+            <p>✓ Packaged Listing Creation</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

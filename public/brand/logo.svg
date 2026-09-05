@@ -1,0 +1,14 @@
+<svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- CraftGrid 2x2 Modular Grid Mark with negative space 'C' -->
+  <g transform="translate(0, 0)">
+    <rect x="4" y="4" width="14" height="14" rx="4" fill="#635BFF"/>
+    <rect x="22" y="4" width="14" height="14" rx="4" fill="#635BFF"/>
+    <rect x="4" y="22" width="14" height="14" rx="4" fill="#635BFF"/>
+    <rect x="22" y="22" width="14" height="14" rx="4" fill="#8F88FF" fill-opacity="0.85"/>
+    <path d="M18 11H22M11 18V22M18 29H22" stroke="#635BFF" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <!-- Wordmark: CraftGrid -->
+  <text x="48" y="26" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" letter-spacing="-0.03em" fill="#101828">
+    Craft<tspan fill="#635BFF">Grid</tspan>
+  </text>
+</svg>

@@ -1,0 +1,113 @@
+---
+import '@/styles/global.css';
+import Header from '@/components/navigation/Header.astro';
+import Footer from '@/components/navigation/Footer.astro';
+import ToastContainer from '@/components/ui/ToastContainer';
+import { siteConfig } from '@/config/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = `${siteConfig.name} – ${siteConfig.tagline}`,
+  description = siteConfig.description,
+  image = siteConfig.ogImage,
+  canonicalUrl = Astro.url.href,
+  noindex = false
+} = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://craftgrid.test/#organization",
+      "name": siteConfig.name,
+      "url": siteConfig.url,
+      "logo": "https://craftgrid.test/brand/logo.svg",
+      "description": siteConfig.description,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": `${siteConfig.company.address}, ${siteConfig.company.suite}`,
+        "addressLocality": siteConfig.company.city,
+        "addressRegion": siteConfig.company.state,
+        "postalCode": siteConfig.company.postalCode,
+        "addressCountry": "US"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": siteConfig.company.phone,
+        "contactType": "customer support",
+        "email": siteConfig.company.emails.support
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://craftgrid.test/#website",
+      "url": siteConfig.url,
+      "name": siteConfig.name,
+      "description": siteConfig.tagline,
+      "publisher": {
+        "@id": "https://craftgrid.test/#organization"
+      }
+    }
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#635BFF" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:site_name" content={siteConfig.name} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body class="min-h-screen flex flex-col bg-page-bg text-dark antialiased selection:bg-soft-primary selection:text-primary">
+    <Header currentPath={Astro.url.pathname} />
+    
+    <main id="main-content" class="flex-1 w-full">
+      <slot />
+    </main>
+
+    <Footer />
+    <ToastContainer client:idle />
+  </body>
+</html>

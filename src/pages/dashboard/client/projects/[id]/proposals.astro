@@ -1,0 +1,101 @@
+---
+import DashboardLayout from '@/layouts/DashboardLayout.astro';
+import ProposalComparison from '@/components/dashboard/ProposalComparison';
+import { projects } from '@/data/projects';
+import type { Proposal } from '@/types/marketplace';
+
+export async function getStaticPaths() {
+  return projects.map(project => ({
+    params: { id: project.id },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+
+// Mock proposals for this project
+const mockProposals: Proposal[] = [
+  {
+    id: 'prop_01',
+    projectId: project.id,
+    builderId: 'bld_daniel_02',
+    builder: {
+      id: 'bld_daniel_02',
+      name: 'Daniel Brooks',
+      username: 'daniel-brooks',
+      title: 'Shopify Ecommerce Specialist & Architect',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
+      rating: 4.96,
+      reviewsCount: 39,
+      verified: true
+    },
+    proposedPrice: 5500,
+    estimatedDays: 24,
+    coverLetter: 'I specialize specifically in Shopify DTC clean beauty and skincare brands. I have built custom Recharge subscription portals and slide-out carts for 14 brands that scale past 7-figures. Your Figma files look well-structured and ready for theme code.',
+    suggestedMilestones: [
+      { title: 'Theme Architecture & Homepage Sections', amount: 2000, durationDays: 8, deliverable: 'Staging theme preview' },
+      { title: 'AJAX Cart, Upsells & Recharge Setup', amount: 2000, durationDays: 10, deliverable: 'Subscription checkout verification' },
+      { title: 'QA, Speed Audit & Domain Launch', amount: 1500, durationDays: 6, deliverable: 'Live launch & Loom training' }
+    ],
+    submittedAt: '3 hours ago',
+    status: 'pending'
+  },
+  {
+    id: 'prop_02',
+    projectId: project.id,
+    builderId: 'bld_maya_01',
+    builder: {
+      id: 'bld_maya_01',
+      name: 'Maya Bennett',
+      username: 'maya-bennett',
+      title: 'Senior Webflow Designer & Developer',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80',
+      rating: 4.98,
+      reviewsCount: 47,
+      verified: true
+    },
+    proposedPrice: 6200,
+    estimatedDays: 28,
+    coverLetter: 'Hello Olivia! We can build a bespoke storefront that pairs world-class micro-interactions with seamless Shopify backend checkout. Our team guarantees 90+ PageSpeed and flawless mobile conversion UX.',
+    suggestedMilestones: [
+      { title: 'Information Architecture & Wireframes', amount: 2000, durationDays: 7, deliverable: 'Interactive prototype' },
+      { title: 'Full Store Development & CMS', amount: 2500, durationDays: 14, deliverable: 'Staging link' },
+      { title: 'Launch & 30-Day Support Warranty', amount: 1700, durationDays: 7, deliverable: 'Public launch' }
+    ],
+    submittedAt: '5 hours ago',
+    status: 'pending'
+  },
+  {
+    id: 'prop_03',
+    projectId: project.id,
+    builderId: 'bld_lucas_12',
+    builder: {
+      id: 'bld_lucas_12',
+      name: 'Lucas Martin',
+      username: 'lucas-martin',
+      title: 'No-Code Website Specialist & Framer Pro',
+      avatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&auto=format&fit=crop&q=80',
+      rating: 4.90,
+      reviewsCount: 32,
+      verified: true
+    },
+    proposedPrice: 4800,
+    estimatedDays: 20,
+    coverLetter: 'I can deliver a rapid, high-performing theme build within 3 weeks. Available to kick off immediately and work closely with your creative team in Austin.',
+    suggestedMilestones: [
+      { title: 'Phase 1: Setup & Design System', amount: 2400, durationDays: 10, deliverable: 'Design system tokens' },
+      { title: 'Phase 2: Full Build & Handoff', amount: 2400, durationDays: 10, deliverable: 'Live store handoff' }
+    ],
+    submittedAt: '1 day ago',
+    status: 'pending'
+  }
+];
+---
+
+<DashboardLayout title="Proposal Matrix" role="client" activeTab="proposals">
+  <ProposalComparison
+    client:load
+    projectTitle={project.title}
+    initialProposals={mockProposals}
+  />
+</DashboardLayout>

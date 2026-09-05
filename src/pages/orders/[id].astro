@@ -1,0 +1,28 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import OrderWorkspace from '@/components/dashboard/OrderWorkspace';
+import { orders } from '@/data/orders';
+import type { Order } from '@/types/marketplace';
+
+export async function getStaticPaths() {
+  return orders.map(order => ({
+    params: { id: order.id },
+    props: { order }
+  }));
+}
+
+interface Props {
+  order: Order;
+}
+
+const { order } = Astro.props;
+---
+
+<BaseLayout
+  title={`${order.orderNumber}: ${order.title} | Order Workspace`}
+  description={`Production workspace for ${order.title}. Manage milestones, approve deliverables, and communicate.`}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+    <OrderWorkspace client:load initialOrder={order} />
+  </div>
+</BaseLayout>

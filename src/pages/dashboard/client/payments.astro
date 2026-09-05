@@ -1,0 +1,94 @@
+---
+import DashboardLayout from '@/layouts/DashboardLayout.astro';
+import { transactions } from '@/data/transactions';
+import { formatCurrency } from '@/lib/formatters';
+
+const clientTransactions = transactions.filter(t => t.clientName.includes('Olivia') || t.type === 'milestone_funded' || t.type === 'milestone_released');
+---
+
+<DashboardLayout title="Payments & Escrow" role="client" activeTab="payments">
+  <div class="space-y-6">
+    <div>
+      <h2 class="text-xl font-bold text-dark">Payment History & Escrow Invoices</h2>
+      <p class="text-xs text-secondary mt-0.5">
+        Track funded milestones, authorized escrow balances, and downloadable tax receipts.
+      </p>
+    </div>
+
+    <!-- Escrow Balance Overview Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="bg-white rounded-2xl border border-border p-5 shadow-card">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Total Funded in Escrow</span>
+        <p class="text-2xl font-black text-dark mt-1">{formatCurrency(3600)}</p>
+        <p class="text-xs text-secondary mt-1">2 milestones awaiting final review</p>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-border p-5 shadow-card">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Released to Builders</span>
+        <p class="text-2xl font-black text-emerald-600 mt-1">{formatCurrency(1800)}</p>
+        <p class="text-xs text-secondary mt-1">Order #CG-9021 Phase 1 approved</p>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-border p-5 shadow-card">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Saved Payment Method</span>
+        <p class="text-base font-bold text-dark mt-2">Visa ending in 4242</p>
+        <p class="text-xs text-primary font-medium mt-0.5">Auto-funding enabled for milestones</p>
+      </div>
+    </div>
+
+    <!-- Transactions Table -->
+    <div class="bg-white rounded-2xl border border-border shadow-card overflow-hidden">
+      <div class="p-5 border-b border-border flex items-center justify-between">
+        <h3 class="text-sm font-bold text-dark">Transactions & Milestones</h3>
+        <span class="text-xs text-secondary">All currencies in USD</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-slate-50 border-b border-border text-slate-500 font-bold uppercase tracking-wider text-[11px]">
+            <tr>
+              <th class="p-4">Transaction ID</th>
+              <th class="p-4">Date</th>
+              <th class="p-4">Order / Milestone</th>
+              <th class="p-4">Builder</th>
+              <th class="p-4">Amount</th>
+              <th class="p-4">Status</th>
+              <th class="p-4 text-right">Invoice</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            {clientTransactions.map(tx => (
+              <tr class="hover:bg-slate-50/80 transition">
+                <td class="p-4 font-mono font-bold text-slate-700">{tx.id}</td>
+                <td class="p-4 text-secondary">{tx.date}</td>
+                <td class="p-4">
+                  <span class="font-bold text-dark block">{tx.orderTitle}</span>
+                  <span class="text-secondary text-[11px]">{tx.milestoneTitle}</span>
+                </td>
+                <td class="p-4 font-medium text-slate-800">{tx.builderName}</td>
+                <td class="p-4 font-bold text-dark">{formatCurrency(tx.amount)}</td>
+                <td class="p-4">
+                  <span class={`px-2.5 py-0.5 rounded-full font-semibold text-[11px] ${
+                    tx.status === 'Completed'
+                      ? 'bg-emerald-50 text-emerald-700'
+                      : 'bg-soft-primary text-primary'
+                  }`}>
+                    {tx.status}
+                  </span>
+                </td>
+                <td class="p-4 text-right">
+                  <button
+                    onclick="window.dispatchEvent(new CustomEvent('craftgrid_toast', { detail: { message: 'PDF invoice generated.', type: 'info' } }));"
+                    class="text-primary font-bold hover:underline"
+                  >
+                    Download PDF
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</DashboardLayout>

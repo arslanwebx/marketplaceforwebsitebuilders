@@ -1,0 +1,144 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { siteConfig } from '@/config/site';
+
+interface Props {
+  title: string;
+  role?: 'client' | 'builder';
+  activeTab?: string;
+}
+
+const { title, role = 'client', activeTab = 'overview' } = Astro.props;
+
+const clientNavItems = [
+  { id: 'overview', label: 'Overview', href: '/dashboard/client', icon: 'LayoutDashboard' },
+  { id: 'projects', label: 'My Projects', href: '/dashboard/client#projects', icon: 'Briefcase' },
+  { id: 'proposals', label: 'Proposals', href: '/dashboard/client/projects/prj_skincare_01/proposals', icon: 'FileText' },
+  { id: 'orders', label: 'Active Orders', href: '/orders/ord_cg_9021', icon: 'PackageCheck' },
+  { id: 'messages', label: 'Messages', href: '/messages', icon: 'MessageSquare' },
+  { id: 'saved', label: 'Saved Items', href: '/saved', icon: 'Bookmark' },
+  { id: 'payments', label: 'Payments & Escrow', href: '/dashboard/client/payments', icon: 'CreditCard' },
+  { id: 'settings', label: 'Settings', href: '/settings', icon: 'Settings' }
+];
+
+const builderNavItems = [
+  { id: 'overview', label: 'Overview', href: '/dashboard/builder', icon: 'LayoutDashboard' },
+  { id: 'services', label: 'My Services', href: '/dashboard/builder/services', icon: 'Layers' },
+  { id: 'leads', label: 'Project Leads', href: '/projects', icon: 'Compass' },
+  { id: 'proposals', label: 'Proposals', href: '/dashboard/builder/proposals', icon: 'Send' },
+  { id: 'orders', label: 'Orders & Work', href: '/orders/ord_cg_9021', icon: 'PackageCheck' },
+  { id: 'messages', label: 'Messages', href: '/messages', icon: 'MessageSquare' },
+  { id: 'earnings', label: 'Earnings & Payouts', href: '/dashboard/builder/earnings', icon: 'DollarSign' },
+  { id: 'profile', label: 'Public Profile', href: '/talent/maya-bennett', icon: 'User' },
+  { id: 'settings', label: 'Settings', href: '/settings', icon: 'Settings' }
+];
+
+const navItems = role === 'builder' ? builderNavItems : clientNavItems;
+const currentUser = role === 'builder' ? siteConfig.demoAccounts.builder : siteConfig.demoAccounts.client;
+---
+
+<BaseLayout title={`${title} | CraftGrid Dashboard`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+    
+    <!-- Top Welcome Banner & Mode Indicator -->
+    <div class="bg-white rounded-2xl border border-border p-5 mb-8 shadow-card flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <img
+          src={currentUser.avatar}
+          alt={currentUser.name}
+          class="w-14 h-14 rounded-full object-cover border-2 border-primary/20"
+        />
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-xl font-bold text-dark">{currentUser.name}</h1>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-soft-primary text-primary">
+              {role === 'builder' ? 'Verified Builder' : 'Client Account'}
+            </span>
+          </div>
+          <p class="text-xs text-secondary mt-0.5">
+            {role === 'builder' ? 'Senior Webflow Designer & Developer · Austin, TX' : 'Luminary Brands LLC · Head of Growth'}
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a
+          href={role === 'builder' ? '/dashboard/builder/services/new' : '/post-project'}
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary hover:bg-primary-hover text-white text-sm font-medium shadow-sm transition"
+        >
+          <span>{role === 'builder' ? '+ Create New Service' : '+ Post a Project'}</span>
+        </a>
+        <a
+          href={role === 'builder' ? '/dashboard/client' : '/dashboard/builder'}
+          class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg border border-border text-slate-700 hover:bg-slate-50 text-sm font-medium transition"
+          title="Toggle between client and builder dashboard demo"
+        >
+          <span>Switch to {role === 'builder' ? 'Client View' : 'Builder View'}</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Dashboard Grid: Sidebar + Main Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+      
+      <!-- Desktop Sidebar Navigation -->
+      <aside class="hidden lg:block lg:col-span-1 bg-white rounded-2xl border border-border p-3 shadow-card sticky top-24">
+        <div class="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+          {role === 'builder' ? 'Builder Navigation' : 'Client Navigation'}
+        </div>
+        <nav class="space-y-1 mt-1">
+          {navItems.map(item => {
+            const isActive = activeTab === item.id;
+            return (
+              <a
+                href={item.href}
+                class:list={[
+                  "flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition",
+                  isActive
+                    ? "bg-primary text-white shadow-sm"
+                    : "text-slate-700 hover:bg-slate-50 hover:text-dark"
+                ]}
+              >
+                <span>{item.label}</span>
+                {item.id === 'messages' && (
+                  <span class:list={[
+                    "px-2 py-0.5 text-xs rounded-full font-semibold",
+                    isActive ? "bg-white text-primary" : "bg-soft-primary text-primary"
+                  ]}>
+                    2
+                  </span>
+                )}
+              </a>
+            );
+          })}
+        </nav>
+      </aside>
+
+      <!-- Mobile Horizontal Scroll Tabs -->
+      <div class="lg:hidden col-span-1 -mt-4 mb-2 overflow-x-auto pb-2 flex gap-2 no-scrollbar">
+        {navItems.map(item => {
+          const isActive = activeTab === item.id;
+          return (
+            <a
+              href={item.href}
+              class:list={[
+                "whitespace-nowrap px-3.5 py-2 rounded-lg text-xs font-medium border transition",
+                isActive
+                  ? "bg-primary text-white border-primary"
+                  : "bg-white text-slate-700 border-border"
+              ]}
+            >
+              {item.label}
+            </a>
+          );
+        })}
+      </div>
+
+      <!-- Main Dashboard Content Outlet -->
+      <section class="lg:col-span-3 space-y-6">
+        <slot />
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>

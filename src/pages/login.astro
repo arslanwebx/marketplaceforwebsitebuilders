@@ -1,0 +1,75 @@
+---
+import AuthLayout from '@/layouts/AuthLayout.astro';
+---
+
+<AuthLayout
+  title="Log in to CraftGrid"
+  subtitle="Access your active website projects, milestone orders, and messages."
+>
+  <!-- Prototype Fast-Login Buttons -->
+  <div class="space-y-3 pb-4 border-b border-border">
+    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block text-center">
+      Demo Quick Log-in (Prototype Mode)
+    </span>
+    <div class="grid grid-cols-2 gap-2 text-xs">
+      <button
+        type="button"
+        onclick="localStorage.setItem('craftgrid_demo_role', 'client'); window.location.href = '/dashboard/client';"
+        class="py-2.5 px-3 rounded-xl border border-primary/40 bg-soft-primary text-primary font-bold hover:bg-soft-primary/80 transition text-center"
+      >
+        Client (Olivia)
+      </button>
+      <button
+        type="button"
+        onclick="localStorage.setItem('craftgrid_demo_role', 'builder'); window.location.href = '/dashboard/builder';"
+        class="py-2.5 px-3 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-700 font-bold hover:bg-emerald-100 transition text-center"
+      >
+        Builder (Maya)
+      </button>
+    </div>
+  </div>
+
+  <form
+    onsubmit="event.preventDefault(); localStorage.setItem('craftgrid_demo_role', 'client'); window.location.href = '/dashboard/client';"
+    class="space-y-4 pt-2"
+  >
+    <div>
+      <label class="block text-xs font-bold text-dark mb-1.5">Email address</label>
+      <input
+        type="email"
+        required
+        value="olivia@luminarybrands.test"
+        class="w-full p-3 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none focus:ring-1 focus:ring-primary"
+      />
+    </div>
+
+    <div>
+      <div class="flex items-center justify-between mb-1.5">
+        <label class="block text-xs font-bold text-dark">Password</label>
+        <a href="/forgot-password" class="text-xs text-primary font-semibold hover:underline">
+          Forgot password?
+        </a>
+      </div>
+      <input
+        type="password"
+        required
+        value="••••••••••••"
+        class="w-full p-3 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none focus:ring-1 focus:ring-primary"
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="w-full py-3 bg-primary hover:bg-primary-hover text-white rounded-xl text-sm font-bold shadow-sm transition mt-2"
+    >
+      Log in
+    </button>
+  </form>
+
+  <div class="text-center pt-2 text-xs text-secondary">
+    Don't have an account?{' '}
+    <a href="/signup" class="text-primary font-bold hover:underline">
+      Sign up on CraftGrid
+    </a>
+  </div>
+</AuthLayout>

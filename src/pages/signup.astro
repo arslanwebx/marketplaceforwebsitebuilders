@@ -1,0 +1,57 @@
+---
+import AuthLayout from '@/layouts/AuthLayout.astro';
+---
+
+<AuthLayout
+  title="Join CraftGrid"
+  subtitle="Select how you plan to use the platform to customize your experience."
+>
+  <div class="space-y-4">
+    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 text-center">
+      How will you use CraftGrid?
+    </label>
+
+    <div class="space-y-3">
+      <!-- Option 1: Client -->
+      <a
+        href="/onboarding/client"
+        onclick="localStorage.setItem('craftgrid_demo_role', 'client');"
+        class="group p-5 rounded-2xl border-2 border-border hover:border-primary hover:bg-soft-primary/20 transition flex items-start gap-4 block"
+      >
+        <div class="w-10 h-10 rounded-xl bg-soft-primary text-primary flex items-center justify-center font-bold text-lg shrink-0 group-hover:scale-105 transition-transform">
+          💼
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-dark group-hover:text-primary transition">I want to hire</h3>
+          <p class="text-xs text-secondary mt-0.5 leading-relaxed">
+            I need a website designed, built, or maintained for my company or product.
+          </p>
+        </div>
+      </a>
+
+      <!-- Option 2: Builder -->
+      <a
+        href="/onboarding/builder"
+        onclick="localStorage.setItem('craftgrid_demo_role', 'builder');"
+        class="group p-5 rounded-2xl border-2 border-border hover:border-emerald-500 hover:bg-emerald-50/30 transition flex items-start gap-4 block"
+      >
+        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg shrink-0 group-hover:scale-105 transition-transform">
+          ⚡
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-dark group-hover:text-emerald-700 transition">I want to build websites</h3>
+          <p class="text-xs text-secondary mt-0.5 leading-relaxed">
+            I am a designer, developer, or web agency looking to sell services and win client projects.
+          </p>
+        </div>
+      </a>
+    </div>
+
+    <div class="text-center pt-4 text-xs text-secondary">
+      Already have an account?{' '}
+      <a href="/login" class="text-primary font-bold hover:underline">
+        Log in instead
+      </a>
+    </div>
+  </div>
+</AuthLayout>

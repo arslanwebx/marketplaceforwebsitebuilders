@@ -1,0 +1,29 @@
+---
+import MarketplaceLayout from '@/layouts/MarketplaceLayout.astro';
+import TalentFilters from '@/components/talent/TalentFilters';
+import { builders } from '@/data/builders';
+---
+
+<MarketplaceLayout
+  title="Find Website Builders, Designers & Agencies | CraftGrid"
+  description="Discover top-rated website builders specializing in Webflow, Shopify, WordPress, Framer, and custom web development. Hire by hourly rate or custom proposal."
+  breadcrumbs={[
+    { label: 'Talent Directory', href: '/talent' },
+    { label: 'Website Professionals' }
+  ]}
+>
+  <div class="space-y-6">
+    <div class="space-y-1">
+      <span class="text-xs font-bold text-primary uppercase tracking-wider">Expert Directory</span>
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-dark tracking-tight">
+        Hire vetted website specialists
+      </h1>
+      <p class="text-xs sm:text-sm text-secondary max-w-2xl">
+        Connect with dedicated professionals and boutique agencies. Transparent hourly rates, live portfolio showcases, and verified client ratings.
+      </p>
+    </div>
+
+    <!-- Talent Filtering & Directory Grid -->
+    <TalentFilters client:load initialBuilders={builders} />
+  </div>
+</MarketplaceLayout>

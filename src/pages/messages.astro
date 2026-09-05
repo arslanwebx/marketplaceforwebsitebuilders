@@ -1,0 +1,19 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import MessagingApp from '@/components/messaging/MessagingApp';
+import { conversations } from '@/data/conversations';
+---
+
+<BaseLayout
+  title="Messages & Project Workspace | CraftGrid"
+  description="Communicate directly with your website builder or client. Exchange project deliverables, review feedback, and coordinate milestone handoffs."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="mb-4">
+      <h1 class="text-2xl font-bold text-dark">Marketplace Messages</h1>
+      <p class="text-xs text-secondary mt-0.5">Secure, transparent project communication between clients and builders.</p>
+    </div>
+
+    <MessagingApp client:load initialConversations={conversations} />
+  </div>
+</BaseLayout>

@@ -1,0 +1,91 @@
+---
+import DashboardLayout from '@/layouts/DashboardLayout.astro';
+import { services } from '@/data/services';
+import type { Service } from '@/types/marketplace';
+
+export async function getStaticPaths() {
+  return services.map(service => ({
+    params: { id: service.id },
+    props: { service }
+  }));
+}
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+---
+
+<DashboardLayout title={`Edit Service: ${service.title}`} role="builder" activeTab="services">
+  <div class="max-w-3xl space-y-6">
+    <div class="flex items-center justify-between pb-4 border-b border-border">
+      <div>
+        <span class="text-xs font-bold text-primary uppercase tracking-wider">Edit Listing</span>
+        <h1 class="text-xl font-bold text-dark mt-0.5">{service.title}</h1>
+        <p class="text-xs text-secondary mt-0.5">Update scope, pricing packages, and requirements.</p>
+      </div>
+      <a href="/dashboard/builder/services" class="text-xs text-secondary hover:text-dark">
+        ← Back to Services
+      </a>
+    </div>
+
+    <form
+      onsubmit="event.preventDefault(); alert('Changes saved successfully!'); window.location.href = '/dashboard/builder/services';"
+      class="space-y-6"
+    >
+      <div class="bg-white rounded-2xl border border-border p-6 shadow-card space-y-4 text-xs">
+        <div>
+          <label class="block font-bold text-dark mb-1.5">Service Listing Title</label>
+          <input
+            type="text"
+            required
+            value={service.title}
+            class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none focus:ring-1 focus:ring-primary"
+          />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-bold text-dark mb-1.5">Platform</label>
+            <input
+              type="text"
+              readonly
+              value={service.platform}
+              class="w-full p-2.5 text-sm bg-slate-100 border border-border rounded-xl text-slate-500 cursor-not-allowed"
+            />
+          </div>
+
+          <div>
+            <label class="block font-bold text-dark mb-1.5">Starting Price (USD)</label>
+            <input
+              type="number"
+              value={service.startingPrice}
+              class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none font-bold"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-dark mb-1.5">Description</label>
+          <textarea
+            rows={5}
+            class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none leading-relaxed"
+          >{service.fullDescription}</textarea>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end gap-3 pt-2">
+        <a href="/dashboard/builder/services" class="px-5 py-2.5 border border-border hover:bg-slate-50 text-slate-700 text-xs font-bold rounded-xl transition">
+          Cancel
+        </a>
+        <button
+          type="submit"
+          class="px-7 py-3 bg-primary hover:bg-primary-hover text-white text-xs font-bold rounded-xl shadow-sm transition"
+        >
+          Save Changes
+        </button>
+      </div>
+    </form>
+  </div>
+</DashboardLayout>

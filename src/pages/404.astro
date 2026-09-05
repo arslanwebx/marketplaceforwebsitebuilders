@@ -1,0 +1,44 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found (404) | CraftGrid"
+  description="The requested page or listing could not be found."
+  noindex={true}
+>
+  <div class="min-h-[60vh] flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 text-center">
+    <div class="max-w-md space-y-6">
+      
+      <!-- Brand icon badge -->
+      <div class="w-16 h-16 rounded-2xl bg-soft-primary text-primary mx-auto flex items-center justify-center font-bold text-2xl shadow-subtle">
+        404
+      </div>
+
+      <div class="space-y-2">
+        <h1 class="text-2xl sm:text-3xl font-black text-dark tracking-tight">
+          Looks like this project went off brief.
+        </h1>
+        <p class="text-xs sm:text-sm text-secondary leading-relaxed">
+          The page or listing you are looking for has been moved, renamed, or is no longer available on CraftGrid.
+        </p>
+      </div>
+
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a
+          href="/services"
+          class="w-full sm:w-auto px-6 py-2.5 bg-primary hover:bg-primary-hover text-white text-xs font-bold rounded-xl shadow-xs transition"
+        >
+          Browse Website Services
+        </a>
+        <a
+          href="/"
+          class="w-full sm:w-auto px-6 py-2.5 bg-white border border-border hover:bg-slate-50 text-slate-700 text-xs font-bold rounded-xl transition"
+        >
+          Return to Homepage
+        </a>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

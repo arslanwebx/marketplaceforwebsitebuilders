@@ -1,0 +1,143 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { siteConfig } from '@/config/site';
+---
+
+<BaseLayout
+  title="Contact Support | CraftGrid"
+  description="Contact CraftGrid customer support for assistance with website projects, milestone escrow, or builder verification."
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-12">
+    
+    <div class="text-center max-w-xl mx-auto space-y-2">
+      <span class="text-xs font-bold text-primary uppercase tracking-wider">Get in Touch</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-dark tracking-tight">Contact CraftGrid Support</h1>
+      <p class="text-xs sm:text-sm text-secondary">
+        Have questions about an active order, dispute, or builder verification? We are here to help.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      
+      <!-- Left: Support Inquiry Form -->
+      <div class="lg:col-span-7 bg-white rounded-2xl border border-border p-6 sm:p-8 shadow-card">
+        <form
+          onsubmit="event.preventDefault(); window.dispatchEvent(new CustomEvent('craftgrid_toast', { detail: { message: 'Support ticket submitted! Ticket #TK-8419 opened.', type: 'success' } }));"
+          class="space-y-4 text-xs"
+        >
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-bold text-dark mb-1.5">Your Name *</label>
+              <input
+                type="text"
+                required
+                value="Olivia Vance"
+                class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+            </div>
+            <div>
+              <label class="block font-bold text-dark mb-1.5">Email Address *</label>
+              <input
+                type="email"
+                required
+                value="olivia@luminarybrands.test"
+                class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-bold text-dark mb-1.5">Department / Inquiry Type *</label>
+              <select class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none">
+                <option>Active Order & Escrow Assistance</option>
+                <option>Builder Verification Application</option>
+                <option>Billing & Milestone Payouts</option>
+                <option>Report a Listing / Trust & Safety</option>
+                <option>General Inquiries</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-bold text-dark mb-1.5">Order Number (If applicable)</label>
+              <input
+                type="text"
+                placeholder="e.g. CG-9021"
+                class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-bold text-dark mb-1.5">Subject *</label>
+            <input
+              type="text"
+              required
+              placeholder="Brief summary of your inquiry..."
+              class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none"
+            />
+          </div>
+
+          <div>
+            <label class="block font-bold text-dark mb-1.5">Message Details *</label>
+            <textarea
+              rows={5}
+              required
+              placeholder="Describe your issue or question in detail..."
+              class="w-full p-2.5 text-sm bg-slate-50 border border-border rounded-xl focus:bg-white focus:outline-none leading-relaxed"
+            />
+          </div>
+
+          <div class="pt-2">
+            <button
+              type="submit"
+              class="w-full sm:w-auto px-8 py-3 bg-primary hover:bg-primary-hover text-white text-xs font-bold rounded-xl shadow-xs transition"
+            >
+              Submit Support Inquiry
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right: Company Info & Office Address -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="bg-white rounded-2xl border border-border p-6 shadow-card space-y-4 text-xs">
+          <h3 class="text-base font-bold text-dark border-b border-border pb-3">
+            Company Headquarters
+          </h3>
+          
+          <div class="space-y-3 text-secondary">
+            <div>
+              <span class="font-bold text-dark block">Austin Office (HQ)</span>
+              <p>{siteConfig.company.address}, {siteConfig.company.suite}</p>
+              <p>{siteConfig.company.city}, {siteConfig.company.state} {siteConfig.company.postalCode}, {siteConfig.company.country}</p>
+            </div>
+
+            <div class="pt-2 border-t border-slate-100">
+              <span class="font-bold text-dark block">Telephone Support</span>
+              <p>{siteConfig.company.phone}</p>
+              <p class="text-[11px] text-slate-400">Available during operating hours</p>
+            </div>
+
+            <div class="pt-2 border-t border-slate-100">
+              <span class="font-bold text-dark block">Direct Email Channels</span>
+              <p>General: <a href={`mailto:${siteConfig.company.emails.general}`} class="text-primary hover:underline">{siteConfig.company.emails.general}</a></p>
+              <p>Support: <a href={`mailto:${siteConfig.company.emails.support}`} class="text-primary hover:underline">{siteConfig.company.emails.support}</a></p>
+              <p>Disputes: <a href={`mailto:${siteConfig.company.emails.disputes}`} class="text-primary hover:underline">{siteConfig.company.emails.disputes}</a></p>
+            </div>
+
+            <div class="pt-2 border-t border-slate-100">
+              <span class="font-bold text-dark block">Support Operating Hours</span>
+              <p>{siteConfig.company.hours}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-50 border border-border text-[11px] text-slate-400 leading-relaxed">
+          // Fictional demo company information. Replace before production launch.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</BaseLayout>

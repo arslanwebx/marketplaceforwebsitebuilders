@@ -1,0 +1,28 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SavedItemsManager from '@/components/feedback/SavedItemsManager';
+import { services } from '@/data/services';
+import { builders } from '@/data/builders';
+import { projects } from '@/data/projects';
+---
+
+<BaseLayout
+  title="Saved Items | CraftGrid"
+  description="Your shortlisted website services, preferred website builders, and saved client project briefs."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10 space-y-6">
+    <div>
+      <h1 class="text-2xl sm:text-3xl font-bold text-dark">Saved Items & Shortlist</h1>
+      <p class="text-xs sm:text-sm text-secondary mt-0.5">
+        Manage your bookmarked website services, builder profiles, and project opportunities.
+      </p>
+    </div>
+
+    <SavedItemsManager
+      client:load
+      allServices={services}
+      allBuilders={builders}
+      allProjects={projects}
+    />
+  </div>
+</BaseLayout>

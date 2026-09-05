@@ -1,0 +1,175 @@
+---
+import DashboardLayout from '@/layouts/DashboardLayout.astro';
+import StatCard from '@/components/ui/StatCard.astro';
+import { orders } from '@/data/orders';
+import { builders } from '@/data/builders';
+import { formatCurrency } from '@/lib/formatters';
+
+const activeOrders = orders.filter(o => o.client.name.includes('Olivia') || o.status === 'Active');
+const recommendedBuilders = builders.slice(0, 3);
+---
+
+<DashboardLayout title="Client Dashboard" role="client" activeTab="overview">
+  <div class="space-y-8">
+    
+    <!-- Greeting & Quick Actions -->
+    <div>
+      <h2 class="text-2xl font-bold text-dark">Good morning, Olivia</h2>
+      <p class="text-xs sm:text-sm text-secondary mt-0.5">
+        Here is the latest progress on your active website projects and milestone escrow.
+      </p>
+    </div>
+
+    <!-- 4 Overview Stat Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <StatCard
+        title="Active Projects"
+        value="2"
+        change="+1 this month"
+        changeType="positive"
+        subtext="1 in review, 1 open brief"
+      />
+      <StatCard
+        title="New Proposals"
+        value="6"
+        change="6 unread"
+        changeType="neutral"
+        subtext="From vetted builders"
+      />
+      <StatCard
+        title="Active Orders"
+        value="1"
+        change="Phase 2 Submitted"
+        changeType="positive"
+        subtext="Order #CG-9021"
+      />
+      <StatCard
+        title="Total Spent"
+        value={formatCurrency(9200)}
+        change="100% Escrow Protected"
+        changeType="neutral"
+        subtext="3 completed milestones"
+      />
+    </div>
+
+    <!-- Active Orders Progress Module -->
+    <section class="bg-white rounded-2xl border border-border p-6 shadow-card space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-border">
+        <div>
+          <h3 class="text-base font-bold text-dark">Active Order Progress</h3>
+          <p class="text-xs text-secondary">Milestone execution and deliverables under review.</p>
+        </div>
+        <a href="/orders/ord_cg_9021" class="text-xs font-bold text-primary hover:underline">
+          View Workspace →
+        </a>
+      </div>
+
+      <div class="space-y-4">
+        {activeOrders.slice(0, 1).map(order => (
+          <div class="p-4 rounded-xl border border-border bg-slate-50/50 space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <span class="text-[11px] font-bold text-primary uppercase tracking-wider">{order.orderNumber}</span>
+                <h4 class="text-sm font-bold text-dark">{order.title}</h4>
+                <p class="text-xs text-secondary mt-0.5">Builder: {order.builder.name} ({order.builder.title})</p>
+              </div>
+              <div class="sm:text-right">
+                <span class="text-sm font-bold text-dark block">{formatCurrency(order.totalAmount)}</span>
+                <span class="text-xs text-emerald-600 font-semibold">{order.status}</span>
+              </div>
+            </div>
+
+            <!-- Milestone Step Progress Indicator -->
+            <div class="pt-2">
+              <div class="flex justify-between text-xs text-slate-500 mb-1.5 font-medium">
+                <span>Phase 1: Wireframes (Approved)</span>
+                <span class="text-primary font-bold">Phase 2: UI Design (Submitted)</span>
+                <span>Phase 3: Webflow Launch</span>
+              </div>
+              <div class="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+                <div class="bg-primary h-full rounded-full" style="width: 66%;" />
+              </div>
+            </div>
+
+            <div class="pt-2 flex items-center justify-between">
+              <span class="text-xs text-secondary">Target Completion: {order.dueDate}</span>
+              <a
+                href={`/orders/${order.id}`}
+                class="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded-lg text-xs font-bold shadow-xs transition"
+              >
+                Review Deliverables
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Recent Proposals Matrix Link -->
+    <section class="bg-white rounded-2xl border border-border p-6 shadow-card space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-border">
+        <div>
+          <h3 class="text-base font-bold text-dark">Recent Builder Proposals</h3>
+          <p class="text-xs text-secondary">Proposals received on your open project briefs.</p>
+        </div>
+        <a
+          href="/dashboard/client/projects/prj_skincare_01/proposals"
+          class="text-xs font-bold text-primary hover:underline"
+        >
+          Compare All Proposals →
+        </a>
+      </div>
+
+      <div class="p-4 rounded-xl border border-border bg-slate-50/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-bold text-primary uppercase">Shopify redesign for sustainable skincare</span>
+          <h4 class="text-sm font-bold text-dark mt-0.5">Daniel Brooks submitted a proposal ($5,500)</h4>
+          <p class="text-xs text-secondary mt-0.5">"I have built 14 Shopify DTC stores with custom subscription portals..."</p>
+        </div>
+        <a
+          href="/dashboard/client/projects/prj_skincare_01/proposals"
+          class="px-4 py-2 bg-white border border-border hover:border-primary text-xs font-bold text-dark rounded-lg transition shrink-0 shadow-subtle"
+        >
+          Review Proposal
+        </a>
+      </div>
+    </section>
+
+    <!-- Recommended Builders for Your Stack -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="text-base font-bold text-dark">Recommended Builders for You</h3>
+          <p class="text-xs text-secondary">Top vetted talent matching your ecommerce and Webflow needs.</p>
+        </div>
+        <a href="/talent" class="text-xs font-bold text-primary hover:underline">
+          Browse Directory →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {recommendedBuilders.map(b => (
+          <div class="bg-white rounded-xl border border-border p-4 shadow-card space-y-2.5">
+            <div class="flex items-center gap-3">
+              <img src={b.avatar} alt={b.name} class="w-10 h-10 rounded-full object-cover border border-border" />
+              <div>
+                <a href={`/talent/${b.username}`} class="text-xs font-bold text-dark hover:text-primary transition block truncate">
+                  {b.name}
+                </a>
+                <p class="text-[11px] text-primary truncate">{b.title}</p>
+              </div>
+            </div>
+            <p class="text-xs text-secondary line-clamp-2">{b.bio}</p>
+            <div class="pt-2 border-t border-border flex items-center justify-between text-xs">
+              <span class="font-bold text-dark">{formatCurrency(b.hourlyRate)}/hr</span>
+              <a href={`/talent/${b.username}`} class="text-primary font-bold hover:underline">
+                Profile →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+  </div>
+</DashboardLayout>

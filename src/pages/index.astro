@@ -1,0 +1,545 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CategoryCard from '@/components/marketplace/CategoryCard.astro';
+import ServiceCard from '@/components/marketplace/ServiceCard.astro';
+import BuilderCard from '@/components/marketplace/BuilderCard.astro';
+import ProjectCard from '@/components/marketplace/ProjectCard.astro';
+import { categories } from '@/data/categories';
+import { services } from '@/data/services';
+import { builders } from '@/data/builders';
+import { projects } from '@/data/projects';
+
+const popularCategories = categories.slice(0, 8);
+const featuredServices = services.slice(0, 6);
+const featuredBuilders = builders.slice(0, 6);
+const latestProjects = projects.slice(0, 4);
+
+const faqs = [
+  {
+    q: 'How does CraftGrid protect client payments?',
+    a: 'All project payments are deposited into our milestone-based escrow. The website builder begins work on agreed deliverables, but funds are only released to the builder after you review and approve each completed phase.'
+  },
+  {
+    q: 'Can I hire for both fixed-price packaged services and custom projects?',
+    a: 'Yes. You can instantly purchase packaged services with transparent deliverables and delivery times, or submit a custom project brief to receive competitive proposals from vetted specialists.'
+  },
+  {
+    q: 'How are website builders and agencies vetted on CraftGrid?',
+    a: 'We verify builder identities, evaluate past live client portfolios, test platform certifications (Webflow, Shopify Partner, WordPress core standards), and actively monitor client satisfaction metrics.'
+  },
+  {
+    q: 'What platforms do CraftGrid experts specialize in?',
+    a: 'Our network includes verified specialists across Webflow, Shopify & Shopify Plus, WordPress & WooCommerce, Framer, Astro, Next.js, Squarespace, and custom full-stack solutions.'
+  },
+  {
+    q: 'What happens if a project requires revisions?',
+    a: 'Every packaged service and proposal includes defined revision rounds. Through your Order Workspace, you can request adjustments directly with timestamped notes before approving milestones.'
+  },
+  {
+    q: 'Are there any hidden platform fees for clients?',
+    a: 'No. Pricing is completely transparent. The total price displayed at checkout includes our standard 5% escrow administration fee, ensuring full payment protection and dedicated support.'
+  }
+];
+---
+
+<BaseLayout
+  title="CraftGrid – Find the right web expert. Build with confidence."
+  description="CraftGrid connects businesses with vetted website builders, Webflow designers, Shopify developers, and web agencies. Transparent pricing, milestone escrow protection, and direct collaboration."
+>
+  
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-white via-page-bg to-page-bg border-b border-border pt-12 pb-16 lg:pt-20 lg:pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-6 space-y-6 text-left">
+          
+          <!-- Eyebrow -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-soft-primary border border-primary/20 text-xs font-semibold text-primary">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span>The marketplace built for better websites</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-dark tracking-tight leading-[1.1]">
+            Find a website expert who <span class="text-primary">fits your project.</span>
+          </h1>
+
+          <!-- Supporting Text -->
+          <p class="text-base sm:text-lg text-secondary leading-relaxed max-w-xl">
+            Browse specialized website builders, compare packaged services, or post your brief and receive tailored proposals from vetted designers, developers, and agencies.
+          </p>
+
+          <!-- Search Bar with Category Select -->
+          <form action="/services" method="GET" class="bg-white p-2 rounded-2xl border border-border shadow-card flex flex-col sm:flex-row gap-2 max-w-xl">
+            <div class="relative flex-1">
+              <svg class="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <input
+                type="text"
+                name="q"
+                placeholder="What do you need built? (e.g. Shopify, SaaS, Redesign)"
+                class="w-full pl-10 pr-3 py-2.5 text-sm bg-transparent border-0 focus:outline-none focus:ring-0 text-dark placeholder:text-slate-400"
+              />
+            </div>
+            
+            <select
+              name="category"
+              class="hidden sm:block text-xs font-medium text-slate-600 bg-slate-50 border border-border rounded-xl px-3 py-2 focus:outline-none"
+            >
+              <option value="">All Categories</option>
+              <option value="business-websites">Business Websites</option>
+              <option value="ecommerce">Ecommerce</option>
+              <option value="landing-pages">Landing Pages</option>
+              <option value="saas-websites">SaaS Websites</option>
+              <option value="web-applications">Web Applications</option>
+            </select>
+
+            <button
+              type="submit"
+              class="px-6 py-2.5 bg-primary hover:bg-primary-hover text-white text-sm font-semibold rounded-xl shadow-sm transition shrink-0"
+            >
+              Search
+            </button>
+          </form>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a
+              href="/talent"
+              class="px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm font-bold shadow-sm transition"
+            >
+              Find a Builder
+            </a>
+            <a
+              href="/post-project"
+              class="px-6 py-3 rounded-xl bg-white border border-border hover:bg-slate-50 text-dark text-sm font-bold shadow-subtle transition"
+            >
+              Post a Project Brief
+            </a>
+          </div>
+
+          <!-- Popular Tags -->
+          <div class="pt-2 text-xs text-secondary flex flex-wrap items-center gap-1.5">
+            <span class="font-medium text-slate-400">Popular:</span>
+            <a href="/services?platform=Shopify" class="hover:text-primary transition font-medium">Shopify</a>
+            <span class="text-slate-300">·</span>
+            <a href="/services?platform=WordPress" class="hover:text-primary transition font-medium">WordPress</a>
+            <span class="text-slate-300">·</span>
+            <a href="/services?platform=Webflow" class="hover:text-primary transition font-medium">Webflow</a>
+            <span class="text-slate-300">·</span>
+            <a href="/services?category=landing-pages" class="hover:text-primary transition font-medium">Landing Pages</a>
+            <span class="text-slate-300">·</span>
+            <a href="/services?category=ecommerce" class="hover:text-primary transition font-medium">Ecommerce</a>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Visual: Realistic Composite UI Preview -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none space-y-4">
+            
+            <!-- Component 1: Featured Service Card Preview -->
+            <div class="bg-white rounded-2xl border border-border p-4 shadow-card hover:shadow-card-hover transition">
+              <div class="flex items-center gap-3 mb-3">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80"
+                  alt="Maya Bennett"
+                  class="w-10 h-10 rounded-full object-cover border border-border"
+                />
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-xs font-bold text-dark">Maya Bennett</span>
+                    <span class="text-primary text-xs">✓</span>
+                  </div>
+                  <p class="text-[11px] text-secondary truncate">Senior Webflow Designer & Developer</p>
+                </div>
+                <span class="text-xs font-bold px-2 py-0.5 rounded bg-soft-primary text-primary">Webflow Pro</span>
+              </div>
+              <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-100 mb-3 border border-border">
+                <img
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80"
+                  alt="Webflow Website"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-bold text-dark">Conversion-focused Webflow Site</span>
+                <span class="font-black text-primary text-sm">From $3,200</span>
+              </div>
+            </div>
+
+            <!-- Component 2: Active Milestone Escrow Pill -->
+            <div class="bg-white rounded-xl border border-border p-3.5 shadow-card flex items-center justify-between gap-4">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs">
+                  ✓
+                </div>
+                <div class="text-xs">
+                  <p class="font-bold text-dark">Phase 2: UI Design Approved</p>
+                  <p class="text-[11px] text-secondary">Escrow milestone released ($1,800.00)</p>
+                </div>
+              </div>
+              <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full">
+                Protected by Escrow
+              </span>
+            </div>
+
+            <!-- Component 3: Small Project Request Card -->
+            <div class="bg-white rounded-xl border border-border p-3.5 shadow-card flex items-center justify-between gap-3 text-xs">
+              <div>
+                <span class="text-[10px] text-secondary uppercase font-bold tracking-wider">New Project Request</span>
+                <p class="font-bold text-dark">Shopify redesign for sustainable skincare brand</p>
+              </div>
+              <span class="font-bold text-slate-800 bg-slate-100 px-2.5 py-1 rounded-lg shrink-0">
+                $4.5k – $6.5k
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- POPULAR WEBSITE SERVICES -->
+  <section class="py-16 bg-white border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">Specialized Disciplines</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-dark tracking-tight mt-1">Popular Website Services</h2>
+          <p class="text-sm text-secondary mt-1">Explore standardized service scopes with upfront pricing and verified deliverables.</p>
+        </div>
+        <a href="/services" class="text-xs font-bold text-primary hover:text-primary-hover flex items-center gap-1 shrink-0">
+          <span>Explore All 8 Categories</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {popularCategories.map(cat => (
+          <CategoryCard category={cat} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED SERVICES -->
+  <section class="py-16 bg-page-bg border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">Handpicked Listings</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-dark tracking-tight mt-1">Featured Website Services</h2>
+          <p class="text-sm text-secondary mt-1">Transparent scopes from verified website builders ready to commence work.</p>
+        </div>
+        <a href="/services" class="text-xs font-bold text-primary hover:text-primary-hover flex items-center gap-1 shrink-0">
+          <span>View All Services</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredServices.map(service => (
+          <ServiceCard service={service} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW CRAFTGRID WORKS -->
+  <section class="py-16 bg-white border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-primary uppercase tracking-wider">Transparent Collaboration</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-dark tracking-tight mt-1">How CraftGrid Works</h2>
+        <p class="text-sm text-secondary mt-2">
+          A modern milestone-based workflow designed to eliminate risk for both clients and creators.
+        </p>
+      </div>
+
+      <!-- Two Track Comparison: Clients & Builders -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        
+        <!-- Client Track -->
+        <div class="bg-page-bg rounded-2xl border border-border p-6 sm:p-8 space-y-6">
+          <div class="flex items-center gap-3 border-b border-border pb-4">
+            <span class="w-8 h-8 rounded-lg bg-soft-primary text-primary flex items-center justify-center font-bold text-sm">1</span>
+            <div>
+              <h3 class="text-base font-bold text-dark">For Businesses & Clients</h3>
+              <p class="text-xs text-secondary">Hire with total milestone escrow protection</p>
+            </div>
+          </div>
+
+          <div class="space-y-4 text-xs">
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-white border border-border text-slate-700 font-bold flex items-center justify-center shrink-0">1</span>
+              <div>
+                <strong class="text-slate-900 block text-sm font-semibold">Find a service or post your brief</strong>
+                <p class="text-secondary mt-0.5 leading-relaxed">Choose a packaged service or publish a custom project brief specifying your target platform, pages, and budget.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-white border border-border text-slate-700 font-bold flex items-center justify-center shrink-0">2</span>
+              <div>
+                <strong class="text-slate-900 block text-sm font-semibold">Compare builders and proposals</strong>
+                <p class="text-secondary mt-0.5 leading-relaxed">Review builder ratings, verified portfolio case studies, proposed turnaround times, and milestone breakdowns.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-white border border-border text-slate-700 font-bold flex items-center justify-center shrink-0">3</span>
+              <div>
+                <strong class="text-slate-900 block text-sm font-semibold">Collaborate through CraftGrid</strong>
+                <p class="text-secondary mt-0.5 leading-relaxed">Exchange feedback, review staging links, and track deliverable progress in your dedicated Order Workspace.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-white border border-border text-slate-700 font-bold flex items-center justify-center shrink-0">4</span>
+              <div>
+                <strong class="text-slate-900 block text-sm font-semibold">Approve the work and release payment</strong>
+                <p class="text-secondary mt-0.5 leading-relaxed">Deposit funds into escrow once, then release payments phase-by-phase as each milestone is delivered to your satisfaction.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a href="/post-project" class="inline-block w-full py-2.5 bg-primary hover:bg-primary-hover text-white rounded-xl text-xs font-bold text-center shadow-xs transition">
+              Post a Project Brief
+            </a>
+          </div>
+        </div>
+
+        <!-- Builder Track -->
+        <div class="bg-page-bg rounded-2xl border border-border p-6 sm:p-8 space-y-6">
+          <div class="flex items-center gap-3 border-b border-border pb-4">
+            <span class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm">2</span>
+            <div>
+              <h3 class="text-base font-bold text-dark">For Website Builders & Agencies</h3>
+              <p class="text-xs text-secondary">Win quality projects without bidding wars</p>
+            </div>
+          </div>
+
+          <div class="space-y-4 text-xs">
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-white border border-border text-slate-700 font-bold flex items-center justify-center shrink-0">1</span>
+              <div>
+                <strong class="text-slate-900 block text-sm font-semibold">Build your professional profile</strong>
+                <p class="text-secondary mt-0.5 leading-relaxed">Showcase your best Webflow, Shopify, WordPress, or Framer portfolio items, verified metrics, and hourly rate.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-white border border-border text-slate-700 font-bold flex items-center justify-center shrink-0">2</span>
+              <div>
+                <strong class="text-slate-900 block text-sm font-semibold">Publish packaged services</strong>
+                <p class="text-secondary mt-0.5 leading-relaxed">Define transparent tiers (Starter, Growth, Advanced) and attract direct client orders with guaranteed scope boundaries.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-white border border-border text-slate-700 font-bold flex items-center justify-center shrink-0">3</span>
+              <div>
+                <strong class="text-slate-900 block text-sm font-semibold">Receive qualified opportunities</strong>
+                <p class="text-secondary mt-0.5 leading-relaxed">Respond to custom project briefs from serious businesses with funded escrow budgets.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-white border border-border text-slate-700 font-bold flex items-center justify-center shrink-0">4</span>
+              <div>
+                <strong class="text-slate-900 block text-sm font-semibold">Deliver great work and grow your reputation</strong>
+                <p class="text-secondary mt-0.5 leading-relaxed">Get paid promptly upon milestone completion and collect verified 5-star reviews to unlock higher fees.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a href="/onboarding/builder" class="inline-block w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold text-center shadow-xs transition">
+              Apply as a Builder
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED BUILDERS -->
+  <section class="py-16 bg-page-bg border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">Vetted Talent Directory</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-dark tracking-tight mt-1">Featured Website Builders</h2>
+          <p class="text-sm text-secondary mt-1">Hire dedicated specialists by hourly rate, platform expertise, or custom proposal.</p>
+        </div>
+        <a href="/talent" class="text-xs font-bold text-primary hover:text-primary-hover flex items-center gap-1 shrink-0">
+          <span>View All 14 Builders</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredBuilders.map(builder => (
+          <BuilderCard builder={builder} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST PROJECT OPPORTUNITIES -->
+  <section class="py-16 bg-white border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">Client Briefs</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-dark tracking-tight mt-1">Latest Project Opportunities</h2>
+          <p class="text-sm text-secondary mt-1">Explore custom projects looking for experienced website builders right now.</p>
+        </div>
+        <a href="/projects" class="text-xs font-bold text-primary hover:text-primary-hover flex items-center gap-1 shrink-0">
+          <span>Browse All Projects</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {latestProjects.map(project => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY USE CRAFTGRID -->
+  <section class="py-16 bg-page-bg border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-primary uppercase tracking-wider">Why CraftGrid</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-dark tracking-tight mt-1">
+          Built Specifically for Website Work
+        </h2>
+        <p class="text-sm text-secondary mt-2">
+          General freelance marketplaces treat websites like copy editing or data entry. We designed CraftGrid around the actual realities of web design, development, and hosting.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl border border-border p-6 shadow-card space-y-2">
+          <div class="w-9 h-9 rounded-lg bg-soft-primary text-primary flex items-center justify-center font-bold">1</div>
+          <h3 class="text-base font-bold text-dark">Specialists in Website Work</h3>
+          <p class="text-xs text-secondary leading-relaxed">
+            No virtual assistants or generic contractors. Every professional is evaluated on semantic code, mobile responsiveness, and design craft.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-border p-6 shadow-card space-y-2">
+          <div class="w-9 h-9 rounded-lg bg-soft-primary text-primary flex items-center justify-center font-bold">2</div>
+          <h3 class="text-base font-bold text-dark">Milestone-Based Escrow</h3>
+          <p class="text-xs text-secondary leading-relaxed">
+            Funds are deposited upfront so builders know the project is funded, but money only moves when you explicitly approve each deliverable.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-border p-6 shadow-card space-y-2">
+          <div class="w-9 h-9 rounded-lg bg-soft-primary text-primary flex items-center justify-center font-bold">3</div>
+          <h3 class="text-base font-bold text-dark">Structured Project Briefs</h3>
+          <p class="text-xs text-secondary leading-relaxed">
+            Our 5-step project wizard ensures page counts, platform preferences, and feature requirements are established before proposals begin.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST & SAFETY -->
+  <section class="py-16 bg-white border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-slate-900 rounded-3xl p-8 sm:p-12 text-white shadow-xl">
+        <div class="max-w-3xl">
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">Marketplace Integrity</span>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mt-1">Trust & Payment Safety</h2>
+          <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+            CraftGrid is built to ensure fair, transparent business transactions. We provide protected communication, milestone escrow custody, verified review history, and clear dispute mediation.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 text-xs text-slate-300">
+            <div class="flex items-center gap-2">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span>Encrypted milestone escrow custody</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span>Verified client payment methods</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span>Authentic reviews from completed orders only</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span>Structured dispute-support workflow</span>
+            </div>
+          </div>
+          <div class="pt-6">
+            <a href="/trust-safety" class="inline-block px-5 py-2.5 rounded-xl bg-white text-dark font-bold text-xs hover:bg-slate-100 transition">
+              Read Trust & Safety Guidelines
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="py-16 bg-page-bg border-b border-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold text-primary uppercase tracking-wider">Answers & Support</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-dark tracking-tight mt-1">Frequently Asked Questions</h2>
+        <p class="text-sm text-secondary mt-1">Everything you need to know about getting your website built on CraftGrid.</p>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map(item => (
+          <div class="bg-white rounded-xl border border-border p-5 shadow-card space-y-2">
+            <h3 class="text-sm font-bold text-dark">{item.q}</h3>
+            <p class="text-xs text-secondary leading-relaxed">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CALL TO ACTION -->
+  <section class="py-20 bg-white text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-dark tracking-tight leading-tight">
+        Your next website starts with <span class="text-primary">the right person.</span>
+      </h2>
+      <p class="text-base text-secondary max-w-xl mx-auto">
+        Join hundreds of businesses hiring vetted website builders, designers, and web agencies with zero guesswork.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a
+          href="/talent"
+          class="px-8 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm font-bold shadow-md transition"
+        >
+          Find a Builder
+        </a>
+        <a
+          href="/post-project"
+          class="px-8 py-3.5 rounded-xl bg-white border border-border hover:bg-slate-50 text-dark text-sm font-bold shadow-subtle transition"
+        >
+          Post a Project Brief
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

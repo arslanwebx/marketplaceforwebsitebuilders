@@ -1,0 +1,62 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Trust & Safety | CraftGrid"
+  description="Learn how CraftGrid protects client escrow deposits, verifies website builders, and handles milestone dispute resolution."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-12">
+    
+    <div class="space-y-3">
+      <span class="text-xs font-bold text-primary uppercase tracking-wider">Safety Standards</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-dark tracking-tight">Trust & Safety on CraftGrid</h1>
+      <p class="text-sm text-secondary leading-relaxed">
+        We built CraftGrid around a core principle: serious business transactions require verified trust, mutual accountability, and transparent dispute workflows.
+      </p>
+    </div>
+
+    <!-- 4 Pillar Cards -->
+    <div class="space-y-6">
+      
+      <!-- Escrow System -->
+      <section id="escrow" class="bg-white rounded-2xl border border-border p-6 sm:p-8 shadow-card space-y-3">
+        <div class="flex items-center gap-3">
+          <span class="text-xl">🛡️</span>
+          <h2 class="text-lg font-bold text-dark">Milestone Escrow Architecture</h2>
+        </div>
+        <p class="text-xs text-secondary leading-relaxed">
+          Clients never pay 100% upfront directly to a contractor's bank account. Instead, funds are securely authorized and held in CraftGrid Escrow. Builders have peace of mind knowing the capital is verified and dedicated, while clients retain release authorization.
+        </p>
+      </section>
+
+      <!-- Identity & Builder Verification -->
+      <section class="bg-white rounded-2xl border border-border p-6 sm:p-8 shadow-card space-y-3">
+        <div class="flex items-center gap-3">
+          <span class="text-xl">👤</span>
+          <h2 class="text-lg font-bold text-dark">Vetted Builder Standards</h2>
+        </div>
+        <p class="text-xs text-secondary leading-relaxed">
+          The "Verified Pro" checkmark indicates that a builder or agency has completed identity verification, demonstrated live portfolio code quality, and maintains an active 4.8+ client satisfaction rating on the platform.
+        </p>
+      </section>
+
+      <!-- Dispute Resolution -->
+      <section class="bg-white rounded-2xl border border-border p-6 sm:p-8 shadow-card space-y-3">
+        <div class="flex items-center gap-3">
+          <span class="text-xl">⚖️</span>
+          <h2 class="text-lg font-bold text-dark">Structured Dispute Support</h2>
+        </div>
+        <p class="text-xs text-secondary leading-relaxed">
+          If a deliverable does not match the agreed project brief or milestone specifications, clients can submit formal revision requests. In the rare event of an impasse, our dedicated support specialists step in to review code, chat records, and brief terms to mediate a fair outcome.
+        </p>
+      </section>
+
+    </div>
+
+    <div class="p-4 rounded-xl bg-slate-50 border border-border text-[11px] text-slate-500 leading-relaxed">
+      <strong>Prototype Disclaimer:</strong> This is prototype demonstration content for the CraftGrid frontend interface. It is not intended to provide legally binding payment guarantees or commercial warranties.
+    </div>
+
+  </div>
+</BaseLayout>

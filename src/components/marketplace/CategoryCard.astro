@@ -1,0 +1,43 @@
+---
+import type { Category } from '@/types/marketplace';
+import { formatCurrency } from '@/lib/formatters';
+
+interface Props {
+  category: Category;
+}
+
+const { category } = Astro.props;
+---
+
+<a
+  href={`/services?category=${category.slug}`}
+  class="group bg-white rounded-xl border border-border p-5 shadow-card hover:shadow-card-hover hover:border-primary/40 transition-all duration-200 flex flex-col justify-between"
+>
+  <div>
+    <!-- Icon Container -->
+    <div class="w-10 h-10 rounded-lg bg-soft-primary text-primary flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+      <svg class="w-5 h-5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+      </svg>
+    </div>
+
+    <!-- Name & Description -->
+    <h3 class="text-base font-bold text-dark group-hover:text-primary transition leading-tight">
+      {category.name}
+    </h3>
+    <p class="mt-1.5 text-xs text-secondary leading-relaxed line-clamp-2">
+      {category.shortDescription}
+    </p>
+  </div>
+
+  <!-- Footer Info & Arrow Affordance -->
+  <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+    <span class="text-slate-500 font-medium">
+      From {formatCurrency(category.averageStartingPrice)}
+    </span>
+    <span class="text-primary font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+      <span>{category.servicesCount} services</span>
+      <span>→</span>
+    </span>
+  </div>
+</a>

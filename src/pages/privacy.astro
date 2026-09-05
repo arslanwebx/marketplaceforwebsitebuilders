@@ -1,0 +1,38 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy | CraftGrid"
+  description="CraftGrid prototype platform privacy policy and data governance."
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-8">
+    
+    <div class="border-b border-border pb-4">
+      <h1 class="text-3xl font-black text-dark tracking-tight">Privacy Policy</h1>
+      <p class="text-xs text-secondary mt-1">Last revised: September 2025</p>
+    </div>
+
+    <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-medium leading-relaxed">
+      <strong>Prototype Notice:</strong> This document represents demonstration privacy policy content for the CraftGrid frontend prototype.
+    </div>
+
+    <div class="prose prose-sm text-secondary space-y-4 text-xs leading-relaxed">
+      <h2 class="text-sm font-bold text-dark">1. Information We Collect</h2>
+      <p>
+        CraftGrid collects user profile information (such as name, email address, portfolio assets, and business details) necessary to facilitate matching between website builders and clients.
+      </p>
+
+      <h2 class="text-sm font-bold text-dark">2. Payment Data & Security</h2>
+      <p>
+        CraftGrid does not store raw credit card numbers or banking secrets directly on application servers. Future production implementations will route all card transactions through PCI-DSS compliant providers such as Stripe Connect.
+      </p>
+
+      <h2 class="text-sm font-bold text-dark">3. Cookies and Local Storage</h2>
+      <p>
+        This prototype interface utilizes browser LocalStorage solely to preserve user preferences (such as demo account roles, draft project briefs, and saved services).
+      </p>
+    </div>
+
+  </div>
+</BaseLayout>

@@ -1,0 +1,14 @@
+---
+import DashboardLayout from '@/layouts/DashboardLayout.astro';
+import BuilderServiceManager from '@/components/dashboard/BuilderServiceManager';
+import { services } from '@/data/services';
+
+const builderServices = services.filter(s => s.builderId === 'bld_maya_01');
+---
+
+<DashboardLayout title="My Services" role="builder" activeTab="services">
+  <BuilderServiceManager
+    client:load
+    initialServices={builderServices.length > 0 ? builderServices : services.slice(0, 3)}
+  />
+</DashboardLayout>
