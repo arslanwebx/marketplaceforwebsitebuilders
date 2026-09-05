@@ -16,11 +16,11 @@ const variantStyles = {
 };
 
 const sizeStyles = {
-  sm: 'text-xs px-2.5 py-0.5 rounded-full',
-  md: 'text-sm px-3 py-1 rounded-full'
+  sm: 'text-[11px] font-semibold px-2 py-0.5 rounded-md tracking-tight',
+  md: 'text-xs font-semibold px-2.5 py-1 rounded-lg tracking-tight'
 };
 ---
 
-<span class={`inline-flex items-center font-medium border ${variantStyles[variant]} ${sizeStyles[size]} ${customClass}`}>
+<span class={`inline-flex items-center border ${variantStyles[variant]} ${sizeStyles[size]} ${customClass}`}>
   <slot />
 </span>

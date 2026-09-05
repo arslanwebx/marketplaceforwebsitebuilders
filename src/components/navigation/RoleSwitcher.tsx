@@ -33,12 +33,12 @@ export default function RoleSwitcher() {
     <div className="relative inline-block text-left text-xs font-medium">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200/80 text-slate-800 transition border border-slate-200/80 shadow-2xs font-semibold"
+        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-50 text-dark transition border border-slate-200/90 shadow-2xs font-semibold text-xs"
         title="Switch active platform persona"
       >
-        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+        <User className="w-3.5 h-3.5 text-primary" />
         <span>{getRoleLabel()}</span>
-        <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
+        <ChevronDown className="w-3.5 h-3.5 text-slate-400 ml-0.5" />
       </button>
 
       {isOpen && (
@@ -50,7 +50,7 @@ export default function RoleSwitcher() {
             onClick={() => selectRole('guest')}
             className={`w-full text-left px-3 py-2 flex items-center gap-2.5 hover:bg-slate-50 transition text-xs ${currentRole === 'guest' ? 'text-primary font-semibold' : 'text-slate-700'}`}
           >
-            <span className="w-2 h-2 rounded-full bg-slate-400" />
+            <User className="w-4 h-4 text-slate-400" />
             <div>
               <p>Public / Guest</p>
               <p className="text-[11px] text-slate-400 font-normal">Logged-out public visitor</p>
